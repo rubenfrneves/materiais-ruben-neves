@@ -3,227 +3,293 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0E2238">
+<link rel="icon" href="data:,">
 <title>Tacógrafo sem sustos · Guia · Rúben Neves</title>
-<meta name="description" content="Guia curto sobre o tacógrafo em Portugal e na UE, para pesados de mercadorias e de passageiros. Teste de 2 minutos e folha de datas incluídos.">
+<meta name="description" content="Guia curto sobre o tacógrafo em Portugal e na UE, para pesados de mercadorias e de passageiros. Teste de autoavaliação e folha de datas incluídos.">
+<script>document.documentElement.className+=' js';</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --laranja:#F47735; --laranja-suave:#FEEFE6; --carvao:#111111; --carvao2:#333333;
-  --texto:#444444; --nota:#6B6B6B; --claro:#F5F5F5; --linha:#E4E4E4; --branco:#FFFFFF;
-  --ok:#17784A; --atencao:#F47735; --urgente:#C8372D;
-  --raio:14px;
+  --noite:#0E2238; --amarelo:#F2B705; --asfalto:#4A5560; --nota:#6B7580;
+  --claro:#F2F4F7; --branco:#FFFFFF; --ok:#17784A; --urgente:#C8372D;
+  --amarelo-suave:#FFF6D6; --linha:#E1E5EA; --raio:12px;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:76px}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-body{margin:0;background:var(--claro);color:var(--texto);font-family:Roboto,Arial,sans-serif;font-size:17px;line-height:1.6}
-h1,h2,h3{font-family:Mitr,Arial,sans-serif;color:var(--carvao);font-weight:600;line-height:1.2;margin:0}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--claro);color:var(--asfalto);font-family:Barlow,Arial,sans-serif;font-size:17px;line-height:1.55}
+h1,h2,h3{font-family:"Barlow Semi Condensed",Arial,sans-serif;color:var(--noite);font-weight:700;line-height:1.15;margin:0}
 p{margin:0 0 12px}
-a{color:var(--carvao);text-decoration-thickness:2px;text-decoration-color:var(--laranja);text-underline-offset:3px}
-strong{color:var(--carvao)}
-.wrap{max-width:900px;margin:0 auto;padding:0 24px}
-@media(max-width:640px){.wrap{padding:0 16px}body{font-size:16px}}
-:focus-visible{outline:3px solid var(--laranja);outline-offset:2px}
+a{color:var(--noite);text-decoration-thickness:2px;text-decoration-color:var(--amarelo);text-underline-offset:3px}
+strong{color:var(--noite);font-weight:600}
+.pagina{max-width:860px;margin:0 auto;background:var(--branco);overflow-x:clip}
+.miolo{padding:0 40px}
+@media(max-width:640px){.miolo{padding:0 16px}body{font-size:16px}}
+:focus-visible{outline:3px solid var(--noite);outline-offset:2px;box-shadow:0 0 0 6px var(--amarelo)}
+.teste :focus-visible,.capa :focus-visible,.fecho :focus-visible,.topo :focus-visible{outline-color:var(--branco);box-shadow:0 0 0 6px var(--noite)}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.salto{position:absolute;left:8px;top:-60px;z-index:100;background:var(--amarelo);color:var(--noite);padding:10px 16px;border-radius:8px;font-weight:600}
+.salto:focus{top:8px}
 
-/* Botões */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--laranja);color:var(--carvao);font-family:Roboto,Arial,sans-serif;font-weight:700;font-size:17px;text-decoration:none;padding:14px 26px;border-radius:999px;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(244,119,53,.35)}
-.btn.sec{background:transparent;color:var(--branco);box-shadow:inset 0 0 0 2px rgba(255,255,255,.45)}
-.btn.sec:hover{box-shadow:inset 0 0 0 2px var(--branco);transform:none}
-.btn.peq{font-size:14px;padding:9px 18px}
-.btn.escuro{background:var(--carvao);color:var(--branco)}
-
-/* Barra superior */
-.topo{position:sticky;top:0;z-index:50;background:rgba(17,17,17,.96);backdrop-filter:blur(6px);color:var(--branco)}
-.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:58px}
-.topo .nome{font-family:Mitr,Arial,sans-serif;font-weight:600;font-size:17px;white-space:nowrap}
-.topo .nome span{color:var(--laranja)}
-.topo nav{display:flex;gap:4px;align-items:center}
-.topo nav a{color:#D9D9D9;text-decoration:none;font-size:14px;font-weight:500;padding:6px 10px;border-radius:999px}
-.topo nav a:hover{color:var(--branco);background:rgba(255,255,255,.1)}
-@media(max-width:760px){.topo nav a.l{display:none}}
-.progresso{height:3px;background:rgba(255,255,255,.15)}
-.progresso i{display:block;height:100%;width:0;background:var(--laranja)}
+/* Barra superior (não tapa conteúdo: só navegação) */
+.topo{position:sticky;top:0;z-index:50;background:var(--noite);color:var(--branco)}
+.topo-in{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:56px;padding:0 40px;max-width:860px;margin:0 auto}
+@media(max-width:640px){.topo-in{padding:0 12px}}
+.topo .nome{font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:700;font-size:18px;white-space:nowrap}
+.topo nav{display:flex;gap:2px;align-items:center}
+.topo nav a{color:#DCE3EB;text-decoration:none;font-size:15px;padding:12px 12px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
+.topo nav a:hover{color:var(--branco);background:rgba(255,255,255,.12)}
+@media(max-width:560px){.topo nav a.l{display:none}.topo .nome{font-size:17px}}
+.progresso{height:4px;background:rgba(255,255,255,.18)}
+.progresso i{display:block;height:100%;width:0;background:var(--amarelo)}
 
 /* Capa */
-.capa{background:var(--carvao);color:var(--branco);padding:64px 0 56px;background-image:radial-gradient(circle at 85% 0%,rgba(244,119,53,.22),transparent 55%)}
-.capa .sup{font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:13px;color:#CFCFCF}
-.capa h1{color:var(--branco);font-size:clamp(46px,9vw,80px);margin:16px 0 0;font-weight:700}
-.capa h1 em{font-style:normal;color:var(--laranja)}
-.capa .traco{width:120px;height:5px;background:var(--laranja);border-radius:3px;margin:22px 0}
-.capa .promessa{font-size:20px;max-width:34em;color:#E8E8E8;margin-bottom:26px}
+.capa{background:var(--noite);color:var(--branco);padding:60px 40px 52px}
+.capa .sup{font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:14px;color:#C9D3DF}
+.capa h1{color:var(--branco);font-size:clamp(44px,12vw,76px);margin:18px 0 0}
+.capa h1 .sub{background:linear-gradient(transparent 82%,var(--amarelo) 82%,var(--amarelo) 94%,transparent 94%);padding-bottom:2px}
+.estrada{height:0;border-top:5px dashed var(--amarelo);width:200px;margin:22px 0}
+.capa p.promessa{font-size:20px;max-width:34em;margin:0 0 22px;color:#E6ECF3}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0 0 24px;list-style:none}
+.chips li{margin:0;font-size:14.5px;color:#E6ECF3;background:rgba(255,255,255,.1);padding:6px 14px;border-radius:999px}
 .capa .acoes{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0 0 26px;list-style:none}
-.chips li{margin:0;font-size:14px;color:#E8E8E8;background:rgba(255,255,255,.1);padding:6px 14px;border-radius:999px}
-.capa .autor{display:flex;align-items:center;gap:12px;font-size:15px;color:#CFCFCF}
-.capa .autor img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--laranja);background:#222}
-.capa .autor strong{color:var(--branco)}
+.capa .autor{margin-top:6px;font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:700;font-size:22px;color:var(--branco)}
+.capa .autor::after{content:"";display:block;width:90px;margin-top:6px;border-top:4px dashed var(--amarelo)}
+.capa .data{margin-top:14px;font-size:14.5px;color:#C9D3DF}
+@media(max-width:640px){.capa{padding:44px 16px 40px}.capa p.promessa{font-size:18px}}
 
-section{padding:48px 0 8px}
-h2{font-size:clamp(26px,4.5vw,34px);margin-bottom:14px}
-h3{font-size:20px;margin:24px 0 8px}
-.kicker{font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:13px;color:var(--carvao);display:inline-block;background:var(--laranja);padding:3px 10px;border-radius:999px;margin-bottom:12px}
-.fonte{font-size:13px;color:var(--nota);margin:4px 0 12px}
+/* Botões (alvo mínimo 44 px) */
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--amarelo);color:var(--noite);font-family:inherit;font-weight:600;font-size:18px;text-decoration:none;padding:12px 26px;min-height:48px;border-radius:8px;border:0;cursor:pointer}
+.btn:hover{filter:brightness(.96)}
+.btn.sec{background:transparent;color:var(--branco);box-shadow:inset 0 0 0 2px rgba(255,255,255,.5)}
+.btn.sec:hover{box-shadow:inset 0 0 0 2px var(--branco);filter:none}
+.btn-linha{font:inherit;font-weight:600;font-size:15px;padding:10px 16px;min-height:44px;border:2px solid var(--noite);background:var(--branco);color:var(--noite);border-radius:8px;cursor:pointer}
+.btn-linha:hover{background:var(--claro)}
+.btn-linha.perigo{border-color:var(--urgente);color:var(--urgente)}
 
-/* Números */
-.numeros{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:18px 0}
-.numero{background:var(--branco);border-radius:var(--raio);padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.06);border-top:4px solid var(--laranja)}
-.numero .n{font-family:Mitr,Arial,sans-serif;font-weight:700;font-size:42px;color:var(--carvao);line-height:1}
-.numero .n small{font-size:17px;font-weight:600}
-.numero .l{font-size:14.5px;margin-top:8px;line-height:1.4}
+section{padding:40px 0 6px}
+h2{font-size:clamp(26px,5vw,32px);margin-bottom:14px}
+h3{font-size:21px;margin:22px 0 8px}
+ul,ol{margin:0 0 14px;padding-left:22px}
+li{margin-bottom:6px}
+.fonte{font-size:13.5px;color:var(--nota);margin-top:-2px}
+.caixa{background:var(--claro);border-radius:10px;padding:14px 18px;margin:16px 0}
+.caixa.amarela{background:var(--amarelo-suave);border-left:6px solid var(--amarelo)}
+.caixa.amarela>b,.caixa.fazer>b{font-family:"Barlow Semi Condensed",Arial,sans-serif;color:var(--noite);font-size:18px}
+.caixa ul{margin:6px 0 0}.caixa li:last-child{margin-bottom:0}
+.caixa .fonte{color:var(--asfalto)}
+
+.numeros{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.numero{background:var(--claro);border-radius:10px;padding:14px 16px}
+.numero .n{font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:700;font-size:38px;color:var(--noite);line-height:1}
+.numero .n small{font-size:18px;font-weight:600}
+.numero .l{font-size:15px;margin-top:6px}
 
 /* Teste */
-.teste{background:var(--carvao);color:#E8E8E8;border-radius:20px;padding:30px;margin:12px 0 0}
-.teste h2{color:var(--branco);margin-bottom:6px}
-.teste .sub{color:#CFCFCF;margin-bottom:18px}
-.q{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14)}
-.q .t{flex:1}
-.q .t b{color:var(--laranja);font-family:Mitr,Arial,sans-serif;margin-right:8px}
-.resp{display:flex;gap:6px;flex:none}
-.resp button{font:inherit;font-size:14px;font-weight:700;padding:8px 16px;border-radius:999px;border:2px solid rgba(255,255,255,.35);background:transparent;color:var(--branco);cursor:pointer}
-.resp button:hover{border-color:var(--branco)}
-.resp button[aria-pressed=true].sim{background:var(--ok);border-color:var(--ok)}
-.resp button[aria-pressed=true].nao{background:var(--laranja);border-color:var(--laranja);color:var(--carvao)}
-@media(max-width:640px){.q{flex-direction:column;align-items:flex-start;gap:10px}}
-.resultado{margin-top:18px;border-radius:12px;padding:18px 20px;background:rgba(255,255,255,.08);display:none}
+.teste{background:var(--noite);color:#E6ECF3;border-radius:14px;padding:28px;margin:26px 0}
+.teste h2{color:var(--branco);font-size:30px}
+.teste p{color:#E6ECF3}
+.teste .sub{max-width:40em}
+.prog{display:flex;align-items:center;gap:14px;margin:6px 0 4px;font-size:15px}
+.prog .barra{flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.2);overflow:hidden}
+.prog .barra i{display:block;height:100%;width:0;background:var(--amarelo);transition:width .25s}
+fieldset.q{border:0;border-top:1px solid rgba(255,255,255,.18);margin:0;padding:16px 0 12px;min-width:0}
+fieldset.q legend{float:left;width:100%;padding:0;margin:0 0 8px;color:var(--branco);font-size:18px;line-height:1.35}
+fieldset.q legend b{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--amarelo);color:var(--noite);font-family:"Barlow Semi Condensed",Arial,sans-serif;font-size:16px;margin-right:10px;flex:none}
+fieldset.q .dica{clear:both;font-size:14.5px;color:#C9D3DF;margin:0 0 8px}
+.resp{clear:both;display:flex;flex-wrap:wrap;gap:8px}
+.resp label{position:relative;display:block}
+.resp input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.resp span{display:flex;align-items:center;min-height:44px;padding:8px 18px;border-radius:999px;border:2px solid rgba(255,255,255,.45);color:var(--branco);font-weight:600;font-size:15.5px;cursor:pointer}
+.resp input:hover+span{border-color:var(--branco)}
+.resp input:focus-visible+span{outline:3px solid var(--branco);outline-offset:2px;box-shadow:0 0 0 6px var(--amarelo)}
+.resp .sim input:checked+span{background:var(--ok);border-color:var(--ok)}
+.resp .conf input:checked+span{background:var(--amarelo);border-color:var(--amarelo);color:var(--noite)}
+.resp .na input:checked+span{background:var(--branco);border-color:var(--branco);color:var(--noite)}
+.teste-rodape{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:10px;font-size:14px;color:#C9D3DF}
+.teste-rodape p{margin:0;flex:1;min-width:220px;color:#C9D3DF}
+.teste .btn-linha{background:transparent;color:var(--branco);border-color:rgba(255,255,255,.6)}
+.teste .btn-linha:hover{background:rgba(255,255,255,.12)}
+
+.resultado{display:none;background:var(--branco);color:var(--asfalto);border-radius:12px;padding:22px;margin-top:16px}
 .resultado.on{display:block}
-.resultado h3{color:var(--branco);margin:0 0 6px}
-.resultado.alerta{background:var(--laranja);color:var(--carvao)}
-.resultado.alerta h3,.resultado.alerta strong{color:var(--carvao)}
-.resultado .btn{margin-top:8px}
-.resultado.alerta .btn{background:var(--carvao);color:var(--branco)}
-.score{font-size:14px;color:#CFCFCF;margin-top:12px}
+.resultado:focus{outline:none}
+.resultado h3{margin:0 0 6px;font-size:24px}
+.resultado strong{color:var(--noite)}
+.resultado ol{padding-left:0;list-style:none;margin:12px 0}
+.resultado ol li{background:var(--claro);border-radius:10px;padding:12px 14px;margin-bottom:8px}
+.resultado ol li .nm{display:block;font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:700;font-size:18px;color:var(--noite)}
+.resultado ol li .pz{display:inline-block;font-size:13.5px;background:var(--amarelo);color:var(--noite);border-radius:999px;padding:1px 10px;margin:2px 0 4px;font-weight:600}
+.resultado .primeira{background:var(--amarelo-suave);border-left:6px solid var(--amarelo);border-radius:10px;padding:12px 16px;margin:12px 0}
+.resultado .aviso{font-size:14px;color:var(--nota);border-top:1px solid var(--linha);padding-top:10px;margin-top:14px}
+.resultado .convite{background:var(--noite);color:#E6ECF3;border-radius:12px;padding:18px 20px;margin-top:16px}
+.resultado .convite h4{font-family:"Barlow Semi Condensed",Arial,sans-serif;color:var(--branco);font-size:21px;margin:0 0 6px}
+.resultado .convite p{color:#E6ECF3}
+.resultado .convite .btn{margin-top:4px}
+.resultado .convite .peq{font-size:14px;color:#C9D3DF;margin:10px 0 0}
+.teste .resultado p{color:var(--asfalto)}
+.teste .resultado .aviso{color:var(--nota)}
+.teste .resultado .convite p{color:#E6ECF3}
+.teste .resultado .convite .peq{color:#C9D3DF}
 
 /* Pontos (acordeão) */
-.barra-pontos{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-.barra-pontos button{font:inherit;font-size:14px;font-weight:700;background:none;border:0;color:var(--carvao);text-decoration:underline;text-decoration-color:var(--laranja);text-decoration-thickness:2px;text-underline-offset:3px;cursor:pointer;padding:6px 0}
-details.ponto{background:var(--branco);border-radius:var(--raio);margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
-details.ponto summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:18px 20px}
+.barra-pontos{display:none;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.js .barra-pontos{display:flex}
+.barra-pontos p{margin:0;font-size:15px}
+details.ponto{border-top:2px solid var(--claro)}
+details.ponto:last-of-type{border-bottom:2px solid var(--claro)}
+details.ponto summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:16px 4px;min-height:64px}
 details.ponto summary::-webkit-details-marker{display:none}
-.bola{flex:none;width:46px;height:46px;border-radius:50%;background:var(--laranja);color:var(--carvao);font-family:Mitr,Arial,sans-serif;font-weight:700;font-size:23px;display:flex;align-items:center;justify-content:center}
+.bola{flex:none;width:44px;height:44px;border-radius:50%;background:var(--amarelo);color:var(--noite);font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:700;font-size:23px;display:flex;align-items:center;justify-content:center}
 .resumo-t{flex:1;min-width:0}
-.resumo-t h3{margin:0;font-size:20px}
-.resumo-t p{margin:2px 0 0;font-size:15px;color:var(--nota);line-height:1.4}
-.seta{flex:none;width:28px;height:28px;border-radius:50%;background:var(--claro);position:relative;transition:transform .2s}
-.seta::after{content:"";position:absolute;left:9px;top:8px;width:7px;height:7px;border-right:2px solid var(--carvao);border-bottom:2px solid var(--carvao);transform:rotate(45deg)}
-details[open]>summary .seta{transform:rotate(180deg);background:var(--laranja)}
-.corpo{padding:4px 22px 22px 22px;border-top:1px solid var(--linha)}
-@media(max-width:640px){.corpo{padding:4px 16px 18px}details.ponto summary{padding:14px 14px;gap:12px}.bola{width:40px;height:40px;font-size:20px}}
-.corpo ul{margin:0 0 14px;padding-left:22px}
-.corpo li{margin-bottom:6px}
-.caixa{background:var(--claro);border-radius:12px;padding:14px 18px;margin:16px 0}
-.caixa.fazer{background:var(--laranja-suave);border-left:6px solid var(--laranja)}
-.caixa.fazer b{font-family:Mitr,Arial,sans-serif;font-weight:600;color:var(--carvao)}
-.caixa.fazer ul{margin:6px 0 0}
-.caixa.fazer li:last-child{margin-bottom:0}
+.resumo-t h3{margin:0;font-size:23px}
+.resumo-t p{margin:2px 0 0;font-size:15.5px;color:var(--asfalto);line-height:1.4}
+.seta{flex:none;width:32px;height:32px;border-radius:50%;background:var(--claro);position:relative}
+.seta::after{content:"";position:absolute;left:11px;top:9px;width:8px;height:8px;border-right:2px solid var(--noite);border-bottom:2px solid var(--noite);transform:rotate(45deg)}
+details[open]>summary .seta{background:var(--amarelo)}
+details[open]>summary .seta::after{top:13px;transform:rotate(225deg)}
+.corpo{padding:2px 4px 22px 4px}
+@media(min-width:641px){.corpo{padding-left:58px}}
+.corpo .fazer{background:var(--amarelo-suave);border-left:6px solid var(--amarelo);border-radius:10px;padding:12px 16px;margin:16px 0 0}
+.corpo .fazer b{font-family:"Barlow Semi Condensed",Arial,sans-serif;font-size:18px;color:var(--noite)}
+.corpo .fazer ul{margin:4px 0 0}
 
-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:15.5px}
-th{background:var(--carvao);color:var(--branco);text-align:left;font-family:Mitr,Arial,sans-serif;font-weight:500;padding:10px 12px}
-td{padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--linha)}
+table{width:100%;border-collapse:collapse;margin:14px 0 8px;font-size:15.5px}
+th{background:var(--noite);color:var(--branco);text-align:left;font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:600;padding:9px 12px}
+td{padding:9px 12px;vertical-align:top;border-bottom:1px solid var(--linha)}
 tbody tr:nth-child(even) td{background:var(--claro)}
-td.sim{font-weight:700;color:var(--carvao)}
-.tabela-scroll{overflow-x:auto}
+td.sim{font-weight:600;color:var(--noite)}
+.tabela-scroll{overflow-x:auto;max-width:100%}
+.tabela-scroll:focus-visible{outline-offset:-3px}
+/* Tabelas que se empilham em ecrãs pequenos (sem deslocamento horizontal) */
+@media(max-width:700px){
+  table.empilha,table.empilha tbody,table.empilha tr,table.empilha td{display:block;width:100%}
+  table.empilha thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  table.empilha tr{border:1px solid var(--linha);border-radius:10px;margin-bottom:10px;overflow:hidden}
+  table.empilha td{border:0;border-bottom:1px solid var(--linha);padding:8px 12px}
+  table.empilha tbody tr:nth-child(even) td{background:none}
+  table.empilha td:first-child{background:var(--claro)!important;font-weight:600;color:var(--noite)}
+  table.empilha td::before{content:attr(data-l);display:block;font-size:12.5px;font-weight:600;color:var(--nota);text-transform:uppercase;letter-spacing:.04em}
+  table.empilha td:first-child::before{display:none}
+}
 
-/* Chamada intermédia */
-.cta-meio{background:var(--branco);border-radius:20px;padding:26px 28px;margin:30px 0 0;display:flex;align-items:center;justify-content:space-between;gap:20px;border-left:8px solid var(--laranja);box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.cta-meio h3{margin:0 0 4px}
-.cta-meio p{margin:0}
-@media(max-width:640px){.cta-meio{flex-direction:column;align-items:flex-start;padding:22px 18px}}
-
-/* Folha */
-.ficha-wrap{background:var(--branco);border-radius:20px;padding:28px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-@media(max-width:640px){.ficha-wrap{padding:18px 12px}}
-.contadores{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 6px}
-.contador{border-radius:12px;padding:12px;text-align:center;background:var(--claro)}
-.contador b{display:block;font-family:Mitr,Arial,sans-serif;font-size:30px;line-height:1.1}
-.contador span{font-size:13px}
-.contador.u b{color:var(--urgente)}.contador.a b{color:#B8501A}.contador.o b{color:var(--ok)}
-.ficha input[type=date],.ficha input[type=text]{font:inherit;font-size:15px;padding:8px 10px;border:2px solid var(--laranja);background:var(--laranja-suave);border-radius:8px;color:var(--carvao);width:100%;min-width:130px}
-.estado{display:inline-block;padding:3px 12px;border-radius:999px;font-weight:700;font-size:13.5px;color:var(--branco);white-space:nowrap}
-.estado.ok{background:var(--ok)}
-.estado.atencao{background:var(--laranja);color:var(--carvao)}
-.estado.urgente{background:var(--urgente)}
-.estado.vazio{background:var(--linha);color:var(--nota)}
+/* Folha de datas */
+.ficha-wrap{background:var(--claro);border-radius:14px;padding:22px}
+@media(max-width:640px){.ficha-wrap{padding:14px 12px}}
+.ficha-wrap p{margin-bottom:10px}
+.contadores{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 6px}
+@media(max-width:640px){.contadores{grid-template-columns:1fr 1fr}}
+.contador{border-radius:10px;padding:10px;text-align:center;background:var(--branco);border-bottom:4px solid var(--linha)}
+.contador b{display:block;font-family:"Barlow Semi Condensed",Arial,sans-serif;font-size:30px;line-height:1.1;color:var(--noite)}
+.contador span{font-size:13.5px;color:var(--asfalto)}
+.contador.u{border-color:var(--urgente)}.contador.a{border-color:var(--amarelo)}.contador.o{border-color:var(--ok)}
+.ficha input[type=date],.ficha input[type=text]{font:inherit;font-size:16px;padding:8px 10px;min-height:44px;border:2px solid var(--amarelo);background:var(--amarelo-suave);border-radius:6px;color:var(--noite);width:100%;min-width:0}
+.ficha input[aria-invalid=true]{border-color:var(--urgente)}
+.ficha table{background:var(--branco);border-radius:10px;overflow:hidden}
 .ficha td{vertical-align:middle}
-.ficha-acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.btn-linha{font:inherit;font-size:14px;font-weight:700;padding:9px 16px;border:2px solid var(--carvao);background:var(--branco);color:var(--carvao);border-radius:999px;cursor:pointer}
+.ficha tbody tr:nth-child(even) td{background:var(--branco)}
+.estado{display:inline-block;padding:3px 10px;border-radius:999px;font-weight:600;font-size:14px;color:var(--branco);white-space:nowrap}
+.estado.ok{background:var(--ok)}
+.estado.atencao{background:var(--amarelo);color:var(--noite)}
+.estado.urgente{background:var(--urgente)}
+.estado.vazio{background:var(--linha);color:var(--asfalto)}
+.estado.futuro{background:var(--branco);color:var(--urgente);box-shadow:inset 0 0 0 2px var(--urgente)}
+.rm button{width:44px;height:44px;border-radius:8px;border:2px solid var(--linha);background:var(--branco);color:var(--noite);font-size:22px;line-height:1;cursor:pointer}
+.rm button:hover{border-color:var(--urgente);color:var(--urgente)}
+.ficha-acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.ficha-acoes.fim{margin-top:18px;padding-top:14px;border-top:1px solid var(--linha)}
+.ficha .msg{font-size:14.5px;min-height:1.4em;margin-top:8px;color:var(--noite)}
+.ficha .msg.erro{color:var(--urgente)}
+@media(max-width:700px){
+  .ficha table,.ficha tbody,.ficha td{display:block;width:100%}
+  .ficha thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .ficha tr{display:grid;grid-template-columns:1fr 1fr;gap:8px 10px;border:1px solid var(--linha);border-radius:12px;padding:10px;margin-bottom:10px;background:var(--branco)}
+  .ficha td{border:0;padding:0}
+  .ficha td::before{content:attr(data-l);display:block;font-size:12.5px;font-weight:600;color:var(--nota);margin-bottom:2px}
+  .ficha td.id{grid-column:1/3}
+  .ficha td.rm{grid-column:2;justify-self:end;align-self:end}
+  .ficha td.rm::before{display:none}
+}
 
 /* Fecho */
-.fecho{background:var(--carvao);color:#E8E8E8;padding:56px 0;margin-top:56px;background-image:radial-gradient(circle at 10% 100%,rgba(244,119,53,.2),transparent 55%)}
-.fecho h2{color:var(--branco);font-size:clamp(28px,5vw,38px)}
-.fecho p{max-width:36em}
-.fecho ul{padding:0;margin:0 0 22px;list-style:none}
-.fecho li{padding-left:28px;position:relative;margin-bottom:8px}
-.fecho li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:50%;background:var(--laranja)}
-.fecho-fx{display:flex;gap:36px;align-items:center}
-.fecho-fx .foto{flex:none;width:210px;height:210px;border-radius:50%;object-fit:cover;border:5px solid var(--laranja);background:#222}
-.fecho .peq{font-size:14px;color:#CFCFCF;margin:14px 0 0}
+.fecho{background:var(--noite);color:#E6ECF3;padding:48px 40px;margin-top:44px}
+.fecho h2{color:var(--branco);font-size:clamp(28px,6vw,36px)}
+.fecho p,.fecho ul{max-width:38em}
+.fecho ul{padding-left:20px}
+.fecho .peq{font-size:14.5px;color:#C9D3DF;margin-top:14px}
 .fecho .peq strong{color:var(--branco)}
-@media(max-width:640px){.fecho-fx{flex-direction:column-reverse;align-items:flex-start;gap:20px}.fecho-fx .foto{width:130px;height:130px}}
-.fontes ul{font-size:15px;padding-left:20px}
-.fontes li{margin-bottom:6px}
-.aviso{font-size:14px;color:var(--nota)}
-.rodape{padding:22px 0 90px;font-size:13px;color:var(--nota);text-align:center;background:var(--carvao);color:#9A9A9A}
+.fecho .btn{margin-top:4px}
+.fecho-fx{display:flex;gap:32px;align-items:center}
+.fecho-fx .foto{flex:none;width:200px;height:200px;border-radius:50%;object-fit:cover;border:4px solid var(--amarelo);background:#14181d}
+@media(max-width:640px){.fecho{padding:36px 16px}.fecho-fx{flex-direction:column;align-items:flex-start;gap:20px}.fecho-fx .foto{width:130px;height:130px}}
+.fontes ul{font-size:15px}
+.fontes .ver{font-size:14.5px}
+.rodape{padding:22px 40px 36px;font-size:13.5px;color:var(--nota)}
+@media(max-width:640px){.rodape{padding:22px 16px 32px}}
 
-/* Barra fixa móvel */
-.fixa{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--carvao);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .25s;box-shadow:0 -4px 18px rgba(0,0,0,.25)}
-.fixa.on{transform:none}
-.fixa span{color:var(--branco);font-size:14px;line-height:1.3}
-.fixa .btn{padding:11px 20px;font-size:15px;white-space:nowrap}
-@media(max-width:760px){.fixa{display:flex}}
+.so-js{display:none}.js .so-js{display:block}
+noscript .caixa{margin:12px 0}
 
 @media print{
+  @page{margin:14mm}
   body{background:#fff;font-size:11.5pt}
-  .topo,.fixa,.noprint,.cta-meio,.barra-pontos,.capa .acoes,.seta{display:none!important}
-  details.ponto,.caixa,table,.numero,.teste{break-inside:avoid}
-  .capa,.fecho,.teste,th,.bola,.estado,.btn,.rodape,.numero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .pagina{max-width:none;overflow:visible}
+  .topo,.noprint,.barra-pontos,.seta,#teste,.rm,.ficha-acoes,.ficha .msg,.capa .acoes,.salto,.fecho .btn{display:none!important}
+  .ficha tr.vazia{display:none!important}
+  .capa,.fecho,th,.bola,.estado,.numero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .capa{padding:24px 0}.fecho{padding:20px 0;margin-top:16px}
+  section{padding-top:18px}
+  .caixa,.numero,tr,.fazer{break-inside:avoid}
+  h2,h3,summary{break-after:avoid}
+  .corpo{padding-left:0}
+  a{text-decoration:none}
+  .ficha input{border:0!important;background:none!important;padding:0!important;min-height:0!important}
+  .ficha input[type=date]::-webkit-calendar-picker-indicator{display:none}
 }
 </style>
 </head>
 <body>
+<a class="salto" href="#conteudo">Saltar para o conteúdo</a>
 
-<header class="topo noprint">
-  <div class="wrap">
-    <div class="nome">Tacógrafo <span>sem sustos</span></div>
-    <nav aria-label="Navegação">
-      <a class="l" href="#teste">Teste</a>
+<div class="topo noprint">
+  <div class="topo-in">
+    <div class="nome">Tacógrafo sem sustos</div>
+    <nav aria-label="Navegação do guia">
+      <a href="#teste">Teste</a>
       <a class="l" href="#pontos">7 pontos</a>
       <a class="l" href="#ficha">Folha de datas</a>
-      <a class="btn peq" href="https://cal.com/ruben-neves/40min" target="_blank" rel="noopener" data-cta="topo">Marcar conversa</a>
+      <a class="l" href="#agendar">Conversar</a>
     </nav>
   </div>
   <div class="progresso" aria-hidden="true"><i id="prog"></i></div>
-</header>
+</div>
+
+<div class="pagina">
 
 <header class="capa">
-  <div class="wrap">
-    <div class="sup">Guia curto · Mercadorias e passageiros</div>
-    <h1>Tacógrafo<br>sem <em>sustos</em></h1>
-    <div class="traco"></div>
-    <p class="promessa">O que a lei portuguesa e a europeia exigem a quem tem camiões e autocarros, em 7 pontos e com a fonte de cada regra. Dez minutos de leitura, e fica a saber se a sua frota está preparada.</p>
-    <ul class="chips">
-      <li>7 pontos</li>
-      <li>Teste de 2 minutos</li>
-      <li>Folha de datas incluída</li>
-      <li>Legislação a 20/10/2026</li>
-    </ul>
-    <div class="acoes noprint">
-      <a class="btn" href="#teste">Fazer o teste de 2 minutos</a>
-      <a class="btn sec" href="#pontos">Ir para os 7 pontos</a>
-    </div>
-    <div class="autor">
-      <img src="ruben-neves.jpg" alt="" width="44" height="44">
-      <div>Por <strong>Rúben Neves</strong> · gestão de frotas</div>
-    </div>
+  <div class="sup">Guia curto · Mercadorias e passageiros</div>
+  <h1>Tacógrafo<br>sem <span class="sub">sustos</span></h1>
+  <div class="estrada"></div>
+  <p class="promessa">O que a lei portuguesa e a europeia exigem a quem tem camiões e autocarros, em 7 pontos e com a fonte de cada regra. Dez minutos de leitura e um teste curto para saber o que tem de confirmar na sua frota.</p>
+  <ul class="chips">
+    <li>7 pontos com fonte</li>
+    <li>Teste de autoavaliação</li>
+    <li>Folha de datas</li>
+  </ul>
+  <div class="acoes noprint">
+    <a class="btn" href="#teste">Fazer o teste</a>
+    <a class="btn sec" href="#pontos">Ir para os 7 pontos</a>
   </div>
+  <div class="autor">Por Rúben Neves</div>
+  <div class="data">Revisão editorial a 20 de outubro de 2026 · verificação de fontes parcial (ver «Fontes»)</div>
 </header>
 
-<main class="wrap">
+<main id="conteudo" class="miolo">
 
 <section id="numeros">
-  <span class="kicker">Para começar</span>
   <h2>Os seis números que a fiscalização lhe pode pedir</h2>
   <div class="numeros">
     <div class="numero"><div class="n">90 <small>dias</small></div><div class="l">Descarga do <strong>aparelho</strong> da viatura (prazo máximo)</div></div>
@@ -236,29 +302,46 @@ td.sim{font-weight:700;color:var(--carvao)}
   <p class="fonte">Reg. (UE) 581/2010, art. 1.º · Reg. (CE) 561/2006, art. 10.º, n.º 5 · Reg. (UE) 165/2014, arts. 23.º, 26.º e 36.º.</p>
 </section>
 
-<section id="teste">
+<section id="teste" aria-labelledby="t-titulo">
   <div class="teste">
-    <h2>O teste dos 2 minutos</h2>
-    <p class="sub">Responda sem ligar a ninguém. Se tiver de procurar a resposta, conta como «não sei».</p>
-    <div id="perguntas"></div>
-    <div class="resultado" id="resultado" role="status" aria-live="polite"></div>
-    <div class="score noprint" id="score"></div>
+    <h2 id="t-titulo">Teste: o que consegue confirmar nos seus registos?</h2>
+    <p class="sub">Cinco perguntas, cerca de dois minutos. Pode consultar os seus registos (folha de cálculo, software, papel): o que conta é conseguir <strong style="color:#fff">confirmar</strong> a informação, não decorá-la.</p>
+    <noscript>
+      <div class="caixa amarela" style="color:var(--asfalto)"><b>O teste interativo precisa de JavaScript.</b> Em alternativa, responda a estas perguntas num papel e consulte o ponto indicado em cada uma:
+        <ol>
+          <li>Tem registada a data da última descarga do cartão de cada motorista? (ponto 3)</li>
+          <li>Tem registada a data da última descarga do aparelho de cada viatura com tacógrafo? (ponto 3)</li>
+          <li>Tem registada a validade do cartão de cada motorista, de modo a pedir a renovação a tempo? (ponto 2)</li>
+          <li>Tem registada a data da última inspeção do tacógrafo de cada viatura? (ponto 7)</li>
+          <li>Consegue mostrar, por escrito, como organiza as escalas para cada motorista poder regressar em cada período de quatro semanas? (ponto 4)</li>
+        </ol>
+        Cada pergunta a que não consiga responder a partir de um registo atualizado é um ponto por confirmar.</div>
+    </noscript>
+    <div class="so-js">
+      <div class="prog"><span id="prog-txt">0 de 5 respondidas</span><div class="barra" role="progressbar" aria-label="Progresso do teste" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"><i id="prog-barra"></i></div></div>
+      <form id="form-teste" novalidate></form>
+      <div class="resultado" id="resultado" tabindex="-1"></div>
+      <div class="teste-rodape">
+        <p>As respostas ficam guardadas apenas neste navegador, para não as perder se atualizar a página. «Recomeçar teste» apaga-as.</p>
+        <button type="button" class="btn-linha" id="recomecar">Recomeçar teste</button>
+      </div>
+    </div>
+    <div class="vh" id="anuncio" role="status" aria-live="polite"></div>
   </div>
 </section>
 
 <section id="pontos">
-  <span class="kicker">O guia</span>
   <h2>Os 7 pontos</h2>
   <div class="barra-pontos noprint">
-    <p style="margin:0;font-size:15px">Toque num ponto para abrir. Cada um tem a fonte da regra e o que fazer a seguir.</p>
-    <button type="button" id="alternar">Abrir todos</button>
+    <p>Abra um ponto para ler a regra, a fonte e o que fazer a seguir.</p>
+    <button type="button" class="btn-linha" id="alternar" aria-pressed="false">Abrir todos</button>
   </div>
 
   <!-- 1 -->
-  <details class="ponto" id="p1">
+  <details class="ponto" id="p1" open>
     <summary>
-      <div class="bola">1</div>
-      <div class="resumo-t"><h3>Que viaturas têm de ter tacógrafo</h3><p>Mais de 3,5 t, ou mais de nove pessoas. Desde 1/07/2026, também &gt; 2,5 t em internacional.</p></div>
+      <div class="bola" aria-hidden="true">1</div>
+      <div class="resumo-t"><h3>Que viaturas têm de ter tacógrafo</h3><p>Mais de 3,5 t, ou mais de nove pessoas. Desde 1/07/2026, também &gt; 2,5 t em transporte internacional.</p></div>
       <div class="seta" aria-hidden="true"></div>
     </summary>
     <div class="corpo">
@@ -266,10 +349,10 @@ td.sim{font-weight:700;color:var(--carvao)}
         <li><strong>Mercadorias:</strong> massa máxima autorizada (com reboques e semirreboques) <strong>superior a 3,5 toneladas</strong>. Desde <strong>1 de julho de 2026</strong>, também mais de <strong>2,5 toneladas</strong> em transporte internacional ou cabotagem.</li>
         <li><strong>Passageiros:</strong> viaturas para <strong>mais de nove pessoas, incluindo o condutor</strong>.</li>
       </ul>
-      <p>Exceções: por exemplo, serviços regulares de passageiros com percurso de linha até 50 km e viaturas limitadas a 40 km/h. Em Portugal, a dispensa e a isenção constam da Portaria n.º 222/2008, de 5 de março, que o IMT indica como em vigor até nova portaria.</p>
+      <p>Exceções: por exemplo, serviços regulares de passageiros com percurso de linha até 50 km e viaturas limitadas a 40 km/h (as condições completas estão no ponto 5). Em Portugal, a dispensa e a isenção constam da Portaria n.º 222/2008, de 5 de março, que o IMT indica como em vigor até nova portaria.</p>
       <p class="fonte">Reg. (UE) 165/2014, art. 3.º · Reg. (CE) 561/2006, arts. 2.º e 3.º (alterado pelo Reg. (UE) 2020/1054).</p>
       <h3>Que tacógrafo, e até quando</h3>
-      <div class="tabela-scroll"><table>
+      <div class="tabela-scroll" role="region" tabindex="0" aria-label="Tabela: que tacógrafo e até quando"><table>
         <thead><tr><th>Viatura que circula fora do país de matrícula</th><th>Tem de passar para</th><th>Data</th></tr></thead>
         <tbody>
           <tr><td>Analógico ou digital não inteligente</td><td>Tacógrafo inteligente versão 2</td><td class="sim">até 31/12/2024</td></tr>
@@ -278,15 +361,15 @@ td.sim{font-weight:700;color:var(--carvao)}
         </tbody>
       </table></div>
       <p class="fonte">Reg. (UE) 165/2014, art. 3.º, n.os 4 e 4-A (Reg. 2020/1054) · Comissão Europeia, notícia de 19/08/2025.</p>
-      <div class="caixa fazer"><b>O que fazer</b><ul><li>Liste as viaturas da frota e confirme que tipo de tacógrafo tem cada uma, sobretudo as que circulam fora de Portugal.</li></ul></div>
+      <div class="fazer"><b>O que fazer</b><ul><li>Liste as viaturas da frota e confirme que tipo de tacógrafo tem cada uma, sobretudo as que circulam fora de Portugal.</li></ul></div>
     </div>
   </details>
 
   <!-- 2 -->
-  <details class="ponto" id="p2">
+  <details class="ponto" id="p2" open>
     <summary>
-      <div class="bola">2</div>
-      <div class="resumo-t"><h3>Os cartões</h3><p>Um por motorista, até 5 anos. Peça a renovação 15 dias úteis antes de caducar.</p></div>
+      <div class="bola" aria-hidden="true">2</div>
+      <div class="resumo-t"><h3>Os cartões</h3><p>Um por motorista, até 5 anos. Pedir a renovação pelo menos 15 dias úteis antes de caducar.</p></div>
       <div class="seta" aria-hidden="true"></div>
     </summary>
     <div class="corpo">
@@ -296,14 +379,14 @@ td.sim{font-weight:700;color:var(--carvao)}
         <li><strong>Cartão da empresa:</strong> permite ver, descarregar e imprimir os dados do aparelho que a empresa tenha bloqueado.</li>
       </ul>
       <p class="fonte">Reg. (UE) 165/2014, arts. 2.º, 26.º, 27.º e 28.º. Em Portugal, o pedido faz-se ao IMT.</p>
-      <div class="caixa fazer"><b>O que fazer</b><ul><li>Registe a data de validade do cartão de cada motorista e marque o pedido de renovação com folga, já que a emissão pode demorar até um mês.</li></ul></div>
+      <div class="fazer"><b>O que fazer</b><ul><li>Registe a validade do cartão de cada motorista e marque o pedido de renovação com folga: a emissão pode demorar até um mês.</li></ul></div>
     </div>
   </details>
 
   <!-- 3 -->
-  <details class="ponto" id="p3">
+  <details class="ponto" id="p3" open>
     <summary>
-      <div class="bola">3</div>
+      <div class="bola" aria-hidden="true">3</div>
       <div class="resumo-t"><h3>Descarregar os dados: 90 e 28 dias</h3><p>Aparelho até 90 dias, cartão até 28. Guardar os dados pelo menos 12 meses.</p></div>
       <div class="seta" aria-hidden="true"></div>
     </summary>
@@ -315,19 +398,20 @@ td.sim{font-weight:700;color:var(--carvao)}
       </ul>
       <p>A empresa garante que <strong>todos</strong> os dados são descarregados, com maior frequência se for preciso, e <strong>conserva-os pelo menos 12 meses</strong>, acessíveis a um agente de controlo que os peça.</p>
       <p class="fonte">Reg. (UE) 581/2010, art. 1.º · Reg. (CE) 561/2006, art. 10.º, n.º 5.</p>
-      <div class="caixa fazer"><b>Dica</b><ul><li>Um prazo máximo não é uma meta. Escolha uma data fixa de descarga, por exemplo todas as segundas-feiras, e registe-a na <a href="#ficha">folha de datas</a>.</li></ul></div>
+      <div class="caixa amarela"><b>Dica</b><br>Um prazo máximo não é uma meta. Escolha uma data fixa de descarga, por exemplo todas as segundas-feiras, e registe-a na <a href="#ficha">folha de datas</a>.</div>
     </div>
   </details>
 
   <!-- 4 -->
-  <details class="ponto" id="p4">
+  <details class="ponto" id="p4" open>
     <summary>
-      <div class="bola">4</div>
-      <div class="resumo-t"><h3>Condução, pausas e descanso</h3><p>9 h por dia, pausa de 45 min às 4 h 30, repouso diário de 11 h.</p></div>
+      <div class="bola" aria-hidden="true">4</div>
+      <div class="resumo-t"><h3>Condução, pausas e descanso</h3><p>9 h por dia, pausa de 45 min às 4 h 30, repouso diário de 11 h. Regra geral.</p></div>
       <div class="seta" aria-hidden="true"></div>
     </summary>
     <div class="corpo">
-      <div class="tabela-scroll"><table>
+      <p>Esta é a <strong>regra geral</strong>. Os serviços ocasionais de passageiros têm regras próprias para pausas e repousos: ver o ponto 5.</p>
+      <div class="tabela-scroll" role="region" tabindex="0" aria-label="Tabela: limites de condução, pausas e repouso"><table>
         <thead><tr><th>Regra</th><th>Limite</th></tr></thead>
         <tbody>
           <tr><td>Condução diária</td><td class="sim">9 h; até 10 h, no máximo duas vezes por semana</td></tr>
@@ -341,40 +425,59 @@ td.sim{font-weight:700;color:var(--carvao)}
       <p>Três regras que costumam falhar:</p>
       <ul>
         <li><strong>O repouso semanal regular não se goza dentro da viatura.</strong> Tem de ser em alojamento apropriado, pago pelo empregador.</li>
-        <li>A empresa organiza o trabalho para o motorista poder <strong>regressar ao centro operacional ou a casa em cada período de quatro semanas</strong>, e documenta como o cumpre.</li>
-        <li>O repouso semanal começa, no máximo, ao fim de <strong>seis períodos de 24 horas</strong> contados do repouso semanal anterior.</li>
+        <li>A empresa organiza o trabalho para o motorista poder <strong>regressar ao centro operacional ou a casa em cada período de quatro semanas consecutivas</strong>, e documenta como o cumpre.</li>
+        <li>Regra geral, o repouso semanal começa, no máximo, ao fim de <strong>seis períodos de 24 horas</strong> contados do repouso semanal anterior.</li>
       </ul>
-      <p class="fonte">Reg. (CE) 561/2006, art. 8.º, n.os 6, 8 e 8-A.</p>
-      <div class="caixa fazer"><b>O que fazer</b><ul><li>Reveja as escalas com estas três regras à frente e guarde por escrito a forma como garante o regresso de quatro em quatro semanas.</li></ul></div>
+      <p class="fonte">Reg. (CE) 561/2006, art. 8.º, n.os 6, 8 e 8-A (versão consolidada de 22/05/2024).</p>
+      <div class="fazer"><b>O que fazer</b><ul><li>Reveja as escalas com estas três regras à frente e guarde por escrito a forma como organiza o regresso em cada período de quatro semanas, se se aplicar à sua operação.</li></ul></div>
     </div>
   </details>
 
   <!-- 5 -->
-  <details class="ponto" id="p5">
+  <details class="ponto" id="p5" open>
     <summary>
-      <div class="bola">5</div>
-      <div class="resumo-t"><h3>Mercadorias e passageiros: o que muda</h3><p>As regras de condução e descarga são as mesmas. Mudam o âmbito e as exceções.</p></div>
+      <div class="bola" aria-hidden="true">5</div>
+      <div class="resumo-t"><h3>Mercadorias e passageiros: o que muda</h3><p>O regime geral é comum. Os serviços ocasionais de passageiros têm regras próprias, com condições.</p></div>
       <div class="seta" aria-hidden="true"></div>
     </summary>
     <div class="corpo">
-      <p>As regras de condução, pausas, descanso e descarga são as <strong>mesmas</strong>. As diferenças:</p>
-      <div class="tabela-scroll"><table>
-        <thead><tr><th></th><th>Mercadorias</th><th>Passageiros</th></tr></thead>
+      <p>Os limites de condução, o tacógrafo e as descargas seguem o <strong>regime geral</strong> do Regulamento (CE) 561/2006, tanto nas mercadorias como nos passageiros. Há, no entanto, <strong>regras específicas para os serviços ocasionais de passageiros</strong>, introduzidas pelo Regulamento (UE) 2024/1258 (em vigor desde 22/05/2024), e exceções diferentes para cada tipo de transporte.</p>
+
+      <h3>Âmbito e exceções típicas</h3>
+      <table class="empilha">
+        <thead><tr><th>Tema</th><th>Mercadorias</th><th>Passageiros</th></tr></thead>
         <tbody>
-          <tr><td><strong>Âmbito</strong></td><td>Mais de 3,5 t (ou 2,5 t, em transporte internacional, desde 01/07/2026)</td><td>Mais de nove pessoas, incluindo o condutor</td></tr>
-          <tr><td><strong>Exceção típica</strong></td><td>Transporte não comercial em viaturas até 7,5 t</td><td>Serviço regular com percurso até 50 km (regras nacionais)</td></tr>
-          <tr><td><strong>Dois repousos semanais reduzidos seguidos</strong></td><td>Só em transporte <strong>internacional</strong>, fora do Estado-Membro do empregador</td><td>Não previsto</td></tr>
+          <tr><td data-l="Tema">Âmbito</td><td data-l="Mercadorias">Mais de 3,5 t (ou 2,5 t em transporte internacional, desde 01/07/2026)</td><td data-l="Passageiros">Viaturas para mais de nove pessoas, incluindo o condutor</td></tr>
+          <tr><td data-l="Tema">Exceções (regras completas no art. 3.º)</td>
+            <td data-l="Mercadorias"><ul style="margin:0;padding-left:18px">
+              <li>Até 7,5 t em <strong>transporte não comercial</strong> (sem remuneração direta ou indireta, sem receitas e sem ligação a atividade profissional ou comercial).</li>
+              <li>Até 7,5 t com materiais, equipamento ou máquinas que o condutor usa na sua profissão, ou entrega de produtos artesanais: <strong>só num raio de 100 km</strong> da base da empresa, se conduzir não for a atividade principal do condutor e o transporte não for por conta de outrem.</li>
+              <li>Entre 2,5 t e 3,5 t, por conta própria, se conduzir não for a atividade principal de quem conduz.</li></ul></td>
+            <td data-l="Passageiros">Serviço regular com percurso de linha até 50 km. Aplicam-se ainda regras nacionais de dispensa (ponto 1).</td></tr>
         </tbody>
-      </table></div>
-      <p class="fonte">Reg. (CE) 561/2006, arts. 2.º, 3.º, 8.º, n.º 6, e 15.º.</p>
-      <div class="caixa fazer"><b>O que fazer</b><ul><li>Confirme em qual das duas colunas cai cada viatura e se alguma exceção se aplica de facto ao seu caso.</li></ul></div>
+      </table>
+      <p class="fonte">Reg. (CE) 561/2006, arts. 2.º, 3.º e 4.º, alínea r (versão consolidada de 22/05/2024).</p>
+
+      <h3>Serviços ocasionais de passageiros: o que pode ser diferente</h3>
+      <table class="empilha">
+        <thead><tr><th>Matéria</th><th>Regra geral</th><th>Serviço ocasional de passageiros</th></tr></thead>
+        <tbody>
+          <tr><td data-l="Matéria">Pausa</td><td data-l="Regra geral">45 min depois de 4 h 30 de condução, ou 15 min + 30 min.</td><td data-l="Serviço ocasional de passageiros">Também pode ser substituída por <strong>duas pausas de, pelo menos, 15 min</strong>, distribuídas ao longo do tempo de condução (art. 7.º).</td></tr>
+          <tr><td data-l="Matéria">Repouso diário</td><td data-l="Regra geral">Novo repouso diário dentro de cada período de 24 h.</td><td data-l="Serviço ocasional de passageiros">Num <strong>serviço único com pelo menos 6 períodos consecutivos de 24 h</strong>, pode gozar-se <strong>uma vez</strong> até 25 h depois do fim do repouso anterior, se a condução acumulada nesse dia não passou de 7 h. <strong>Duas vezes</strong> se o serviço tiver pelo menos 8 períodos de 24 h. Só se não comprometer a segurança rodoviária nem as condições de trabalho, e sem prejuízo do tempo de trabalho máximo (art. 8.º, n.º 2-A).</td></tr>
+          <tr><td data-l="Matéria">Início do repouso semanal</td><td data-l="Regra geral">O mais tardar ao fim de 6 períodos de 24 h.</td><td data-l="Serviço ocasional de passageiros">Num serviço único, pode ser adiado até <strong>12 períodos consecutivos de 24 h</strong> após um repouso semanal regular, desde que, depois, o condutor goze dois repousos regulares, ou um regular e um reduzido (mínimo 24 h, compensado antes do fim da terceira semana seguinte); o tacógrafo cumpra o anexo I-B; e, se conduzir entre as 22h00 e as 06h00, haja mais de um condutor ou a pausa seja reduzida para 3 h (art. 8.º, n.º 6-A).</td></tr>
+          <tr><td data-l="Matéria">Dois repousos semanais reduzidos seguidos</td><td data-l="Regra geral">Não.</td><td data-l="Serviço ocasional de passageiros">A exceção do art. 8.º, n.º 6, refere-se ao <strong>transporte internacional de mercadorias</strong>, fora do Estado-Membro de estabelecimento, desde que em cada 4 semanas consecutivas haja pelo menos 4 repousos semanais, dos quais 2 regulares. Não está prevista para passageiros.</td></tr>
+        </tbody>
+      </table>
+      <p class="fonte">Reg. (UE) 2024/1258, art. 1.º, n.os 2 a 4 · Reg. (CE) 561/2006, arts. 7.º e 8.º (versão consolidada de 22/05/2024).</p>
+      <div class="caixa amarela"><b>Para usar estas derrogações num controlo na estrada</b><br>O condutor deve ter a bordo a <strong>folha de itinerário</strong> do serviço (a empresa entrega-a preenchida antes de cada viagem) e cópias, em papel ou em formato eletrónico, das folhas dos <strong>56 dias anteriores</strong> (28 dias, até 31/12/2024). Esta obrigação deixa de se aplicar quando o veículo tiver um tacógrafo que registe o tipo de serviço de passageiros. <span class="fonte">Reg. (CE) 561/2006, art. 16.º, n.º 4, aditado pelo Reg. (UE) 2024/1258.</span></div>
+      <div class="fazer"><b>O que fazer</b><ul><li>Confirme em que coluna cai cada viatura e se alguma exceção se aplica, ponto a ponto, ao seu caso. Se faz serviços ocasionais de passageiros, valide com um jurista as condições antes de recorrer a uma derrogação.</li></ul></div>
     </div>
   </details>
 
   <!-- 6 -->
-  <details class="ponto" id="p6">
+  <details class="ponto" id="p6" open>
     <summary>
-      <div class="bola">6</div>
+      <div class="bola" aria-hidden="true">6</div>
       <div class="resumo-t"><h3>Quem faz o quê</h3><p>O motorista usa o cartão. A empresa forma, controla e responde pelas infrações.</p></div>
       <div class="seta" aria-hidden="true"></div>
     </summary>
@@ -395,16 +498,16 @@ td.sim{font-weight:700;color:var(--carvao)}
         <li>É <strong>responsável pelas infrações dos seus motoristas</strong>, mesmo noutro Estado-Membro.</li>
       </ul>
       <p class="fonte">Reg. (UE) 165/2014, art. 33.º · Reg. (CE) 561/2006, art. 10.º.</p>
-      <div class="caixa"><strong>É proibido</strong> falsificar, ocultar, suprimir ou destruir dados, manipular o tacógrafo, a folha ou o cartão, ter na viatura dispositivos para isso, ou ter mais de um tacógrafo. <span class="fonte">Reg. (UE) 165/2014, art. 32.º.</span></div>
-      <p style="font-size:14.5px">Os dados do tacógrafo são dados pessoais: servem para verificar o cumprimento das regras e só devem ser tratados para esse fim (art. 7.º do Reg. 165/2014). Para o caso da sua empresa, consulte a CNPD ou um jurista.</p>
-      <div class="caixa fazer"><b>O que fazer</b><ul><li>Defina quem na empresa faz os controlos regulares e onde ficam guardados os registos.</li></ul></div>
+      <div class="caixa amarela"><b>É proibido</b><br>Falsificar, ocultar, suprimir ou destruir dados, manipular o tacógrafo, a folha ou o cartão, ter na viatura dispositivos para isso, ou ter mais de um tacógrafo. <span class="fonte">Reg. (UE) 165/2014, art. 32.º.</span></div>
+      <p style="font-size:15px">Os dados do tacógrafo são dados pessoais: servem para verificar o cumprimento das regras e só devem ser tratados para esse fim (art. 7.º do Reg. 165/2014). Para o caso da sua empresa, consulte a CNPD ou um jurista.</p>
+      <div class="fazer"><b>O que fazer</b><ul><li>Defina quem na empresa faz os controlos regulares e onde ficam guardados os registos.</li></ul></div>
     </div>
   </details>
 
   <!-- 7 -->
-  <details class="ponto" id="p7">
+  <details class="ponto" id="p7" open>
     <summary>
-      <div class="bola">7</div>
+      <div class="bola" aria-hidden="true">7</div>
       <div class="resumo-t"><h3>Inspeção e fiscalização em Portugal</h3><p>Inspeção de dois em dois anos. Regime nacional no Decreto-Lei n.º 84/2026.</p></div>
       <div class="seta" aria-hidden="true"></div>
     </summary>
@@ -414,210 +517,465 @@ td.sim{font-weight:700;color:var(--carvao)}
         <li>Selos retirados ou quebrados são substituídos por oficina ou instalador aprovados, <strong>no máximo em sete dias</strong>.</li>
       </ul>
       <p class="fonte">Reg. (UE) 165/2014, arts. 22.º e 23.º.</p>
-      <p>O regime nacional está no <strong>Decreto-Lei n.º 84/2026, de 13 de abril</strong>, em vigor desde <strong>12 de julho de 2026</strong>, que reuniu num só diploma as regras sociais do transporte rodoviário e <strong>revogou a Lei n.º 27/2010</strong> e o Decreto-Lei n.º 169/2009. A fiscalização cabe, entre outras autoridades, ao IMT, à ACT, à GNR e à PSP.</p>
-      <p class="fonte">IMT, «Regulamentação em matéria social».</p>
-      <div class="caixa"><strong>Atenção a materiais antigos:</strong> muito do que circula na internet cita a Lei n.º 27/2010 e os seus valores. Este guia não reproduz valores de coimas para não os desatualizar: consulte-os no Decreto-Lei n.º 84/2026, em Diário da República.</div>
-      <div class="caixa fazer"><b>O que fazer</b><ul><li>Registe a data da última inspeção de cada viatura e agende a seguinte antes de os dois anos se esgotarem.</li></ul></div>
+      <p>O regime nacional está no <strong>Decreto-Lei n.º 84/2026, de 13 de abril</strong>. O IMT apresenta-o como o diploma que passa a concentrar a matéria social no transporte rodoviário e que revoga, entre outros, o Decreto-Lei n.º 169/2009 e a Lei n.º 27/2010. Segundo uma fonte secundária (APCMC), entrou em vigor a <strong>12 de julho de 2026</strong>; confirme a data no artigo final do diploma, em Diário da República.</p>
+      <p>Para saber que entidades fiscalizam e quais os valores das coimas, consulte o próprio diploma.</p>
+      <p class="fonte">IMT, «Regulamentação em matéria social» · APCMC, «Novo regime de organização do tempo de trabalho dos motoristas e trabalhadores móveis».</p>
+      <p>Desde 22/05/2024, um Estado-Membro pode sancionar infrações aos Regulamentos (CE) 561/2006 e (UE) 165/2014 detetadas no seu território, ainda que cometidas noutro Estado-Membro ou num país terceiro, se ainda não tiverem sido sancionadas.</p>
+      <p class="fonte">Reg. (UE) 2024/1258, art. 1.º, n.º 6 (novo art. 19.º, n.º 2, do Reg. 561/2006).</p>
+      <div class="caixa amarela"><b>Atenção a materiais antigos</b><br>Muito do que circula na internet cita a Lei n.º 27/2010 e os seus valores. Este guia não reproduz valores de coimas para não os desatualizar: consulte-os no Decreto-Lei n.º 84/2026, em Diário da República.</div>
+      <div class="fazer"><b>O que fazer</b><ul><li>Registe a data da última inspeção de cada viatura e agende a seguinte antes de se completarem os dois anos.</li></ul></div>
     </div>
   </details>
-
-  <div class="cta-meio noprint">
-    <div>
-      <h3>Reconheceu a sua frota em algum ponto?</h3>
-      <p>Numa conversa de 40 minutos, vemos onde estão os riscos e o que resolver primeiro.</p>
-    </div>
-    <a class="btn" href="https://cal.com/ruben-neves/40min" target="_blank" rel="noopener" data-cta="meio">Marcar conversa</a>
-  </div>
 </section>
 
-<section id="ficha" class="ficha">
-  <span class="kicker">Ferramenta</span>
-  <h2>Folha de datas: nunca falhar uma descarga</h2>
-  <div class="ficha-wrap">
-    <p>Escreva uma identificação (matrícula ou «Motorista 1») e a <strong>data da última descarga</strong>. A folha calcula a data-limite e avisa quando faltam 15 dias ou menos. Por prudência, conta dias de calendário.</p>
-    <p class="noprint" style="font-size:14px;color:var(--nota)">Os dados ficam apenas neste navegador. Não são enviados a ninguém.</p>
-    <div class="contadores" aria-live="polite">
+<section id="ficha" class="ficha" aria-labelledby="f-titulo">
+  <h2 id="f-titulo">Folha de datas: acompanhe os prazos das descargas</h2>
+  <noscript>
+    <div class="caixa amarela"><b>A folha interativa precisa de JavaScript.</b> Em alternativa, imprima esta página e preencha à mão: para cada viatura, escreva a data da última descarga e some 90 dias; para cada motorista, some 28 dias.</div>
+  </noscript>
+  <div class="ficha-wrap so-js">
+    <p>Escreva uma identificação (matrícula ou «Motorista 1») e a <strong>data da última descarga</strong>. A folha calcula a data-limite e mostra o estado <strong>quando abre a página ou quando altera uma data</strong>. Não envia notificações nem lembretes: precisa de a consultar. Conta dias de calendário, por prudência.</p>
+    <p style="font-size:14.5px;color:var(--asfalto)">Os dados ficam apenas neste navegador, que pode perdê-los se limpar os dados de navegação ou mudar de computador. Exporte uma cópia de segurança de vez em quando.</p>
+    <div class="contadores" aria-label="Resumo da folha">
       <div class="contador u"><b id="c-u">0</b><span>em atraso</span></div>
-      <div class="contador a"><b id="c-a">0</b><span>a vencer em 15 dias</span></div>
+      <div class="contador a"><b id="c-a">0</b><span>vencem hoje ou em 15 dias</span></div>
       <div class="contador o"><b id="c-o">0</b><span>em dia</span></div>
+      <div class="contador"><b id="c-s">0</b><span>sem data ou a verificar</span></div>
     </div>
     <h3>Aparelho da viatura · 90 dias</h3>
-    <div class="tabela-scroll"><table id="t-veic">
-      <thead><tr><th>Viatura</th><th>Última descarga</th><th>Data-limite</th><th>Estado</th></tr></thead>
+    <table id="t-v" class="folha">
+      <thead><tr><th>Viatura</th><th>Última descarga</th><th>Data-limite</th><th>Estado</th><th><span class="vh">Remover</span></th></tr></thead>
       <tbody></tbody>
-    </table></div>
+    </table>
+    <div class="ficha-acoes noprint"><button type="button" class="btn-linha" data-add="v">Adicionar viatura</button></div>
     <h3>Cartão do motorista · 28 dias</h3>
-    <div class="tabela-scroll"><table id="t-mot">
-      <thead><tr><th>Motorista</th><th>Última descarga</th><th>Data-limite</th><th>Estado</th></tr></thead>
+    <table id="t-m" class="folha">
+      <thead><tr><th>Motorista</th><th>Última descarga</th><th>Data-limite</th><th>Estado</th><th><span class="vh">Remover</span></th></tr></thead>
       <tbody></tbody>
-    </table></div>
-    <div class="ficha-acoes noprint">
+    </table>
+    <div class="ficha-acoes noprint"><button type="button" class="btn-linha" data-add="m">Adicionar motorista</button></div>
+    <div class="ficha-acoes fim noprint">
+      <button type="button" class="btn-linha" id="exp-json">Exportar cópia (JSON)</button>
+      <button type="button" class="btn-linha" id="exp-csv">Exportar para folha de cálculo (CSV)</button>
+      <button type="button" class="btn-linha" id="imp">Importar cópia (JSON)</button>
+      <input type="file" id="imp-f" accept=".json,application/json" class="vh" tabindex="-1" aria-hidden="true">
       <button type="button" class="btn-linha" id="imprimir">Imprimir / guardar em PDF</button>
-      <button type="button" class="btn-linha" id="limpar">Limpar a folha</button>
+      <button type="button" class="btn-linha perigo" id="limpar">Limpar a folha</button>
     </div>
+    <div class="msg" id="msg-folha" role="status" aria-live="polite"></div>
   </div>
 </section>
 
 <section id="fontes" class="fontes">
   <h2>Fontes</h2>
   <ul>
-    <li>Regulamento (CE) n.º 561/2006, de 15 de março de 2006, na redação do Regulamento (UE) 2020/1054. <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32006R0561">EUR-Lex</a></li>
+    <li>Regulamento (CE) n.º 561/2006, de 15 de março de 2006, na redação do Regulamento (UE) 2020/1054. <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32006R0561">EUR-Lex</a> · <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:02006R0561-20240522">versão consolidada de 22/05/2024</a></li>
+    <li>Regulamento (UE) 2024/1258, de 24 de abril de 2024, que altera o Regulamento (CE) 561/2006 (serviços ocasionais de passageiros e sanções). <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32024R1258">EUR-Lex</a></li>
     <li>Regulamento (UE) n.º 165/2014, de 4 de fevereiro de 2014, na redação do Regulamento (UE) 2020/1054. <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32014R0165">EUR-Lex</a></li>
     <li>Regulamento (UE) 2020/1054, de 15 de julho de 2020. <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32020R1054">EUR-Lex</a></li>
     <li>Regulamento (UE) n.º 581/2010 da Comissão, de 1 de julho de 2010. <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32010R0581">EUR-Lex</a></li>
     <li>Comissão Europeia, notícia sobre o tacógrafo inteligente, 19/08/2025. <a href="https://transport.ec.europa.eu/news-events/news/stronger-and-more-unified-enforcement-eu-rules-international-road-transport-smart-tachograph-2025-08-19_en">transport.ec.europa.eu</a></li>
     <li>IMT, «Regulamentação em matéria social» (Decreto-Lei n.º 84/2026 e Portaria n.º 222/2008). <a href="https://www.imt-ip.pt/rodoviario/infraestruturas-rodoviarias/regulamentacao-em-materia-social/">imt-ip.pt</a></li>
+    <li>APCMC, «Novo regime de organização do tempo de trabalho dos motoristas e trabalhadores móveis» (fonte secundária, para a data de entrada em vigor do Decreto-Lei n.º 84/2026). <a href="https://apcmc.pt/legislacao/novo-regime-de-organizacao-do-tempo-de-trabalho-dos-motoristas-e-trabalhadores-moveis/">apcmc.pt</a></li>
   </ul>
-  <p class="aviso">Informação geral, preparada em outubro de 2026. Não substitui aconselhamento jurídico. Confirme sempre o texto em vigor nas fontes acima.</p>
+  <div class="caixa ver">
+    <p><strong>Revisão editorial:</strong> 20 de outubro de 2026.</p>
+    <p><strong>Verificação de fontes:</strong> 20 de outubro de 2026, <strong>parcial</strong>. Foram confrontados com o texto oficial o Regulamento (UE) 2024/1258 e, na versão consolidada do Regulamento (CE) 561/2006 de 22/05/2024, os artigos 3.º, 4.º, 7.º e 8.º (pontos 4 e 5). Os restantes pontos mantêm a redação anterior e não foram revalidados nesta revisão. O Decreto-Lei n.º 84/2026 foi confirmado na página do IMT; a data de entrada em vigor vem de uma fonte secundária e o texto em Diário da República ainda não foi consultado. Isto não é uma validação jurídica integral.</p>
+  </div>
+  <p class="ver">Informação geral. Não substitui aconselhamento jurídico. Confirme sempre o texto em vigor nas fontes oficiais acima.</p>
 </section>
 
 </main>
 
 <footer class="fecho" id="agendar">
-  <div class="wrap">
-    <div class="fecho-fx">
-      <img class="foto" src="ruben-neves.jpg" alt="Rúben Neves" width="210" height="210">
-      <div>
-        <h2>Quer ver isto na sua frota?</h2>
-        <p>Numa conversa de 40 minutos, olhamos para as datas, os cartões e as escalas da sua frota e digo-lhe com franqueza onde estão os riscos e o que resolver primeiro. Sem apresentações comerciais.</p>
-        <ul>
-          <li>Datas de descarga e validade dos cartões</li>
-          <li>Escalas, repousos e regresso de quatro em quatro semanas</li>
-          <li>O que resolver primeiro, por ordem de risco</li>
-        </ul>
-        <a class="btn" href="https://cal.com/ruben-neves/40min" target="_blank" rel="noopener" data-cta="fecho">Marcar conversa de 40 minutos</a>
-        <p class="peq">Escolhe o dia e a hora que lhe der mais jeito.<br><strong>Rúben Neves</strong> · gestão de frotas</p>
-      </div>
+  <div class="fecho-fx">
+    <img class="foto" src="ruben-neves.jpg" alt="Rúben Neves" width="200" height="200">
+    <div>
+      <h2>Quer olhar para a sua frota com outra pessoa?</h2>
+      <p>Numa conversa de 40 minutos, partimos dos pontos deste guia: vemos o que ficou por confirmar na sua frota e definimos por onde começar. É uma conversa de orientação sobre a organização da frota. <strong style="color:#fff">Não é uma auditoria, nem uma certificação, nem aconselhamento jurídico.</strong></p>
+      <p>Ajuda levar a lista de viaturas e motoristas e as datas que já tem registadas, mas não é obrigatório.</p>
+      <a class="btn" href="https://cal.com/ruben-neves/40min" target="_blank" rel="noopener" data-cta="fecho">Marcar conversa de 40 minutos<span class="vh"> (abre numa nova janela)</span></a>
+      <p class="peq">Escolha o dia e a hora que lhe der mais jeito.<br><strong>Rúben Neves</strong> · gestão de frotas</p>
     </div>
   </div>
 </footer>
 <div class="rodape">© Rúben Neves · Método Demanda Infinita®</div>
-
-<div class="fixa noprint" id="fixa">
-  <span>Quer ver isto na sua frota?</span>
-  <a class="btn" href="https://cal.com/ruben-neves/40min" target="_blank" rel="noopener" data-cta="fixa">Marcar conversa</a>
 </div>
 
 <script>
+/*
+ * MEDIÇÃO (preparada, sem serviços externos instalados)
+ * -----------------------------------------------------
+ * Esta página NÃO envia dados a nenhum serviço. Cada evento abaixo é apenas
+ * emitido localmente de duas formas, para ligar a uma ferramenta mais tarde:
+ *   1) CustomEvent 'guia-tacografo:evento' em document (detail = {evento, ...params})
+ *   2) window.dataLayer.push({event:'guia_tacografo_<evento>', ...params}), só se
+ *      window.dataLayer já existir (por exemplo, se o Google Tag Manager for carregado);
+ *      e window.plausible('guia_tacografo_<evento>', {props}) se existir.
+ * Eventos: teste_inicio, teste_conclusao{estado}, recomendacao_clique{origem},
+ *          agendar_clique{posicao}, folha_exportar{formato}.
+ * Nunca se enviam matrículas, nomes, datas, nem respostas individuais.
+ * «agendar_clique» é uma INTENÇÃO (clique no link). Uma reunião só conta como marcada
+ * com confirmação do cal.com (webhook BOOKING_CREATED ou integração do próprio cal.com).
+ * Ver MEDICAO.md.
+ */
 (function(){
+  'use strict';
   var CAL='https://cal.com/ruben-neves/40min';
+  var REDUZ=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(s,r){return (r||document).querySelector(s);}
+  function $$(s,r){return [].slice.call((r||document).querySelectorAll(s));}
+  function guardaLS(k,v){ try{ localStorage.setItem(k,v); return true; }catch(e){ return false; } }
+  function leLS(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+  function apagaLS(k){ try{ localStorage.removeItem(k); }catch(e){} }
 
-  /* Progresso de leitura + barra fixa móvel */
-  var prog=document.getElementById('prog'), fixa=document.getElementById('fixa');
+  /* ---------- Medição ---------- */
+  var recente={}, DE_CLIQUE={agendar_clique:1,recomendacao_clique:1,folha_exportar:1};
+  function track(nome,params){
+    if(DE_CLIQUE[nome]){ /* evita duplicados por duplo clique; início e conclusão do teste têm controlo próprio */
+      var agora=Date.now(), chave=nome+JSON.stringify(params||{});
+      if(recente[chave]&&agora-recente[chave]<1500) return;
+      recente[chave]=agora;
+    }
+    var d={evento:nome}; for(var k in (params||{})) d[k]=params[k];
+    try{ document.dispatchEvent(new CustomEvent('guia-tacografo:evento',{detail:d})); }catch(e){}
+    try{ if(window.dataLayer&&typeof window.dataLayer.push==='function'){ var o={event:'guia_tacografo_'+nome}; for(var k2 in (params||{})) o[k2]=params[k2]; window.dataLayer.push(o); } }catch(e){}
+    try{ if(typeof window.plausible==='function') window.plausible('guia_tacografo_'+nome,{props:params||{}}); }catch(e){}
+  }
+
+  /* ---------- Progresso de leitura ---------- */
+  var prog=$('#prog');
   function aoScroll(){
     var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
     prog.style.width=(max>0?Math.min(100,h.scrollTop/max*100):0)+'%';
-    var fecho=document.getElementById('agendar').getBoundingClientRect().top;
-    fixa.classList.toggle('on', h.scrollTop>600 && fecho>window.innerHeight*0.6);
   }
   window.addEventListener('scroll',aoScroll,{passive:true}); aoScroll();
 
-  /* Acordeão */
-  var pontos=[].slice.call(document.querySelectorAll('details.ponto'));
-  var alt=document.getElementById('alternar');
-  function atualizaAlt(){ alt.textContent=pontos.every(function(p){return p.open;})?'Fechar todos':'Abrir todos'; }
+  /* ---------- Acordeão ---------- */
+  var pontos=$$('details.ponto');
+  var alt=$('#alternar');
+  var abertoPorHash=null;
+  if(/^#p[1-7]$/.test(location.hash)) abertoPorHash=location.hash.slice(1);
+  pontos.forEach(function(p){ p.open=(p.id===abertoPorHash); }); /* sem JavaScript ficam todos abertos */
+  function atualizaAlt(){
+    var todos=pontos.every(function(p){return p.open;});
+    alt.textContent=todos?'Fechar todos':'Abrir todos';
+    alt.setAttribute('aria-pressed',todos?'true':'false');
+  }
   alt.addEventListener('click',function(){
     var abrir=!pontos.every(function(p){return p.open;});
     pontos.forEach(function(p){p.open=abrir;}); atualizaAlt();
   });
   pontos.forEach(function(p){p.addEventListener('toggle',atualizaAlt);});
-  if(location.hash){ var alvo=document.querySelector(location.hash); if(alvo&&alvo.tagName==='DETAILS') alvo.open=true; }
-  document.querySelectorAll('a[href^="#p"]').forEach(function(a){
-    a.addEventListener('click',function(){ var d=document.querySelector(a.getAttribute('href')); if(d&&d.tagName==='DETAILS') d.open=true; });
-  });
-  window.addEventListener('beforeprint',function(){ pontos.forEach(function(p){p.open=true;}); });
+  atualizaAlt();
 
-  /* Teste dos 2 minutos */
-  var PERGUNTAS=[
-    'Qual foi a data da última descarga do cartão de cada motorista?',
-    'E a do aparelho de cada viatura?',
-    'Quando caduca o cartão de cada motorista?',
-    'Quando foi a última inspeção do tacógrafo de cada viatura?',
-    'Como garante que cada motorista regressa a casa de quatro em quatro semanas?'
+  function abrirPonto(id,foco){
+    var d=document.getElementById(id);
+    if(!d||d.tagName!=='DETAILS') return false;
+    d.open=true; atualizaAlt();
+    d.scrollIntoView({behavior:REDUZ?'auto':'smooth',block:'start'});
+    if(foco!==false){ var s=$('summary',d); if(s) s.focus({preventScroll:true}); }
+    try{ history.replaceState(null,'','#'+id); }catch(e){}
+    return true;
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="#p"]');
+    if(!a) return;
+    var id=a.getAttribute('href').slice(1);
+    if(/^p[1-7]$/.test(id)&&abrirPonto(id)) e.preventDefault();
+  });
+  if(abertoPorHash) setTimeout(function(){ abrirPonto(abertoPorHash,false); },50);
+
+  /* impressão: mostra todos os pontos */
+  var antesImprimir=[];
+  window.addEventListener('beforeprint',function(){ antesImprimir=pontos.map(function(p){return p.open;}); pontos.forEach(function(p){p.open=true;}); });
+  window.addEventListener('afterprint',function(){ pontos.forEach(function(p,i){p.open=antesImprimir[i]||false;}); atualizaAlt(); });
+
+  /* ---------- Cliques para agendar ---------- */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[data-cta]');
+    if(a) track('agendar_clique',{posicao:a.getAttribute('data-cta')});
+  });
+
+  /* ---------- Teste ---------- */
+  var ITENS=[
+    {id:'cartoes',  ponto:'p3', nome:'Descarga dos cartões dos motoristas', prazo:'prazo máximo de 28 dias', ordem:1,
+     q:'Tem registada a data da última descarga do cartão de cada motorista?',
+     acao:'Registe a data da última descarga de cada cartão e escolha um dia fixo para as seguintes. A folha de datas, mais abaixo, ajuda.'},
+    {id:'aparelho', ponto:'p3', nome:'Descarga do aparelho de cada viatura', prazo:'prazo máximo de 90 dias', ordem:4,
+     q:'Tem registada a data da última descarga do aparelho de cada viatura com tacógrafo?', na:'Se nenhuma das suas viaturas tem tacógrafo, escolha «Não se aplica».',
+     acao:'Registe a data da última descarga de cada viatura e agende a seguinte antes de se completarem os 90 dias.'},
+    {id:'validade', ponto:'p2', nome:'Validade dos cartões dos motoristas', prazo:'pedido de renovação pelo menos 15 dias úteis antes de caducar', ordem:2,
+     q:'Tem registada a validade do cartão de cada motorista, de modo a pedir a renovação a tempo?',
+     acao:'Registe a validade de cada cartão e marque o pedido de renovação com folga: a emissão pode demorar até um mês.'},
+    {id:'inspecao', ponto:'p7', nome:'Inspeção do tacógrafo de cada viatura', prazo:'intervalo máximo de 2 anos', ordem:5,
+     q:'Tem registada a data da última inspeção do tacógrafo de cada viatura?', na:'Se nenhuma das suas viaturas tem tacógrafo, escolha «Não se aplica».',
+     acao:'Registe a data da última inspeção de cada viatura e agende a seguinte antes de se completarem os dois anos.'},
+    {id:'regresso', ponto:'p4', nome:'Escalas e regresso de cada motorista', prazo:'períodos de quatro semanas consecutivas', ordem:3,
+     q:'Se os seus motoristas gozam o repouso semanal fora de casa ou do centro operacional, consegue mostrar, por escrito, como organiza as escalas para poderem regressar em cada período de quatro semanas?', na:'Escolha «Não se aplica» se a regra não corresponde à sua operação (por exemplo, se o repouso semanal é sempre gozado em casa). Não é uma resposta «certa» nem «errada».',
+     acao:'Reveja as escalas e guarde por escrito como organiza o regresso de cada motorista ao centro operacional ou a casa em cada período de quatro semanas.'}
   ];
-  var KT='tacografo-teste-v1', resp=[];
-  try{ resp=JSON.parse(localStorage.getItem(KT))||[]; }catch(e){}
-  var box=document.getElementById('perguntas');
-  PERGUNTAS.forEach(function(txt,i){
-    var q=document.createElement('div'); q.className='q';
-    q.innerHTML='<div class="t"><b>'+(i+1)+'</b>'+txt+'</div>'+
-      '<div class="resp" role="group" aria-label="Pergunta '+(i+1)+'">'+
-      '<button type="button" class="sim" aria-pressed="false">Sei</button>'+
-      '<button type="button" class="nao" aria-pressed="false">Não sei</button></div>';
-    var bs=q.querySelectorAll('button');
-    function pinta(){ bs[0].setAttribute('aria-pressed',resp[i]==='s'); bs[1].setAttribute('aria-pressed',resp[i]==='n'); }
-    bs[0].addEventListener('click',function(){ resp[i]='s'; pinta(); guarda(); mostra(); });
-    bs[1].addEventListener('click',function(){ resp[i]='n'; pinta(); guarda(); mostra(); });
-    pinta(); box.appendChild(q);
-  });
-  function guarda(){ try{ localStorage.setItem(KT,JSON.stringify(resp)); }catch(e){} }
-  function mostra(){
-    var resultado=document.getElementById('resultado'), score=document.getElementById('score');
-    var resp_n=0, nao=0;
-    for(var i=0;i<PERGUNTAS.length;i++){ if(resp[i]){resp_n++; if(resp[i]==='n') nao++;} }
-    score.textContent=resp_n+' de '+PERGUNTAS.length+' respondidas';
-    if(resp_n<PERGUNTAS.length){ resultado.className='resultado'; return; }
-    if(nao>=2){
-      resultado.className='resultado on alerta';
-      resultado.innerHTML='<h3>Disse «não sei» a '+nao+' perguntas.</h3>'+
-        '<p><strong>A sua frota depende da memória de alguém.</strong> Os pontos abaixo e a <a href="#ficha">folha de datas</a> resolvem isso. Se preferir, olhamos para isto juntos, em 40 minutos e sem apresentações comerciais.</p>'+
-        '<a class="btn" href="'+CAL+'" target="_blank" rel="noopener" data-cta="teste">Marcar conversa de 40 minutos</a>';
-    }else{
-      resultado.className='resultado on';
-      resultado.innerHTML='<h3>'+(nao===0?'Tem as respostas todas.':'Só faltou uma resposta.')+'</h3>'+
-        '<p>Boa base. Percorra os 7 pontos para confirmar que não lhe escapa nada e use a <a href="#ficha">folha de datas</a> para manter tudo em dia. Se quiser uma segunda opinião sobre as escalas e os cartões, falamos 40 minutos.</p>'+
-        '<a class="btn" href="'+CAL+'" target="_blank" rel="noopener" data-cta="teste">Pedir uma segunda opinião</a>';
-    }
-  }
-  mostra();
+  var NOME_PONTO={p2:'ponto 2',p3:'ponto 3',p4:'ponto 4',p7:'ponto 7'};
+  var KT='tacografo-teste-v2';
+  var respostas=[]; /* 'sim' | 'confirmar' | 'na' | undefined */
+  try{ var rt=JSON.parse(leLS(KT)||'null'); if(rt&&rt.length===ITENS.length) respostas=rt.map(function(v){return (v==='sim'||v==='confirmar'||v==='na')?v:undefined;}); }catch(e){}
+  var iniciado=respostas.some(Boolean), concluido=respostas.filter(Boolean).length===ITENS.length;
 
-  /* Folha de datas */
-  var N=6, KEY='tacografo-folha-v1', DIA=86400000, linhas=[];
-  var dados={v:[],m:[]};
-  try{ var s=localStorage.getItem(KEY); if(s) dados=JSON.parse(s)||dados; }catch(e){}
-  function guardar(){ try{ localStorage.setItem(KEY, JSON.stringify(dados)); }catch(e){} }
-  function fmt(d){ return d.toLocaleDateString('pt-PT'); }
-  function hoje(){ var h=new Date(); return new Date(h.getFullYear(),h.getMonth(),h.getDate()); }
-  function parse(v){ if(!v) return null; var p=v.split('-'); return new Date(+p[0],+p[1]-1,+p[2]); }
-  function contar(){
-    var u=0,a=0,o=0;
-    linhas.forEach(function(l){ if(l.estado==='u')u++; else if(l.estado==='a')a++; else if(l.estado==='o')o++; });
-    document.getElementById('c-u').textContent=u; document.getElementById('c-a').textContent=a; document.getElementById('c-o').textContent=o;
+  var form=$('#form-teste'), res=$('#resultado'), anuncio=$('#anuncio');
+  var OPC=[['sim','sim','Sim, está registado'],['confirmar','conf','Preciso de confirmar'],['na','na','Não se aplica']];
+  ITENS.forEach(function(it,i){
+    var fs=document.createElement('fieldset'); fs.className='q';
+    var lg=document.createElement('legend');
+    lg.innerHTML='<b aria-hidden="true">'+(i+1)+'</b>'; lg.appendChild(document.createTextNode(it.q));
+    fs.appendChild(lg);
+    if(it.na){ var dica=document.createElement('p'); dica.className='dica'; dica.id='dica-'+i; dica.textContent=it.na; fs.appendChild(dica); fs.setAttribute('aria-describedby','dica-'+i); }
+    var cx=document.createElement('div'); cx.className='resp';
+    OPC.forEach(function(o){
+      if(o[0]==='na'&&!it.na) return;
+      var lb=document.createElement('label'); lb.className=o[1];
+      var inp=document.createElement('input'); inp.type='radio'; inp.name='q'+i; inp.value=o[0];
+      inp.checked=(respostas[i]===o[0]);
+      inp.addEventListener('change',function(){ responder(i,o[0]); });
+      var sp=document.createElement('span'); sp.textContent=o[2];
+      lb.appendChild(inp); lb.appendChild(sp); cx.appendChild(lb);
+    });
+    fs.appendChild(cx); form.appendChild(fs);
+  });
+
+  function responder(i,v){
+    respostas[i]=v; guardaLS(KT,JSON.stringify(respostas));
+    if(!iniciado){ iniciado=true; track('teste_inicio'); }
+    atualizaTeste(true);
   }
-  function montar(id,lista,prazo,rotulo){
-    var tb=document.querySelector('#'+id+' tbody');
-    for(var i=0;i<N;i++){
-      (function(i){
-        if(!lista[i]) lista[i]={n:'',d:''};
-        var tr=document.createElement('tr'), reg={estado:''};
-        linhas.push(reg);
-        tr.innerHTML='<td><input type="text" aria-label="'+rotulo+' '+(i+1)+'" placeholder="'+rotulo+' '+(i+1)+'"></td>'+
-          '<td><input type="date" aria-label="Última descarga '+(i+1)+'"></td><td class="lim"></td><td class="est"></td>';
-        var n=tr.querySelector('input[type=text]'), d=tr.querySelector('input[type=date]');
-        n.value=lista[i].n; d.value=lista[i].d;
-        function calc(){
-          var lim=tr.querySelector('.lim'), est=tr.querySelector('.est'), dt=parse(d.value);
-          if(!dt){ lim.textContent='—'; est.innerHTML='<span class="estado vazio">Sem data</span>'; reg.estado=''; contar(); return; }
-          var fim=new Date(dt.getTime()+prazo*DIA), falta=Math.round((fim-hoje())/DIA);
-          lim.textContent=fmt(fim);
-          if(falta<0){ est.innerHTML='<span class="estado urgente">Em atraso há '+(-falta)+' d</span>'; reg.estado='u'; }
-          else if(falta<=15){ est.innerHTML='<span class="estado atencao">Faltam '+falta+' d</span>'; reg.estado='a'; }
-          else { est.innerHTML='<span class="estado ok">Em dia · '+falta+' d</span>'; reg.estado='o'; }
-          contar();
-        }
-        n.addEventListener('input',function(){ lista[i].n=n.value; guardar(); });
-        d.addEventListener('input',function(){ lista[i].d=d.value; guardar(); calc(); });
-        calc(); tb.appendChild(tr);
-      })(i);
+  function atualizaTeste(deUtilizador){
+    var n=respostas.filter(Boolean).length;
+    $('#prog-txt').textContent=n+' de '+ITENS.length+' respondidas';
+    var b=$('#prog-barra'); b.style.width=(n/ITENS.length*100)+'%';
+    var bar=b.parentNode; bar.setAttribute('aria-valuenow',n);
+    if(n<ITENS.length){ res.className='resultado'; res.innerHTML=''; if(deUtilizador) anuncio.textContent=n+' de '+ITENS.length+' respondidas.'; return; }
+    var porConf=ITENS.filter(function(it,i){return respostas[i]==='confirmar';});
+    var conf=respostas.filter(function(v){return v==='sim';}).length;
+    var na=respostas.filter(function(v){return v==='na';}).length;
+    mostraResultado(porConf,conf,na);
+    if(!concluido){ concluido=true; track('teste_conclusao',{estado:porConf.length?'com_pontos_por_confirmar':'tudo_confirmado'}); }
+    if(deUtilizador) anuncio.textContent='Resultado disponível: '+(porConf.length?porConf.length+(porConf.length===1?' ponto por confirmar.':' pontos por confirmar.'):'sem pontos por confirmar nas respostas aplicáveis.');
+  }
+  function el(tag,cls,txt){ var e=document.createElement(tag); if(cls) e.className=cls; if(txt!=null) e.textContent=txt; return e; }
+  function link(txt,href,attrs){ var a=document.createElement('a'); a.textContent=txt; a.href=href; for(var k in (attrs||{})) a.setAttribute(k,attrs[k]); return a; }
+  function convite(n){
+    var c=el('div','convite');
+    var h=el('h4','',n?(n===1?'Quer olhar para este ponto com outra pessoa?':'Quer olhar para estes '+n+' pontos com outra pessoa?'):'Quer uma segunda leitura aos seus registos e escalas?');
+    c.appendChild(h);
+    c.appendChild(el('p','',n
+      ?'Numa conversa de 40 minutos, vemos os pontos que ficaram por confirmar e definimos por onde começar. É uma conversa de orientação sobre a organização da frota.'
+      :'Numa conversa de 40 minutos, vemos os seus registos e as escalas e discutimos o que manter e o que reforçar. É uma conversa de orientação sobre a organização da frota.'));
+    var a=link('Marcar conversa de 40 minutos',CAL,{'class':'btn','target':'_blank','rel':'noopener','data-cta':'resultado'});
+    var vh=el('span','vh',' (abre numa nova janela)'); a.appendChild(vh);
+    c.appendChild(a);
+    c.appendChild(el('p','peq','Não é uma auditoria, nem uma certificação, nem aconselhamento jurídico.'));
+    return c;
+  }
+  function mostraResultado(porConf,conf,na){
+    res.innerHTML=''; res.className='resultado on';
+    var resumo=conf+(conf===1?' ponto registado':' pontos registados')+(na?', '+na+(na===1?' marcado como «não se aplica»':' marcados como «não se aplica»'):'')+'.';
+    if(!porConf.length){
+      res.appendChild(el('h3','','Todas as respostas aplicáveis estão registadas'));
+      res.appendChild(el('p','','Tem boa organização documental nestes cinco pontos: '+resumo+' «Não se aplica» não conta como falha nem como prova de cumprimento; confirme que realmente não se aplica à sua operação.'));
+      var p=el('p',''); p.appendChild(document.createTextNode('Para manter assim, use a ')); p.appendChild(link('folha de datas','#ficha')); p.appendChild(document.createTextNode(' e percorra os 7 pontos para ver o que o teste não cobre.')); res.appendChild(p);
+    }else{
+      res.appendChild(el('h3','',porConf.length+(porConf.length===1?' ponto por confirmar':' pontos por confirmar')));
+      res.appendChild(el('p','','Ficaram por confirmar '+porConf.length+' de 5. '+resumo.charAt(0).toUpperCase()+resumo.slice(1)));
+      var lista=el('ol','');
+      porConf.slice().sort(function(a,b){return a.ordem-b.ordem;}).forEach(function(it){
+        var li=el('li','');
+        li.appendChild(el('span','nm',it.nome));
+        li.appendChild(el('span','pz',it.prazo));
+        li.appendChild(el('div','',it.acao));
+        var d=el('div',''); d.appendChild(link('Abrir o '+NOME_PONTO[it.ponto]+' do guia','#'+it.ponto,{'data-rec':'lista'}));
+        li.appendChild(d); lista.appendChild(li);
+      });
+      res.appendChild(lista);
+      var prim=porConf.slice().sort(function(a,b){return a.ordem-b.ordem;})[0];
+      var pr=el('div','primeira');
+      var pb=el('strong','','Primeira ação sugerida: '); pr.appendChild(pb);
+      pr.appendChild(document.createTextNode(prim.nome.charAt(0).toLowerCase()+prim.nome.slice(1)+'. '));
+      pr.appendChild(document.createTextNode('Critério: dos pontos por confirmar, é o que o guia associa ao prazo ou à janela de ação mais curta ('+prim.prazo+'). É um critério de calendário, não uma classificação jurídica de risco. '));
+      pr.appendChild(link('Abrir o '+NOME_PONTO[prim.ponto],'#'+prim.ponto,{'data-rec':'primeira_acao'}));
+      res.appendChild(pr);
     }
+    var av=el('p','aviso','Isto é uma autoavaliação, não uma auditoria nem uma certificação. Mede se consegue confirmar informação num registo atualizado, ou seja, organização documental. Não mede se a sua empresa cumpre a lei, nem substitui aconselhamento jurídico.');
+    res.appendChild(av);
+    res.appendChild(convite(porConf.length));
   }
-  montar('t-veic',dados.v,90,'Viatura');
-  montar('t-mot',dados.m,28,'Motorista');
-  document.getElementById('imprimir').addEventListener('click',function(){ window.print(); });
-  document.getElementById('limpar').addEventListener('click',function(){
-    if(!confirm('Limpar todos os dados desta folha?')) return;
-    try{ localStorage.removeItem(KEY); }catch(e){}
-    location.reload();
+  res.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[data-rec]');
+    if(a) track('recomendacao_clique',{origem:a.getAttribute('data-rec')});
+  });
+  $('#recomecar').addEventListener('click',function(){
+    respostas=[]; apagaLS(KT); iniciado=false; concluido=false;
+    $$('input[type=radio]',form).forEach(function(r){r.checked=false;});
+    atualizaTeste(false); anuncio.textContent='Teste recomeçado. Respostas apagadas.';
+    var primeiro=$('input[type=radio]',form); if(primeiro) primeiro.focus();
+  });
+  atualizaTeste(false);
+
+  /* ---------- Folha de datas ---------- */
+  var KEY2='tacografo-folha-v2', KEY1='tacografo-folha-v1', MAXL=300, MAXN=60;
+  var PRAZO={v:90,m:28}, ROTULO={v:'Viatura',m:'Motorista'};
+  var folha={versao:2,v:[],m:[]};
+  var msg=$('#msg-folha');
+  function aviso(t,erro){ msg.textContent=t; msg.className='msg'+(erro?' erro':''); }
+
+  function limpaLista(l){
+    var out=[]; if(!Array.isArray(l)) return out;
+    for(var i=0;i<l.length&&out.length<MAXL;i++){
+      var x=l[i]||{}; var n=String(x.n==null?'':x.n).slice(0,MAXN), d=String(x.d==null?'':x.d);
+      if(!/^\d{4}-\d{2}-\d{2}$/.test(d)||!dataValida(d)) d='';
+      out.push({n:n,d:d});
+    }
+    return out;
+  }
+  function dataValida(s){ var p=s.split('-'); var dt=new Date(Date.UTC(+p[0],+p[1]-1,+p[2])); return dt.getUTCFullYear()==+p[0]&&dt.getUTCMonth()==+p[1]-1&&dt.getUTCDate()==+p[2]; }
+  function temDados(){ return folha.v.concat(folha.m).some(function(x){return x.n||x.d;}); }
+  function guardarFolha(){
+    var ok=guardaLS(KEY2,JSON.stringify(folha));
+    if(!ok) aviso('Não foi possível guardar neste navegador. Exporte uma cópia para não perder os dados.',true);
+  }
+  (function carregar(){
+    var s2=leLS(KEY2);
+    if(s2){ try{ var o=JSON.parse(s2); folha={versao:2,v:limpaLista(o.v),m:limpaLista(o.m)}; return; }catch(e){} }
+    var s1=leLS(KEY1); /* migração da versão anterior (não apaga a chave antiga) */
+    if(s1){ try{ var o1=JSON.parse(s1); folha={versao:2,v:limpaLista(o1.v),m:limpaLista(o1.m)}; if(temDados()){ guardaLS(KEY2,JSON.stringify(folha)); } }catch(e){} }
+  })();
+  ['v','m'].forEach(function(t){ while(folha[t].length<3) folha[t].push({n:'',d:''}); });
+
+  function hojeUTC(){ var h=new Date(); return Date.UTC(h.getFullYear(),h.getMonth(),h.getDate()); }
+  function isoLocalHoje(){ var h=new Date(); function z(n){return (n<10?'0':'')+n;} return h.getFullYear()+'-'+z(h.getMonth()+1)+'-'+z(h.getDate()); }
+  function fmtUTC(ms){ return new Date(ms).toLocaleDateString('pt-PT',{timeZone:'UTC'}); }
+  function avaliar(d,prazo){
+    if(!d) return {k:'vazio'};
+    var p=d.split('-'), dt=Date.UTC(+p[0],+p[1]-1,+p[2]), h=hojeUTC();
+    if(dt>h) return {k:'futuro'};
+    var fim=Date.UTC(+p[0],+p[1]-1,+p[2]+prazo), falta=Math.round((fim-h)/86400000);
+    var r={fim:fim,falta:falta};
+    if(falta<0){ r.k='atraso'; r.t='Em atraso há '+(-falta)+(falta===-1?' dia':' dias'); }
+    else if(falta===0){ r.k='hoje'; r.t='Vence hoje'; }
+    else if(falta<=15){ r.k='atencao'; r.t='Faltam '+falta+(falta===1?' dia':' dias'); }
+    else { r.k='ok'; r.t='Em dia · '+falta+' dias'; }
+    return r;
+  }
+  var CLS={vazio:'vazio',futuro:'futuro',atraso:'urgente',hoje:'atencao',atencao:'atencao',ok:'ok'};
+
+  function renderLista(t,focoIdx){
+    var tb=$('#t-'+t+' tbody'); tb.innerHTML='';
+    folha[t].forEach(function(item,i){ tb.appendChild(linha(t,i,item)); });
+    atualizaContadores();
+    if(focoIdx!=null){ var f=$('tr:nth-child('+(focoIdx+1)+') input[type=text]',tb); if(f) f.focus(); }
+  }
+  function linha(t,i,item){
+    var tr=document.createElement('tr'), r=ROTULO[t];
+    function td(cls,l){ var c=document.createElement('td'); if(cls) c.className=cls; c.setAttribute('data-l',l); tr.appendChild(c); return c; }
+    var nome=document.createElement('input'); nome.type='text'; nome.maxLength=MAXN; nome.value=item.n; nome.autocomplete='off';
+    nome.setAttribute('aria-label',r+' '+(i+1)+': identificação'); nome.placeholder=r+' '+(i+1);
+    td('id',r).appendChild(nome);
+    var dat=document.createElement('input'); dat.type='date'; dat.value=item.d; dat.max=isoLocalHoje();
+    dat.setAttribute('aria-label',r+' '+(i+1)+': data da última descarga');
+    td('',' Última descarga'.trim()).appendChild(dat);
+    var lim=td('lim','Data-limite'), est=td('est','Estado'), rm=td('rm','');
+    var bt=document.createElement('button'); bt.type='button'; bt.textContent='×'; bt.setAttribute('aria-label','Remover '+r.toLowerCase()+' '+(i+1));
+    rm.appendChild(bt);
+    var info=document.createElement('span'); info.className='vh'; info.id='fut-'+t+i; info.textContent='A data não pode estar no futuro.';
+    function calc(){
+      var a=avaliar(dat.value,PRAZO[t]), b=document.createElement('span');
+      b.className='estado '+CLS[a.k];
+      if(a.k==='vazio'){ lim.textContent='—'; b.textContent=nome.value.trim()?'Sem data':'—'; if(!nome.value.trim()) b.className='estado vazio'; }
+      else if(a.k==='futuro'){ lim.textContent='—'; b.textContent='Data no futuro'; }
+      else { lim.textContent=fmtUTC(a.fim); b.textContent=a.t; }
+      est.innerHTML=''; est.appendChild(b);
+      if(a.k==='futuro'){ dat.setAttribute('aria-invalid','true'); dat.setAttribute('aria-describedby',info.id); est.appendChild(info); }
+      else { dat.removeAttribute('aria-invalid'); dat.removeAttribute('aria-describedby'); }
+      tr.className=(!nome.value.trim()&&!dat.value)?'vazia':'';
+      a.nomeado=!!nome.value.trim(); tr._a=a; tr._n=a.nomeado||!!dat.value;
+    }
+    nome.addEventListener('input',function(){ item.n=nome.value; guardarFolha(); calc(); atualizaContadores(); });
+    dat.addEventListener('input',function(){ item.d=(dat.value&&dataValida(dat.value))?dat.value:''; guardarFolha(); calc(); atualizaContadores(); });
+    bt.addEventListener('click',function(){
+      if((item.n||item.d)&&!confirm('Remover «'+(item.n||r+' '+(i+1))+'» da folha?')) return;
+      folha[t].splice(i,1); if(!folha[t].length) folha[t].push({n:'',d:''});
+      guardarFolha(); renderLista(t); var add=$('[data-add="'+t+'"]'); if(add) add.focus();
+      aviso(r+' removido(a).');
+    });
+    calc(); return tr;
+  }
+  function atualizaContadores(){
+    var u=0,a=0,o=0,s=0;
+    $$('table.folha tbody tr').forEach(function(tr){
+      if(!tr._n) return; var x=tr._a;
+      if(x.k==='atraso') u++; else if(x.k==='hoje'||x.k==='atencao') a++; else if(x.k==='ok') o++; else s++;
+    });
+    $('#c-u').textContent=u; $('#c-a').textContent=a; $('#c-o').textContent=o; $('#c-s').textContent=s;
+  }
+  $$('[data-add]').forEach(function(b){ b.addEventListener('click',function(){
+    var t=b.getAttribute('data-add'); if(folha[t].length>=MAXL){ aviso('Limite de '+MAXL+' linhas atingido.',true); return; }
+    folha[t].push({n:'',d:''}); renderLista(t,folha[t].length-1); aviso(ROTULO[t]+' adicionado(a).');
+  }); });
+  renderLista('v'); renderLista('m');
+
+  /* exportar / importar / imprimir / limpar */
+  function descarregar(nome,texto,tipo){
+    var blob=new Blob([texto],{type:tipo}), url=URL.createObjectURL(blob);
+    var a=document.createElement('a'); a.href=url; a.download=nome; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){URL.revokeObjectURL(url);},2000);
+  }
+  function ficheiro(ext){ return 'folha-datas-tacografo-'+isoLocalHoje()+'.'+ext; }
+  $('#exp-json').addEventListener('click',function(){
+    var o={tipo:'guia-tacografo-folha',versao:2,exportado:new Date().toISOString(),
+      viaturas:folha.v.filter(function(x){return x.n||x.d;}).map(function(x){return {identificacao:x.n,ultima_descarga:x.d};}),
+      motoristas:folha.m.filter(function(x){return x.n||x.d;}).map(function(x){return {identificacao:x.n,ultima_descarga:x.d};})};
+    descarregar(ficheiro('json'),JSON.stringify(o,null,2),'application/json');
+    track('folha_exportar',{formato:'json'});
+    aviso('Cópia exportada. O ficheiro contém os dados que introduziu: guarde-o em local seguro.');
+  });
+  function csvCel(s){ s=String(s==null?'':s); if(/^[=+\-@\t\r]/.test(s)) s="'"+s; return '"'+s.replace(/"/g,'""')+'"'; }
+  $('#exp-csv').addEventListener('click',function(){
+    var linhas=[['tipo','identificacao','ultima_descarga','prazo_dias','data_limite','estado']];
+    [['v','Viatura'],['m','Motorista']].forEach(function(p){
+      folha[p[0]].forEach(function(x){
+        if(!x.n&&!x.d) return;
+        var a=avaliar(x.d,PRAZO[p[0]]);
+        var lim=a.fim!=null?new Date(a.fim).toISOString().slice(0,10):'';
+        var est=a.k==='vazio'?'Sem data':a.k==='futuro'?'Data no futuro':a.t;
+        linhas.push([p[1],x.n,x.d,PRAZO[p[0]],lim,est]);
+      });
+    });
+    descarregar(ficheiro('csv'),'﻿'+linhas.map(function(l){return l.map(csvCel).join(';');}).join('\r\n'),'text/csv;charset=utf-8');
+    track('folha_exportar',{formato:'csv'});
+    aviso('CSV exportado (separador «;», datas AAAA-MM-DD).');
+  });
+  $('#imp').addEventListener('click',function(){ $('#imp-f').click(); });
+  $('#imp-f').addEventListener('change',function(ev){
+    var f=ev.target.files&&ev.target.files[0]; ev.target.value=''; if(!f) return;
+    if(f.size>1000000){ aviso('Ficheiro demasiado grande.',true); return; }
+    var rd=new FileReader();
+    rd.onload=function(){
+      var o; try{ o=JSON.parse(rd.result); }catch(e){ aviso('O ficheiro não é um JSON válido.',true); return; }
+      if(!o||o.tipo!=='guia-tacografo-folha'||!Array.isArray(o.viaturas)||!Array.isArray(o.motoristas)){ aviso('Este ficheiro não é uma cópia desta folha.',true); return; }
+      if(temDados()&&!confirm('Substituir os dados atuais da folha pelos do ficheiro?')) { aviso('Importação cancelada.'); return; }
+      function conv(l){ return limpaLista(l.map(function(x){return {n:x&&x.identificacao,d:x&&x.ultima_descarga};})); }
+      folha={versao:2,v:conv(o.viaturas),m:conv(o.motoristas)};
+      ['v','m'].forEach(function(t){ while(folha[t].length<3) folha[t].push({n:'',d:''}); });
+      guardarFolha(); renderLista('v'); renderLista('m');
+      aviso('Importadas '+(o.viaturas.length+o.motoristas.length)+' linhas.');
+    };
+    rd.onerror=function(){ aviso('Não foi possível ler o ficheiro.',true); };
+    rd.readAsText(f);
+  });
+  $('#imprimir').addEventListener('click',function(){ window.print(); });
+  $('#limpar').addEventListener('click',function(){
+    if(temDados()&&!confirm('Limpar todos os dados da folha? Esta ação não se pode desfazer. Se quiser, exporte primeiro uma cópia.')) return;
+    folha={versao:2,v:[],m:[]}; ['v','m'].forEach(function(t){ while(folha[t].length<3) folha[t].push({n:'',d:''}); });
+    guardaLS(KEY2,JSON.stringify({versao:2,v:[],m:[]})); apagaLS(KEY1);
+    renderLista('v'); renderLista('m'); aviso('Folha limpa.');
   });
 })();
 </script>
