@@ -85,6 +85,10 @@ td.sim{font-weight:600;color:var(--noite)}
 .fecho h2{color:var(--branco);font-size:36px}
 .fecho p{max-width:36em}
 .fecho .peq{font-size:14px;color:#C9D3DF;margin-top:12px}
+.fecho .peq strong{color:var(--branco)}
+.fecho-fx{display:flex;gap:32px;align-items:center}
+.fecho-fx .foto{flex:none;width:200px;height:200px;border-radius:50%;object-fit:cover;border:4px solid var(--amarelo);background:#14181d}
+@media(max-width:640px){.fecho-fx{flex-direction:column;align-items:flex-start;gap:20px}.fecho-fx .foto{width:140px;height:140px}}
 @media(max-width:640px){.fecho{padding:36px 16px}}
 .rodape{padding:22px 40px 36px;font-size:13px;color:var(--nota)}
 @media(max-width:640px){.rodape{padding:22px 16px 32px}}
@@ -290,10 +294,15 @@ td.sim{font-weight:600;color:var(--noite)}
 </div>
 
 <footer class="fecho" id="agendar">
-  <h2>Quer ver isto na sua frota?</h2>
-  <p>Numa conversa de 40 minutos, olhamos para as datas, os cartões e as escalas da sua frota e digo-lhe com franqueza onde estão os riscos e o que resolver primeiro. Sem apresentações comerciais.</p>
-  <a class="botao" href="https://cal.com/ruben-neves-gthpo6/40min" target="_blank" rel="noopener">Marcar conversa de 40 minutos</a>
-  <p class="peq">Escolhe o dia e a hora que lhe der mais jeito. Rúben Neves · gestão de frotas.</p>
+  <div class="fecho-fx">
+    <img class="foto" src="ruben-neves.jpg" alt="Rúben Neves" width="200" height="200">
+    <div>
+      <h2>Quer ver isto na sua frota?</h2>
+      <p>Numa conversa de 40 minutos, olhamos para as datas, os cartões e as escalas da sua frota e digo-lhe com franqueza onde estão os riscos e o que resolver primeiro. Sem apresentações comerciais.</p>
+      <a class="botao" href="https://cal.com/ruben-neves/40min" target="_blank" rel="noopener">Marcar conversa de 40 minutos</a>
+      <p class="peq">Escolhe o dia e a hora que lhe der mais jeito.<br><strong>Rúben Neves</strong> · gestão de frotas</p>
+    </div>
+  </div>
 </footer>
 <div class="rodape">© Rúben Neves · Método Demanda Infinita®</div>
 </div>
