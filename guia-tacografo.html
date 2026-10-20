@@ -4,118 +4,226 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tacógrafo sem sustos · Guia · Rúben Neves</title>
-<meta name="description" content="Guia curto sobre o tacógrafo em Portugal e na UE, para pesados de mercadorias e de passageiros.">
+<meta name="description" content="Guia curto sobre o tacógrafo em Portugal e na UE, para pesados de mercadorias e de passageiros. Teste de 2 minutos e folha de datas incluídos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --noite:#0E2238; --amarelo:#F2B705; --asfalto:#4A5560; --nota:#6B7580;
-  --claro:#F2F4F7; --branco:#FFFFFF; --ok:#17784A; --atencao:#F2B705; --urgente:#C8372D;
-  --amarelo-suave:#FFF6D6;
+  --laranja:#F47735; --laranja-suave:#FEEFE6; --carvao:#111111; --carvao2:#333333;
+  --texto:#444444; --nota:#6B6B6B; --claro:#F5F5F5; --linha:#E4E4E4; --branco:#FFFFFF;
+  --ok:#17784A; --atencao:#F47735; --urgente:#C8372D;
+  --raio:14px;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--claro);color:var(--asfalto);font-family:Barlow,Arial,sans-serif;font-size:17px;line-height:1.55}
-h1,h2,h3{font-family:"Barlow Semi Condensed",Arial,sans-serif;color:var(--noite);font-weight:700;line-height:1.15;margin:0}
-.pagina{max-width:860px;margin:0 auto;background:var(--branco)}
-.miolo{padding:0 40px}
-@media(max-width:640px){.miolo{padding:0 16px}body{font-size:16px}}
-
-.capa{background:var(--noite);color:var(--branco);padding:68px 40px 52px}
-.capa .sup{font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:14px;color:#C9D3DF}
-.capa h1{color:var(--branco);font-size:clamp(44px,9vw,76px);margin:18px 0 0}
-.capa h1 .sub{background:linear-gradient(transparent 82%,var(--amarelo) 82%,var(--amarelo) 94%,transparent 94%);padding-bottom:2px}
-.estrada{height:0;border-top:5px dashed var(--amarelo);width:200px;margin:22px 0}
-.capa p.promessa{font-size:20px;max-width:34em;margin:0;color:#E6ECF3}
-.capa .autor{margin-top:40px;font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:700;font-size:22px;color:var(--branco)}
-.capa .autor::after{content:"";display:block;width:90px;margin-top:6px;border-top:4px dashed var(--amarelo)}
-.capa .data{margin-top:14px;font-size:14px;color:#C9D3DF}
-@media(max-width:640px){.capa{padding:48px 16px 40px}}
-
-section{padding:40px 0 6px}
-h2{font-size:32px;margin-bottom:14px}
-h3{font-size:21px;margin:22px 0 8px}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:76px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--claro);color:var(--texto);font-family:Roboto,Arial,sans-serif;font-size:17px;line-height:1.6}
+h1,h2,h3{font-family:Mitr,Arial,sans-serif;color:var(--carvao);font-weight:600;line-height:1.2;margin:0}
 p{margin:0 0 12px}
-ul{margin:0 0 14px;padding-left:22px}
-li{margin-bottom:6px}
-a{color:var(--noite);text-decoration-thickness:2px;text-decoration-color:var(--amarelo);text-underline-offset:3px}
-strong{color:var(--noite)}
-.fonte{font-size:13px;color:var(--nota);margin-top:-4px}
+a{color:var(--carvao);text-decoration-thickness:2px;text-decoration-color:var(--laranja);text-underline-offset:3px}
+strong{color:var(--carvao)}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px}
+@media(max-width:640px){.wrap{padding:0 16px}body{font-size:16px}}
+:focus-visible{outline:3px solid var(--laranja);outline-offset:2px}
 
-.caixa{background:var(--claro);border-radius:10px;padding:16px 20px;margin:16px 0}
-.caixa.amarela{background:var(--amarelo-suave);border-left:6px solid var(--amarelo)}
+/* Botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--laranja);color:var(--carvao);font-family:Roboto,Arial,sans-serif;font-weight:700;font-size:17px;text-decoration:none;padding:14px 26px;border-radius:999px;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(244,119,53,.35)}
+.btn.sec{background:transparent;color:var(--branco);box-shadow:inset 0 0 0 2px rgba(255,255,255,.45)}
+.btn.sec:hover{box-shadow:inset 0 0 0 2px var(--branco);transform:none}
+.btn.peq{font-size:14px;padding:9px 18px}
+.btn.escuro{background:var(--carvao);color:var(--branco)}
 
-.numeros{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
-.numero{background:var(--claro);border-radius:10px;padding:14px 16px}
-.numero .n{font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:700;font-size:38px;color:var(--noite);line-height:1}
-.numero .n small{font-size:18px;font-weight:600}
-.numero .l{font-size:14.5px;margin-top:6px}
+/* Barra superior */
+.topo{position:sticky;top:0;z-index:50;background:rgba(17,17,17,.96);backdrop-filter:blur(6px);color:var(--branco)}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:58px}
+.topo .nome{font-family:Mitr,Arial,sans-serif;font-weight:600;font-size:17px;white-space:nowrap}
+.topo .nome span{color:var(--laranja)}
+.topo nav{display:flex;gap:4px;align-items:center}
+.topo nav a{color:#D9D9D9;text-decoration:none;font-size:14px;font-weight:500;padding:6px 10px;border-radius:999px}
+.topo nav a:hover{color:var(--branco);background:rgba(255,255,255,.1)}
+@media(max-width:760px){.topo nav a.l{display:none}}
+.progresso{height:3px;background:rgba(255,255,255,.15)}
+.progresso i{display:block;height:100%;width:0;background:var(--laranja)}
 
-.item{border-top:2px solid var(--claro);padding-top:28px;margin-top:28px}
-.item-cab{display:flex;align-items:center;gap:14px;margin-bottom:12px}
-.bola{flex:none;width:44px;height:44px;border-radius:50%;background:var(--amarelo);color:var(--noite);font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:700;font-size:23px;display:flex;align-items:center;justify-content:center}
-.item-cab h2{margin:0;font-size:28px}
+/* Capa */
+.capa{background:var(--carvao);color:var(--branco);padding:64px 0 56px;background-image:radial-gradient(circle at 85% 0%,rgba(244,119,53,.22),transparent 55%)}
+.capa .sup{font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:13px;color:#CFCFCF}
+.capa h1{color:var(--branco);font-size:clamp(46px,9vw,80px);margin:16px 0 0;font-weight:700}
+.capa h1 em{font-style:normal;color:var(--laranja)}
+.capa .traco{width:120px;height:5px;background:var(--laranja);border-radius:3px;margin:22px 0}
+.capa .promessa{font-size:20px;max-width:34em;color:#E8E8E8;margin-bottom:26px}
+.capa .acoes{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0 0 26px;list-style:none}
+.chips li{margin:0;font-size:14px;color:#E8E8E8;background:rgba(255,255,255,.1);padding:6px 14px;border-radius:999px}
+.capa .autor{display:flex;align-items:center;gap:12px;font-size:15px;color:#CFCFCF}
+.capa .autor img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--laranja);background:#222}
+.capa .autor strong{color:var(--branco)}
 
-table{width:100%;border-collapse:collapse;margin:14px 0 18px;font-size:15.5px}
-th{background:var(--noite);color:var(--branco);text-align:left;font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:600;padding:9px 12px}
-td{padding:9px 12px;vertical-align:top;border-bottom:1px solid #E1E5EA}
-tbody tr:nth-child(even) td{background:var(--claro)}
-.tabela-scroll{overflow-x:auto}
-td.sim{font-weight:600;color:var(--noite)}
+section{padding:48px 0 8px}
+h2{font-size:clamp(26px,4.5vw,34px);margin-bottom:14px}
+h3{font-size:20px;margin:24px 0 8px}
+.kicker{font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:13px;color:var(--carvao);display:inline-block;background:var(--laranja);padding:3px 10px;border-radius:999px;margin-bottom:12px}
+.fonte{font-size:13px;color:var(--nota);margin:4px 0 12px}
+
+/* Números */
+.numeros{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:18px 0}
+.numero{background:var(--branco);border-radius:var(--raio);padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.06);border-top:4px solid var(--laranja)}
+.numero .n{font-family:Mitr,Arial,sans-serif;font-weight:700;font-size:42px;color:var(--carvao);line-height:1}
+.numero .n small{font-size:17px;font-weight:600}
+.numero .l{font-size:14.5px;margin-top:8px;line-height:1.4}
 
 /* Teste */
-.teste{background:var(--noite);color:#E6ECF3;border-radius:12px;padding:26px 28px;margin:26px 0}
-.teste h2{color:var(--branco);font-size:28px}
-.teste ol{margin:0 0 14px;padding-left:22px}
-.teste li{margin-bottom:8px}
-.teste strong{color:var(--branco)}
+.teste{background:var(--carvao);color:#E8E8E8;border-radius:20px;padding:30px;margin:12px 0 0}
+.teste h2{color:var(--branco);margin-bottom:6px}
+.teste .sub{color:#CFCFCF;margin-bottom:18px}
+.q{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14)}
+.q .t{flex:1}
+.q .t b{color:var(--laranja);font-family:Mitr,Arial,sans-serif;margin-right:8px}
+.resp{display:flex;gap:6px;flex:none}
+.resp button{font:inherit;font-size:14px;font-weight:700;padding:8px 16px;border-radius:999px;border:2px solid rgba(255,255,255,.35);background:transparent;color:var(--branco);cursor:pointer}
+.resp button:hover{border-color:var(--branco)}
+.resp button[aria-pressed=true].sim{background:var(--ok);border-color:var(--ok)}
+.resp button[aria-pressed=true].nao{background:var(--laranja);border-color:var(--laranja);color:var(--carvao)}
+@media(max-width:640px){.q{flex-direction:column;align-items:flex-start;gap:10px}}
+.resultado{margin-top:18px;border-radius:12px;padding:18px 20px;background:rgba(255,255,255,.08);display:none}
+.resultado.on{display:block}
+.resultado h3{color:var(--branco);margin:0 0 6px}
+.resultado.alerta{background:var(--laranja);color:var(--carvao)}
+.resultado.alerta h3,.resultado.alerta strong{color:var(--carvao)}
+.resultado .btn{margin-top:8px}
+.resultado.alerta .btn{background:var(--carvao);color:var(--branco)}
+.score{font-size:14px;color:#CFCFCF;margin-top:12px}
 
-.ficha input[type=date],.ficha input[type=text]{font:inherit;font-size:15px;padding:7px 9px;border:2px solid var(--amarelo);background:var(--amarelo-suave);border-radius:6px;color:var(--noite);width:100%;min-width:0}
-.estado{display:inline-block;padding:3px 10px;border-radius:999px;font-weight:600;font-size:14px;color:var(--branco);white-space:nowrap}
+/* Pontos (acordeão) */
+.barra-pontos{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.barra-pontos button{font:inherit;font-size:14px;font-weight:700;background:none;border:0;color:var(--carvao);text-decoration:underline;text-decoration-color:var(--laranja);text-decoration-thickness:2px;text-underline-offset:3px;cursor:pointer;padding:6px 0}
+details.ponto{background:var(--branco);border-radius:var(--raio);margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
+details.ponto summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:18px 20px}
+details.ponto summary::-webkit-details-marker{display:none}
+.bola{flex:none;width:46px;height:46px;border-radius:50%;background:var(--laranja);color:var(--carvao);font-family:Mitr,Arial,sans-serif;font-weight:700;font-size:23px;display:flex;align-items:center;justify-content:center}
+.resumo-t{flex:1;min-width:0}
+.resumo-t h3{margin:0;font-size:20px}
+.resumo-t p{margin:2px 0 0;font-size:15px;color:var(--nota);line-height:1.4}
+.seta{flex:none;width:28px;height:28px;border-radius:50%;background:var(--claro);position:relative;transition:transform .2s}
+.seta::after{content:"";position:absolute;left:9px;top:8px;width:7px;height:7px;border-right:2px solid var(--carvao);border-bottom:2px solid var(--carvao);transform:rotate(45deg)}
+details[open]>summary .seta{transform:rotate(180deg);background:var(--laranja)}
+.corpo{padding:4px 22px 22px 22px;border-top:1px solid var(--linha)}
+@media(max-width:640px){.corpo{padding:4px 16px 18px}details.ponto summary{padding:14px 14px;gap:12px}.bola{width:40px;height:40px;font-size:20px}}
+.corpo ul{margin:0 0 14px;padding-left:22px}
+.corpo li{margin-bottom:6px}
+.caixa{background:var(--claro);border-radius:12px;padding:14px 18px;margin:16px 0}
+.caixa.fazer{background:var(--laranja-suave);border-left:6px solid var(--laranja)}
+.caixa.fazer b{font-family:Mitr,Arial,sans-serif;font-weight:600;color:var(--carvao)}
+.caixa.fazer ul{margin:6px 0 0}
+.caixa.fazer li:last-child{margin-bottom:0}
+
+table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:15.5px}
+th{background:var(--carvao);color:var(--branco);text-align:left;font-family:Mitr,Arial,sans-serif;font-weight:500;padding:10px 12px}
+td{padding:10px 12px;vertical-align:top;border-bottom:1px solid var(--linha)}
+tbody tr:nth-child(even) td{background:var(--claro)}
+td.sim{font-weight:700;color:var(--carvao)}
+.tabela-scroll{overflow-x:auto}
+
+/* Chamada intermédia */
+.cta-meio{background:var(--branco);border-radius:20px;padding:26px 28px;margin:30px 0 0;display:flex;align-items:center;justify-content:space-between;gap:20px;border-left:8px solid var(--laranja);box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.cta-meio h3{margin:0 0 4px}
+.cta-meio p{margin:0}
+@media(max-width:640px){.cta-meio{flex-direction:column;align-items:flex-start;padding:22px 18px}}
+
+/* Folha */
+.ficha-wrap{background:var(--branco);border-radius:20px;padding:28px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+@media(max-width:640px){.ficha-wrap{padding:18px 12px}}
+.contadores{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 6px}
+.contador{border-radius:12px;padding:12px;text-align:center;background:var(--claro)}
+.contador b{display:block;font-family:Mitr,Arial,sans-serif;font-size:30px;line-height:1.1}
+.contador span{font-size:13px}
+.contador.u b{color:var(--urgente)}.contador.a b{color:#B8501A}.contador.o b{color:var(--ok)}
+.ficha input[type=date],.ficha input[type=text]{font:inherit;font-size:15px;padding:8px 10px;border:2px solid var(--laranja);background:var(--laranja-suave);border-radius:8px;color:var(--carvao);width:100%;min-width:130px}
+.estado{display:inline-block;padding:3px 12px;border-radius:999px;font-weight:700;font-size:13.5px;color:var(--branco);white-space:nowrap}
 .estado.ok{background:var(--ok)}
-.estado.atencao{background:var(--atencao);color:var(--noite)}
+.estado.atencao{background:var(--laranja);color:var(--carvao)}
 .estado.urgente{background:var(--urgente)}
-.estado.vazio{background:#E1E5EA;color:var(--nota)}
+.estado.vazio{background:var(--linha);color:var(--nota)}
 .ficha td{vertical-align:middle}
+.ficha-acoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn-linha{font:inherit;font-size:14px;font-weight:700;padding:9px 16px;border:2px solid var(--carvao);background:var(--branco);color:var(--carvao);border-radius:999px;cursor:pointer}
 
-.botao{display:inline-block;background:var(--amarelo);color:var(--noite);font-weight:600;font-size:18px;text-decoration:none;padding:14px 26px;border-radius:8px}
-.botao:hover{filter:brightness(.95)}
-.fecho{background:var(--noite);color:#E6ECF3;padding:48px 40px;margin-top:44px}
-.fecho h2{color:var(--branco);font-size:36px}
+/* Fecho */
+.fecho{background:var(--carvao);color:#E8E8E8;padding:56px 0;margin-top:56px;background-image:radial-gradient(circle at 10% 100%,rgba(244,119,53,.2),transparent 55%)}
+.fecho h2{color:var(--branco);font-size:clamp(28px,5vw,38px)}
 .fecho p{max-width:36em}
-.fecho .peq{font-size:14px;color:#C9D3DF;margin-top:12px}
+.fecho ul{padding:0;margin:0 0 22px;list-style:none}
+.fecho li{padding-left:28px;position:relative;margin-bottom:8px}
+.fecho li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;border-radius:50%;background:var(--laranja)}
+.fecho-fx{display:flex;gap:36px;align-items:center}
+.fecho-fx .foto{flex:none;width:210px;height:210px;border-radius:50%;object-fit:cover;border:5px solid var(--laranja);background:#222}
+.fecho .peq{font-size:14px;color:#CFCFCF;margin:14px 0 0}
 .fecho .peq strong{color:var(--branco)}
-.fecho-fx{display:flex;gap:32px;align-items:center}
-.fecho-fx .foto{flex:none;width:200px;height:200px;border-radius:50%;object-fit:cover;border:4px solid var(--amarelo);background:#14181d}
-@media(max-width:640px){.fecho-fx{flex-direction:column;align-items:flex-start;gap:20px}.fecho-fx .foto{width:140px;height:140px}}
-@media(max-width:640px){.fecho{padding:36px 16px}}
-.rodape{padding:22px 40px 36px;font-size:13px;color:var(--nota)}
-@media(max-width:640px){.rodape{padding:22px 16px 32px}}
+@media(max-width:640px){.fecho-fx{flex-direction:column-reverse;align-items:flex-start;gap:20px}.fecho-fx .foto{width:130px;height:130px}}
+.fontes ul{font-size:15px;padding-left:20px}
+.fontes li{margin-bottom:6px}
+.aviso{font-size:14px;color:var(--nota)}
+.rodape{padding:22px 0 90px;font-size:13px;color:var(--nota);text-align:center;background:var(--carvao);color:#9A9A9A}
+
+/* Barra fixa móvel */
+.fixa{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--carvao);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .25s;box-shadow:0 -4px 18px rgba(0,0,0,.25)}
+.fixa.on{transform:none}
+.fixa span{color:var(--branco);font-size:14px;line-height:1.3}
+.fixa .btn{padding:11px 20px;font-size:15px;white-space:nowrap}
+@media(max-width:760px){.fixa{display:flex}}
 
 @media print{
-  body{background:#fff;font-size:12pt}
-  .item,.caixa,table,.numero,.teste{break-inside:avoid}
-  .capa,.fecho,.teste,th,.bola,.estado,.botao{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .noprint{display:none}
+  body{background:#fff;font-size:11.5pt}
+  .topo,.fixa,.noprint,.cta-meio,.barra-pontos,.capa .acoes,.seta{display:none!important}
+  details.ponto,.caixa,table,.numero,.teste{break-inside:avoid}
+  .capa,.fecho,.teste,th,.bola,.estado,.btn,.rodape,.numero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 </style>
 </head>
 <body>
-<div class="pagina">
 
-<header class="capa">
-  <div class="sup">Guia curto · Mercadorias e passageiros</div>
-  <h1>Tacógrafo<br>sem <span class="sub">sustos</span></h1>
-  <div class="estrada"></div>
-  <p class="promessa">O que a lei portuguesa e a europeia exigem a quem tem camiões e autocarros, em 7 pontos e com a fonte de cada regra. Dez minutos de leitura, e sabe se a sua frota está preparada.</p>
-  <div class="autor">Por Rúben Neves</div>
-  <div class="data">Legislação consultada a 20 de outubro de 2026</div>
+<header class="topo noprint">
+  <div class="wrap">
+    <div class="nome">Tacógrafo <span>sem sustos</span></div>
+    <nav aria-label="Navegação">
+      <a class="l" href="#teste">Teste</a>
+      <a class="l" href="#pontos">7 pontos</a>
+      <a class="l" href="#ficha">Folha de datas</a>
+      <a class="btn peq" href="https://cal.com/ruben-neves/40min" target="_blank" rel="noopener" data-cta="topo">Marcar conversa</a>
+    </nav>
+  </div>
+  <div class="progresso" aria-hidden="true"><i id="prog"></i></div>
 </header>
 
-<div class="miolo">
+<header class="capa">
+  <div class="wrap">
+    <div class="sup">Guia curto · Mercadorias e passageiros</div>
+    <h1>Tacógrafo<br>sem <em>sustos</em></h1>
+    <div class="traco"></div>
+    <p class="promessa">O que a lei portuguesa e a europeia exigem a quem tem camiões e autocarros, em 7 pontos e com a fonte de cada regra. Dez minutos de leitura, e fica a saber se a sua frota está preparada.</p>
+    <ul class="chips">
+      <li>7 pontos</li>
+      <li>Teste de 2 minutos</li>
+      <li>Folha de datas incluída</li>
+      <li>Legislação a 20/10/2026</li>
+    </ul>
+    <div class="acoes noprint">
+      <a class="btn" href="#teste">Fazer o teste de 2 minutos</a>
+      <a class="btn sec" href="#pontos">Ir para os 7 pontos</a>
+    </div>
+    <div class="autor">
+      <img src="ruben-neves.jpg" alt="" width="44" height="44">
+      <div>Por <strong>Rúben Neves</strong> · gestão de frotas</div>
+    </div>
+  </div>
+</header>
 
-<section>
+<main class="wrap">
+
+<section id="numeros">
+  <span class="kicker">Para começar</span>
   <h2>Os seis números que a fiscalização lhe pode pedir</h2>
   <div class="numeros">
     <div class="numero"><div class="n">90 <small>dias</small></div><div class="l">Descarga do <strong>aparelho</strong> da viatura (prazo máximo)</div></div>
@@ -126,161 +234,233 @@ td.sim{font-weight:600;color:var(--noite)}
     <div class="numero"><div class="n">5 <small>anos</small></div><div class="l">Validade máxima do cartão do motorista</div></div>
   </div>
   <p class="fonte">Reg. (UE) 581/2010, art. 1.º · Reg. (CE) 561/2006, art. 10.º, n.º 5 · Reg. (UE) 165/2014, arts. 23.º, 26.º e 36.º.</p>
+</section>
 
-  <div class="teste" id="teste">
+<section id="teste">
+  <div class="teste">
     <h2>O teste dos 2 minutos</h2>
-    <p>Responda sem ligar a ninguém:</p>
-    <ol>
-      <li>Qual foi a data da última descarga do cartão de cada motorista?</li>
-      <li>E a do aparelho de cada viatura?</li>
-      <li>Quando caduca o cartão de cada motorista?</li>
-      <li>Quando foi a última inspeção do tacógrafo de cada viatura?</li>
-      <li>Como garante que cada motorista regressa a casa de quatro em quatro semanas?</li>
-    </ol>
-    <p><strong>Se disse «não sei» a duas ou mais, a sua frota depende da memória de alguém.</strong> Os pontos abaixo e a <a href="#ficha" style="color:#fff">folha de datas</a> resolvem isso.</p>
+    <p class="sub">Responda sem ligar a ninguém. Se tiver de procurar a resposta, conta como «não sei».</p>
+    <div id="perguntas"></div>
+    <div class="resultado" id="resultado" role="status" aria-live="polite"></div>
+    <div class="score noprint" id="score"></div>
   </div>
 </section>
 
-<!-- 1 -->
-<div class="item" id="p1">
-  <div class="item-cab"><div class="bola">1</div><h2>Que viaturas têm de ter tacógrafo</h2></div>
-  <ul>
-    <li><strong>Mercadorias:</strong> massa máxima autorizada (com reboques e semirreboques) <strong>superior a 3,5 toneladas</strong>. Desde <strong>1 de julho de 2026</strong>, também mais de <strong>2,5 toneladas</strong> em transporte internacional ou cabotagem.</li>
-    <li><strong>Passageiros:</strong> viaturas para <strong>mais de nove pessoas, incluindo o condutor</strong>.</li>
-  </ul>
-  <p>Exceções: por exemplo, serviços regulares de passageiros com percurso de linha até 50 km e viaturas limitadas a 40 km/h. Em Portugal, a dispensa e a isenção constam da Portaria n.º 222/2008, de 5 de março, que o IMT indica como em vigor até nova portaria.</p>
-  <p class="fonte">Reg. (UE) 165/2014, art. 3.º · Reg. (CE) 561/2006, arts. 2.º e 3.º (alterado pelo Reg. (UE) 2020/1054).</p>
+<section id="pontos">
+  <span class="kicker">O guia</span>
+  <h2>Os 7 pontos</h2>
+  <div class="barra-pontos noprint">
+    <p style="margin:0;font-size:15px">Toque num ponto para abrir. Cada um tem a fonte da regra e o que fazer a seguir.</p>
+    <button type="button" id="alternar">Abrir todos</button>
+  </div>
 
-  <h3>Que tacógrafo, e até quando</h3>
-  <div class="tabela-scroll"><table>
-    <thead><tr><th>Viatura que circula fora do país de matrícula</th><th>Tem de passar para</th><th>Data</th></tr></thead>
-    <tbody>
-      <tr><td>Analógico ou digital não inteligente</td><td>Tacógrafo inteligente versão 2</td><td class="sim">até 31/12/2024</td></tr>
-      <tr><td>Inteligente versão 1</td><td>Tacógrafo inteligente versão 2</td><td class="sim">até 18/08/2025</td></tr>
-      <tr><td>Ligeiros de mercadorias &gt; 2,5 t em transporte internacional (registados na UE)</td><td>Tacógrafo inteligente versão 2</td><td class="sim">desde 01/07/2026</td></tr>
-    </tbody>
-  </table></div>
-  <p class="fonte">Reg. (UE) 165/2014, art. 3.º, n.os 4 e 4-A (Reg. 2020/1054) · Comissão Europeia, notícia de 19/08/2025.</p>
-</div>
+  <!-- 1 -->
+  <details class="ponto" id="p1">
+    <summary>
+      <div class="bola">1</div>
+      <div class="resumo-t"><h3>Que viaturas têm de ter tacógrafo</h3><p>Mais de 3,5 t, ou mais de nove pessoas. Desde 1/07/2026, também &gt; 2,5 t em internacional.</p></div>
+      <div class="seta" aria-hidden="true"></div>
+    </summary>
+    <div class="corpo">
+      <ul>
+        <li><strong>Mercadorias:</strong> massa máxima autorizada (com reboques e semirreboques) <strong>superior a 3,5 toneladas</strong>. Desde <strong>1 de julho de 2026</strong>, também mais de <strong>2,5 toneladas</strong> em transporte internacional ou cabotagem.</li>
+        <li><strong>Passageiros:</strong> viaturas para <strong>mais de nove pessoas, incluindo o condutor</strong>.</li>
+      </ul>
+      <p>Exceções: por exemplo, serviços regulares de passageiros com percurso de linha até 50 km e viaturas limitadas a 40 km/h. Em Portugal, a dispensa e a isenção constam da Portaria n.º 222/2008, de 5 de março, que o IMT indica como em vigor até nova portaria.</p>
+      <p class="fonte">Reg. (UE) 165/2014, art. 3.º · Reg. (CE) 561/2006, arts. 2.º e 3.º (alterado pelo Reg. (UE) 2020/1054).</p>
+      <h3>Que tacógrafo, e até quando</h3>
+      <div class="tabela-scroll"><table>
+        <thead><tr><th>Viatura que circula fora do país de matrícula</th><th>Tem de passar para</th><th>Data</th></tr></thead>
+        <tbody>
+          <tr><td>Analógico ou digital não inteligente</td><td>Tacógrafo inteligente versão 2</td><td class="sim">até 31/12/2024</td></tr>
+          <tr><td>Inteligente versão 1</td><td>Tacógrafo inteligente versão 2</td><td class="sim">até 18/08/2025</td></tr>
+          <tr><td>Ligeiros de mercadorias &gt; 2,5 t em transporte internacional (registados na UE)</td><td>Tacógrafo inteligente versão 2</td><td class="sim">desde 01/07/2026</td></tr>
+        </tbody>
+      </table></div>
+      <p class="fonte">Reg. (UE) 165/2014, art. 3.º, n.os 4 e 4-A (Reg. 2020/1054) · Comissão Europeia, notícia de 19/08/2025.</p>
+      <div class="caixa fazer"><b>O que fazer</b><ul><li>Liste as viaturas da frota e confirme que tipo de tacógrafo tem cada uma, sobretudo as que circulam fora de Portugal.</li></ul></div>
+    </div>
+  </details>
 
-<!-- 2 -->
-<div class="item" id="p2">
-  <div class="item-cab"><div class="bola">2</div><h2>Os cartões</h2></div>
-  <ul>
-    <li><strong>Cartão do condutor:</strong> pessoal, um só por motorista, no máximo cinco anos de validade. Não se usam cartões defeituosos ou caducados.</li>
-    <li><strong>Renovação:</strong> o pedido faz-se <strong>o mais tardar 15 dias úteis antes</strong> de caducar. A emissão demora até um mês depois de o pedido estar completo.</li>
-    <li><strong>Cartão da empresa:</strong> permite ver, descarregar e imprimir os dados do aparelho que a empresa tenha bloqueado.</li>
-  </ul>
-  <p class="fonte">Reg. (UE) 165/2014, arts. 2.º, 26.º, 27.º e 28.º. Em Portugal, o pedido faz-se ao IMT.</p>
-</div>
+  <!-- 2 -->
+  <details class="ponto" id="p2">
+    <summary>
+      <div class="bola">2</div>
+      <div class="resumo-t"><h3>Os cartões</h3><p>Um por motorista, até 5 anos. Peça a renovação 15 dias úteis antes de caducar.</p></div>
+      <div class="seta" aria-hidden="true"></div>
+    </summary>
+    <div class="corpo">
+      <ul>
+        <li><strong>Cartão do condutor:</strong> pessoal, um só por motorista, no máximo cinco anos de validade. Não se usam cartões defeituosos ou caducados.</li>
+        <li><strong>Renovação:</strong> o pedido faz-se <strong>o mais tardar 15 dias úteis antes</strong> de caducar. A emissão demora até um mês depois de o pedido estar completo.</li>
+        <li><strong>Cartão da empresa:</strong> permite ver, descarregar e imprimir os dados do aparelho que a empresa tenha bloqueado.</li>
+      </ul>
+      <p class="fonte">Reg. (UE) 165/2014, arts. 2.º, 26.º, 27.º e 28.º. Em Portugal, o pedido faz-se ao IMT.</p>
+      <div class="caixa fazer"><b>O que fazer</b><ul><li>Registe a data de validade do cartão de cada motorista e marque o pedido de renovação com folga, já que a emissão pode demorar até um mês.</li></ul></div>
+    </div>
+  </details>
 
-<!-- 3 -->
-<div class="item" id="p3">
-  <div class="item-cab"><div class="bola">3</div><h2>Descarregar os dados: 90 e 28 dias</h2></div>
-  <p>Descarregar é copiar os ficheiros do aparelho ou do cartão, com assinatura digital, <strong>sem perder nenhuma informação</strong>. Os prazos são máximos:</p>
-  <ul>
-    <li><strong>Aparelho da viatura:</strong> até 90 dias.</li>
-    <li><strong>Cartão do motorista:</strong> até 28 dias.</li>
-  </ul>
-  <p>A empresa garante que <strong>todos</strong> os dados são descarregados, com maior frequência se for preciso, e <strong>conserva-os pelo menos 12 meses</strong>, acessíveis a um agente de controlo que os peça.</p>
-  <p class="fonte">Reg. (UE) 581/2010, art. 1.º · Reg. (CE) 561/2006, art. 10.º, n.º 5.</p>
-  <div class="caixa amarela"><strong>Dica:</strong> um prazo máximo não é uma meta. Escolha uma data fixa de descarga, por exemplo todas as segundas-feiras, e registe-a na <a href="#ficha">folha de datas</a>.</div>
-</div>
+  <!-- 3 -->
+  <details class="ponto" id="p3">
+    <summary>
+      <div class="bola">3</div>
+      <div class="resumo-t"><h3>Descarregar os dados: 90 e 28 dias</h3><p>Aparelho até 90 dias, cartão até 28. Guardar os dados pelo menos 12 meses.</p></div>
+      <div class="seta" aria-hidden="true"></div>
+    </summary>
+    <div class="corpo">
+      <p>Descarregar é copiar os ficheiros do aparelho ou do cartão, com assinatura digital, <strong>sem perder nenhuma informação</strong>. Os prazos são máximos:</p>
+      <ul>
+        <li><strong>Aparelho da viatura:</strong> até 90 dias.</li>
+        <li><strong>Cartão do motorista:</strong> até 28 dias.</li>
+      </ul>
+      <p>A empresa garante que <strong>todos</strong> os dados são descarregados, com maior frequência se for preciso, e <strong>conserva-os pelo menos 12 meses</strong>, acessíveis a um agente de controlo que os peça.</p>
+      <p class="fonte">Reg. (UE) 581/2010, art. 1.º · Reg. (CE) 561/2006, art. 10.º, n.º 5.</p>
+      <div class="caixa fazer"><b>Dica</b><ul><li>Um prazo máximo não é uma meta. Escolha uma data fixa de descarga, por exemplo todas as segundas-feiras, e registe-a na <a href="#ficha">folha de datas</a>.</li></ul></div>
+    </div>
+  </details>
 
-<!-- 4 -->
-<div class="item" id="p4">
-  <div class="item-cab"><div class="bola">4</div><h2>Condução, pausas e descanso</h2></div>
-  <div class="tabela-scroll"><table>
-    <thead><tr><th>Regra</th><th>Limite</th></tr></thead>
-    <tbody>
-      <tr><td>Condução diária</td><td class="sim">9 h; até 10 h, no máximo duas vezes por semana</td></tr>
-      <tr><td>Condução semanal / duas semanas</td><td class="sim">56 h / 90 h</td></tr>
-      <tr><td>Pausa</td><td class="sim">45 min depois de 4 h 30 de condução (ou 15 min + 30 min)</td></tr>
-      <tr><td>Repouso diário</td><td class="sim">11 h (ou 3 h + 9 h); reduzido: 9 h ou mais, no máximo três vezes entre dois repousos semanais</td></tr>
-      <tr><td>Repouso semanal</td><td class="sim">regular: 45 h ou mais; reduzido: pelo menos 24 h, com compensação antes do fim da terceira semana seguinte</td></tr>
-    </tbody>
-  </table></div>
-  <p class="fonte">Reg. (CE) 561/2006, arts. 4.º, 6.º, 7.º e 8.º (redação do Reg. 2020/1054). A semana vai das 00h00 de segunda às 24h00 de domingo.</p>
-  <p>Três regras que costumam falhar:</p>
-  <ul>
-    <li><strong>O repouso semanal regular não se goza dentro da viatura.</strong> Tem de ser em alojamento apropriado, pago pelo empregador.</li>
-    <li>A empresa organiza o trabalho para o motorista poder <strong>regressar ao centro operacional ou a casa em cada período de quatro semanas</strong>, e documenta como o cumpre.</li>
-    <li>O repouso semanal começa, no máximo, ao fim de <strong>seis períodos de 24 horas</strong> contados do repouso semanal anterior.</li>
-  </ul>
-  <p class="fonte">Reg. (CE) 561/2006, art. 8.º, n.os 6, 8 e 8-A.</p>
-</div>
+  <!-- 4 -->
+  <details class="ponto" id="p4">
+    <summary>
+      <div class="bola">4</div>
+      <div class="resumo-t"><h3>Condução, pausas e descanso</h3><p>9 h por dia, pausa de 45 min às 4 h 30, repouso diário de 11 h.</p></div>
+      <div class="seta" aria-hidden="true"></div>
+    </summary>
+    <div class="corpo">
+      <div class="tabela-scroll"><table>
+        <thead><tr><th>Regra</th><th>Limite</th></tr></thead>
+        <tbody>
+          <tr><td>Condução diária</td><td class="sim">9 h; até 10 h, no máximo duas vezes por semana</td></tr>
+          <tr><td>Condução semanal / duas semanas</td><td class="sim">56 h / 90 h</td></tr>
+          <tr><td>Pausa</td><td class="sim">45 min depois de 4 h 30 de condução (ou 15 min + 30 min)</td></tr>
+          <tr><td>Repouso diário</td><td class="sim">11 h (ou 3 h + 9 h); reduzido: 9 h ou mais, no máximo três vezes entre dois repousos semanais</td></tr>
+          <tr><td>Repouso semanal</td><td class="sim">regular: 45 h ou mais; reduzido: pelo menos 24 h, com compensação antes do fim da terceira semana seguinte</td></tr>
+        </tbody>
+      </table></div>
+      <p class="fonte">Reg. (CE) 561/2006, arts. 4.º, 6.º, 7.º e 8.º (redação do Reg. 2020/1054). A semana vai das 00h00 de segunda às 24h00 de domingo.</p>
+      <p>Três regras que costumam falhar:</p>
+      <ul>
+        <li><strong>O repouso semanal regular não se goza dentro da viatura.</strong> Tem de ser em alojamento apropriado, pago pelo empregador.</li>
+        <li>A empresa organiza o trabalho para o motorista poder <strong>regressar ao centro operacional ou a casa em cada período de quatro semanas</strong>, e documenta como o cumpre.</li>
+        <li>O repouso semanal começa, no máximo, ao fim de <strong>seis períodos de 24 horas</strong> contados do repouso semanal anterior.</li>
+      </ul>
+      <p class="fonte">Reg. (CE) 561/2006, art. 8.º, n.os 6, 8 e 8-A.</p>
+      <div class="caixa fazer"><b>O que fazer</b><ul><li>Reveja as escalas com estas três regras à frente e guarde por escrito a forma como garante o regresso de quatro em quatro semanas.</li></ul></div>
+    </div>
+  </details>
 
-<!-- 5 -->
-<div class="item" id="p5">
-  <div class="item-cab"><div class="bola">5</div><h2>Mercadorias e passageiros: o que muda</h2></div>
-  <p>As regras de condução, pausas, descanso e descarga são as <strong>mesmas</strong>. As diferenças:</p>
-  <div class="tabela-scroll"><table>
-    <thead><tr><th></th><th>Mercadorias</th><th>Passageiros</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Âmbito</strong></td><td>Mais de 3,5 t (ou 2,5 t, em transporte internacional, desde 01/07/2026)</td><td>Mais de nove pessoas, incluindo o condutor</td></tr>
-      <tr><td><strong>Exceção típica</strong></td><td>Transporte não comercial em viaturas até 7,5 t</td><td>Serviço regular com percurso até 50 km (regras nacionais)</td></tr>
-      <tr><td><strong>Dois repousos semanais reduzidos seguidos</strong></td><td>Só em transporte <strong>internacional</strong>, fora do Estado-Membro do empregador</td><td>Não previsto</td></tr>
-    </tbody>
-  </table></div>
-  <p class="fonte">Reg. (CE) 561/2006, arts. 2.º, 3.º, 8.º, n.º 6, e 15.º.</p>
-</div>
+  <!-- 5 -->
+  <details class="ponto" id="p5">
+    <summary>
+      <div class="bola">5</div>
+      <div class="resumo-t"><h3>Mercadorias e passageiros: o que muda</h3><p>As regras de condução e descarga são as mesmas. Mudam o âmbito e as exceções.</p></div>
+      <div class="seta" aria-hidden="true"></div>
+    </summary>
+    <div class="corpo">
+      <p>As regras de condução, pausas, descanso e descarga são as <strong>mesmas</strong>. As diferenças:</p>
+      <div class="tabela-scroll"><table>
+        <thead><tr><th></th><th>Mercadorias</th><th>Passageiros</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Âmbito</strong></td><td>Mais de 3,5 t (ou 2,5 t, em transporte internacional, desde 01/07/2026)</td><td>Mais de nove pessoas, incluindo o condutor</td></tr>
+          <tr><td><strong>Exceção típica</strong></td><td>Transporte não comercial em viaturas até 7,5 t</td><td>Serviço regular com percurso até 50 km (regras nacionais)</td></tr>
+          <tr><td><strong>Dois repousos semanais reduzidos seguidos</strong></td><td>Só em transporte <strong>internacional</strong>, fora do Estado-Membro do empregador</td><td>Não previsto</td></tr>
+        </tbody>
+      </table></div>
+      <p class="fonte">Reg. (CE) 561/2006, arts. 2.º, 3.º, 8.º, n.º 6, e 15.º.</p>
+      <div class="caixa fazer"><b>O que fazer</b><ul><li>Confirme em qual das duas colunas cai cada viatura e se alguma exceção se aplica de facto ao seu caso.</li></ul></div>
+    </div>
+  </details>
 
-<!-- 6 -->
-<div class="item" id="p6">
-  <div class="item-cab"><div class="bola">6</div><h2>Quem faz o quê</h2></div>
-  <h3>O motorista</h3>
-  <ul>
-    <li>Usa o cartão <strong>sempre que conduz</strong> e escolhe a atividade certa (condução, outro trabalho, disponibilidade, pausa ou repouso).</li>
-    <li>Introduz o país onde começa e onde termina o dia e, desde 2/02/2022, o país em que entra, na primeira paragem após a fronteira (dispensado se o tacógrafo registar a posição).</li>
-    <li>Cartão danificado, perdido ou roubado: imprime os dados no início e no fim do percurso, identifica-se e assina.</li>
-    <li>Leva o cartão e os registos manuais e impressões do <strong>dia em curso e dos 56 dias anteriores</strong> (eram 28 até 31/12/2024).</li>
-  </ul>
-  <p class="fonte">Reg. (UE) 165/2014, arts. 34.º a 36.º (redação do Reg. 2020/1054).</p>
-  <h3>A empresa</h3>
-  <ul>
-    <li><strong>Forma e instrui</strong> os motoristas e faz <strong>controlos regulares</strong>.</li>
-    <li>Não dá incentivos que levem à má utilização, nem paga por distância, rapidez ou volume se isso comprometer a segurança ou favorecer infrações.</li>
-    <li>Conserva as folhas de registo e as impressões <strong>pelo menos um ano</strong>.</li>
-    <li>É <strong>responsável pelas infrações dos seus motoristas</strong>, mesmo noutro Estado-Membro.</li>
-  </ul>
-  <p class="fonte">Reg. (UE) 165/2014, art. 33.º · Reg. (CE) 561/2006, art. 10.º.</p>
-  <div class="caixa amarela"><strong>É proibido</strong> falsificar, ocultar, suprimir ou destruir dados, manipular o tacógrafo, a folha ou o cartão, ter na viatura dispositivos para isso, ou ter mais de um tacógrafo. <span class="fonte">Reg. (UE) 165/2014, art. 32.º.</span></div>
-  <p style="font-size:14.5px">Os dados do tacógrafo são dados pessoais: servem para verificar o cumprimento das regras e só devem ser tratados para esse fim (art. 7.º do Reg. 165/2014). Para o caso da sua empresa, consulte a CNPD ou um jurista.</p>
-</div>
+  <!-- 6 -->
+  <details class="ponto" id="p6">
+    <summary>
+      <div class="bola">6</div>
+      <div class="resumo-t"><h3>Quem faz o quê</h3><p>O motorista usa o cartão. A empresa forma, controla e responde pelas infrações.</p></div>
+      <div class="seta" aria-hidden="true"></div>
+    </summary>
+    <div class="corpo">
+      <h3>O motorista</h3>
+      <ul>
+        <li>Usa o cartão <strong>sempre que conduz</strong> e escolhe a atividade certa (condução, outro trabalho, disponibilidade, pausa ou repouso).</li>
+        <li>Introduz o país onde começa e onde termina o dia e, desde 2/02/2022, o país em que entra, na primeira paragem após a fronteira (dispensado se o tacógrafo registar a posição).</li>
+        <li>Cartão danificado, perdido ou roubado: imprime os dados no início e no fim do percurso, identifica-se e assina.</li>
+        <li>Leva o cartão e os registos manuais e impressões do <strong>dia em curso e dos 56 dias anteriores</strong> (eram 28 até 31/12/2024).</li>
+      </ul>
+      <p class="fonte">Reg. (UE) 165/2014, arts. 34.º a 36.º (redação do Reg. 2020/1054).</p>
+      <h3>A empresa</h3>
+      <ul>
+        <li><strong>Forma e instrui</strong> os motoristas e faz <strong>controlos regulares</strong>.</li>
+        <li>Não dá incentivos que levem à má utilização, nem paga por distância, rapidez ou volume se isso comprometer a segurança ou favorecer infrações.</li>
+        <li>Conserva as folhas de registo e as impressões <strong>pelo menos um ano</strong>.</li>
+        <li>É <strong>responsável pelas infrações dos seus motoristas</strong>, mesmo noutro Estado-Membro.</li>
+      </ul>
+      <p class="fonte">Reg. (UE) 165/2014, art. 33.º · Reg. (CE) 561/2006, art. 10.º.</p>
+      <div class="caixa"><strong>É proibido</strong> falsificar, ocultar, suprimir ou destruir dados, manipular o tacógrafo, a folha ou o cartão, ter na viatura dispositivos para isso, ou ter mais de um tacógrafo. <span class="fonte">Reg. (UE) 165/2014, art. 32.º.</span></div>
+      <p style="font-size:14.5px">Os dados do tacógrafo são dados pessoais: servem para verificar o cumprimento das regras e só devem ser tratados para esse fim (art. 7.º do Reg. 165/2014). Para o caso da sua empresa, consulte a CNPD ou um jurista.</p>
+      <div class="caixa fazer"><b>O que fazer</b><ul><li>Defina quem na empresa faz os controlos regulares e onde ficam guardados os registos.</li></ul></div>
+    </div>
+  </details>
 
-<!-- 7 -->
-<div class="item" id="p7">
-  <div class="item-cab"><div class="bola">7</div><h2>Inspeção e fiscalização em Portugal</h2></div>
-  <ul>
-    <li>O tacógrafo é inspecionado em <strong>oficinas aprovadas</strong>, pelo menos <strong>de dois em dois anos</strong> (instalação, funcionamento, selos, chapa de instalação, ausência de dispositivos de manipulação, pneus).</li>
-    <li>Selos retirados ou quebrados são substituídos por oficina ou instalador aprovados, <strong>no máximo em sete dias</strong>.</li>
-  </ul>
-  <p class="fonte">Reg. (UE) 165/2014, arts. 22.º e 23.º.</p>
-  <p>O regime nacional está no <strong>Decreto-Lei n.º 84/2026, de 13 de abril</strong>, em vigor desde <strong>12 de julho de 2026</strong>, que reuniu num só diploma as regras sociais do transporte rodoviário e <strong>revogou a Lei n.º 27/2010</strong> e o Decreto-Lei n.º 169/2009. A fiscalização cabe, entre outras autoridades, ao IMT, à ACT, à GNR e à PSP.</p>
-  <p class="fonte">IMT, «Regulamentação em matéria social».</p>
-  <div class="caixa amarela"><strong>Atenção a materiais antigos:</strong> muito do que circula na internet cita a Lei n.º 27/2010 e os seus valores. Este guia não reproduz valores de coimas para não os desatualizar: consulte-os no Decreto-Lei n.º 84/2026, em Diário da República.</div>
-</div>
+  <!-- 7 -->
+  <details class="ponto" id="p7">
+    <summary>
+      <div class="bola">7</div>
+      <div class="resumo-t"><h3>Inspeção e fiscalização em Portugal</h3><p>Inspeção de dois em dois anos. Regime nacional no Decreto-Lei n.º 84/2026.</p></div>
+      <div class="seta" aria-hidden="true"></div>
+    </summary>
+    <div class="corpo">
+      <ul>
+        <li>O tacógrafo é inspecionado em <strong>oficinas aprovadas</strong>, pelo menos <strong>de dois em dois anos</strong> (instalação, funcionamento, selos, chapa de instalação, ausência de dispositivos de manipulação, pneus).</li>
+        <li>Selos retirados ou quebrados são substituídos por oficina ou instalador aprovados, <strong>no máximo em sete dias</strong>.</li>
+      </ul>
+      <p class="fonte">Reg. (UE) 165/2014, arts. 22.º e 23.º.</p>
+      <p>O regime nacional está no <strong>Decreto-Lei n.º 84/2026, de 13 de abril</strong>, em vigor desde <strong>12 de julho de 2026</strong>, que reuniu num só diploma as regras sociais do transporte rodoviário e <strong>revogou a Lei n.º 27/2010</strong> e o Decreto-Lei n.º 169/2009. A fiscalização cabe, entre outras autoridades, ao IMT, à ACT, à GNR e à PSP.</p>
+      <p class="fonte">IMT, «Regulamentação em matéria social».</p>
+      <div class="caixa"><strong>Atenção a materiais antigos:</strong> muito do que circula na internet cita a Lei n.º 27/2010 e os seus valores. Este guia não reproduz valores de coimas para não os desatualizar: consulte-os no Decreto-Lei n.º 84/2026, em Diário da República.</div>
+      <div class="caixa fazer"><b>O que fazer</b><ul><li>Registe a data da última inspeção de cada viatura e agende a seguinte antes de os dois anos se esgotarem.</li></ul></div>
+    </div>
+  </details>
 
-<section id="ficha" class="ficha">
-  <h2>Folha de datas: nunca falhar uma descarga</h2>
-  <p>Escreva uma identificação (matrícula ou «Motorista 1») e a <strong>data da última descarga</strong>. A folha calcula a data-limite e avisa quando faltam 15 dias ou menos. Por prudência, conta dias de calendário.</p>
-  <p class="noprint" style="font-size:14px;color:var(--nota)">Os dados ficam apenas neste navegador. Não são enviados a ninguém.</p>
-  <h3>Aparelho da viatura · 90 dias</h3>
-  <div class="tabela-scroll"><table id="t-veic">
-    <thead><tr><th>Viatura</th><th>Última descarga</th><th>Data-limite</th><th>Estado</th></tr></thead>
-    <tbody></tbody>
-  </table></div>
-  <h3>Cartão do motorista · 28 dias</h3>
-  <div class="tabela-scroll"><table id="t-mot">
-    <thead><tr><th>Motorista</th><th>Última descarga</th><th>Data-limite</th><th>Estado</th></tr></thead>
-    <tbody></tbody>
-  </table></div>
-  <p class="noprint"><button id="limpar" style="font:inherit;padding:8px 14px;border:2px solid var(--noite);background:var(--branco);color:var(--noite);border-radius:6px;cursor:pointer">Limpar a folha</button></p>
+  <div class="cta-meio noprint">
+    <div>
+      <h3>Reconheceu a sua frota em algum ponto?</h3>
+      <p>Numa conversa de 40 minutos, vemos onde estão os riscos e o que resolver primeiro.</p>
+    </div>
+    <a class="btn" href="https://cal.com/ruben-neves/40min" target="_blank" rel="noopener" data-cta="meio">Marcar conversa</a>
+  </div>
 </section>
 
-<section id="fontes">
+<section id="ficha" class="ficha">
+  <span class="kicker">Ferramenta</span>
+  <h2>Folha de datas: nunca falhar uma descarga</h2>
+  <div class="ficha-wrap">
+    <p>Escreva uma identificação (matrícula ou «Motorista 1») e a <strong>data da última descarga</strong>. A folha calcula a data-limite e avisa quando faltam 15 dias ou menos. Por prudência, conta dias de calendário.</p>
+    <p class="noprint" style="font-size:14px;color:var(--nota)">Os dados ficam apenas neste navegador. Não são enviados a ninguém.</p>
+    <div class="contadores" aria-live="polite">
+      <div class="contador u"><b id="c-u">0</b><span>em atraso</span></div>
+      <div class="contador a"><b id="c-a">0</b><span>a vencer em 15 dias</span></div>
+      <div class="contador o"><b id="c-o">0</b><span>em dia</span></div>
+    </div>
+    <h3>Aparelho da viatura · 90 dias</h3>
+    <div class="tabela-scroll"><table id="t-veic">
+      <thead><tr><th>Viatura</th><th>Última descarga</th><th>Data-limite</th><th>Estado</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <h3>Cartão do motorista · 28 dias</h3>
+    <div class="tabela-scroll"><table id="t-mot">
+      <thead><tr><th>Motorista</th><th>Última descarga</th><th>Data-limite</th><th>Estado</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <div class="ficha-acoes noprint">
+      <button type="button" class="btn-linha" id="imprimir">Imprimir / guardar em PDF</button>
+      <button type="button" class="btn-linha" id="limpar">Limpar a folha</button>
+    </div>
+  </div>
+</section>
+
+<section id="fontes" class="fontes">
   <h2>Fontes</h2>
-  <ul style="font-size:15px">
+  <ul>
     <li>Regulamento (CE) n.º 561/2006, de 15 de março de 2006, na redação do Regulamento (UE) 2020/1054. <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32006R0561">EUR-Lex</a></li>
     <li>Regulamento (UE) n.º 165/2014, de 4 de fevereiro de 2014, na redação do Regulamento (UE) 2020/1054. <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32014R0165">EUR-Lex</a></li>
     <li>Regulamento (UE) 2020/1054, de 15 de julho de 2020. <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32020R1054">EUR-Lex</a></li>
@@ -288,52 +468,142 @@ td.sim{font-weight:600;color:var(--noite)}
     <li>Comissão Europeia, notícia sobre o tacógrafo inteligente, 19/08/2025. <a href="https://transport.ec.europa.eu/news-events/news/stronger-and-more-unified-enforcement-eu-rules-international-road-transport-smart-tachograph-2025-08-19_en">transport.ec.europa.eu</a></li>
     <li>IMT, «Regulamentação em matéria social» (Decreto-Lei n.º 84/2026 e Portaria n.º 222/2008). <a href="https://www.imt-ip.pt/rodoviario/infraestruturas-rodoviarias/regulamentacao-em-materia-social/">imt-ip.pt</a></li>
   </ul>
-  <p style="font-size:14px;color:var(--nota)">Informação geral, preparada em outubro de 2026. Não substitui aconselhamento jurídico. Confirme sempre o texto em vigor nas fontes acima.</p>
+  <p class="aviso">Informação geral, preparada em outubro de 2026. Não substitui aconselhamento jurídico. Confirme sempre o texto em vigor nas fontes acima.</p>
 </section>
 
-</div>
+</main>
 
 <footer class="fecho" id="agendar">
-  <div class="fecho-fx">
-    <img class="foto" src="ruben-neves.jpg" alt="Rúben Neves" width="200" height="200">
-    <div>
-      <h2>Quer ver isto na sua frota?</h2>
-      <p>Numa conversa de 40 minutos, olhamos para as datas, os cartões e as escalas da sua frota e digo-lhe com franqueza onde estão os riscos e o que resolver primeiro. Sem apresentações comerciais.</p>
-      <a class="botao" href="https://cal.com/ruben-neves/40min" target="_blank" rel="noopener">Marcar conversa de 40 minutos</a>
-      <p class="peq">Escolhe o dia e a hora que lhe der mais jeito.<br><strong>Rúben Neves</strong> · gestão de frotas</p>
+  <div class="wrap">
+    <div class="fecho-fx">
+      <img class="foto" src="ruben-neves.jpg" alt="Rúben Neves" width="210" height="210">
+      <div>
+        <h2>Quer ver isto na sua frota?</h2>
+        <p>Numa conversa de 40 minutos, olhamos para as datas, os cartões e as escalas da sua frota e digo-lhe com franqueza onde estão os riscos e o que resolver primeiro. Sem apresentações comerciais.</p>
+        <ul>
+          <li>Datas de descarga e validade dos cartões</li>
+          <li>Escalas, repousos e regresso de quatro em quatro semanas</li>
+          <li>O que resolver primeiro, por ordem de risco</li>
+        </ul>
+        <a class="btn" href="https://cal.com/ruben-neves/40min" target="_blank" rel="noopener" data-cta="fecho">Marcar conversa de 40 minutos</a>
+        <p class="peq">Escolhe o dia e a hora que lhe der mais jeito.<br><strong>Rúben Neves</strong> · gestão de frotas</p>
+      </div>
     </div>
   </div>
 </footer>
 <div class="rodape">© Rúben Neves · Método Demanda Infinita®</div>
+
+<div class="fixa noprint" id="fixa">
+  <span>Quer ver isto na sua frota?</span>
+  <a class="btn" href="https://cal.com/ruben-neves/40min" target="_blank" rel="noopener" data-cta="fixa">Marcar conversa</a>
 </div>
 
 <script>
 (function(){
-  var N=6, KEY='tacografo-folha-v1', DIA=86400000;
+  var CAL='https://cal.com/ruben-neves/40min';
+
+  /* Progresso de leitura + barra fixa móvel */
+  var prog=document.getElementById('prog'), fixa=document.getElementById('fixa');
+  function aoScroll(){
+    var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+    prog.style.width=(max>0?Math.min(100,h.scrollTop/max*100):0)+'%';
+    var fecho=document.getElementById('agendar').getBoundingClientRect().top;
+    fixa.classList.toggle('on', h.scrollTop>600 && fecho>window.innerHeight*0.6);
+  }
+  window.addEventListener('scroll',aoScroll,{passive:true}); aoScroll();
+
+  /* Acordeão */
+  var pontos=[].slice.call(document.querySelectorAll('details.ponto'));
+  var alt=document.getElementById('alternar');
+  function atualizaAlt(){ alt.textContent=pontos.every(function(p){return p.open;})?'Fechar todos':'Abrir todos'; }
+  alt.addEventListener('click',function(){
+    var abrir=!pontos.every(function(p){return p.open;});
+    pontos.forEach(function(p){p.open=abrir;}); atualizaAlt();
+  });
+  pontos.forEach(function(p){p.addEventListener('toggle',atualizaAlt);});
+  if(location.hash){ var alvo=document.querySelector(location.hash); if(alvo&&alvo.tagName==='DETAILS') alvo.open=true; }
+  document.querySelectorAll('a[href^="#p"]').forEach(function(a){
+    a.addEventListener('click',function(){ var d=document.querySelector(a.getAttribute('href')); if(d&&d.tagName==='DETAILS') d.open=true; });
+  });
+  window.addEventListener('beforeprint',function(){ pontos.forEach(function(p){p.open=true;}); });
+
+  /* Teste dos 2 minutos */
+  var PERGUNTAS=[
+    'Qual foi a data da última descarga do cartão de cada motorista?',
+    'E a do aparelho de cada viatura?',
+    'Quando caduca o cartão de cada motorista?',
+    'Quando foi a última inspeção do tacógrafo de cada viatura?',
+    'Como garante que cada motorista regressa a casa de quatro em quatro semanas?'
+  ];
+  var KT='tacografo-teste-v1', resp=[];
+  try{ resp=JSON.parse(localStorage.getItem(KT))||[]; }catch(e){}
+  var box=document.getElementById('perguntas');
+  PERGUNTAS.forEach(function(txt,i){
+    var q=document.createElement('div'); q.className='q';
+    q.innerHTML='<div class="t"><b>'+(i+1)+'</b>'+txt+'</div>'+
+      '<div class="resp" role="group" aria-label="Pergunta '+(i+1)+'">'+
+      '<button type="button" class="sim" aria-pressed="false">Sei</button>'+
+      '<button type="button" class="nao" aria-pressed="false">Não sei</button></div>';
+    var bs=q.querySelectorAll('button');
+    function pinta(){ bs[0].setAttribute('aria-pressed',resp[i]==='s'); bs[1].setAttribute('aria-pressed',resp[i]==='n'); }
+    bs[0].addEventListener('click',function(){ resp[i]='s'; pinta(); guarda(); mostra(); });
+    bs[1].addEventListener('click',function(){ resp[i]='n'; pinta(); guarda(); mostra(); });
+    pinta(); box.appendChild(q);
+  });
+  function guarda(){ try{ localStorage.setItem(KT,JSON.stringify(resp)); }catch(e){} }
+  function mostra(){
+    var resultado=document.getElementById('resultado'), score=document.getElementById('score');
+    var resp_n=0, nao=0;
+    for(var i=0;i<PERGUNTAS.length;i++){ if(resp[i]){resp_n++; if(resp[i]==='n') nao++;} }
+    score.textContent=resp_n+' de '+PERGUNTAS.length+' respondidas';
+    if(resp_n<PERGUNTAS.length){ resultado.className='resultado'; return; }
+    if(nao>=2){
+      resultado.className='resultado on alerta';
+      resultado.innerHTML='<h3>Disse «não sei» a '+nao+' perguntas.</h3>'+
+        '<p><strong>A sua frota depende da memória de alguém.</strong> Os pontos abaixo e a <a href="#ficha">folha de datas</a> resolvem isso. Se preferir, olhamos para isto juntos, em 40 minutos e sem apresentações comerciais.</p>'+
+        '<a class="btn" href="'+CAL+'" target="_blank" rel="noopener" data-cta="teste">Marcar conversa de 40 minutos</a>';
+    }else{
+      resultado.className='resultado on';
+      resultado.innerHTML='<h3>'+(nao===0?'Tem as respostas todas.':'Só faltou uma resposta.')+'</h3>'+
+        '<p>Boa base. Percorra os 7 pontos para confirmar que não lhe escapa nada e use a <a href="#ficha">folha de datas</a> para manter tudo em dia. Se quiser uma segunda opinião sobre as escalas e os cartões, falamos 40 minutos.</p>'+
+        '<a class="btn" href="'+CAL+'" target="_blank" rel="noopener" data-cta="teste">Pedir uma segunda opinião</a>';
+    }
+  }
+  mostra();
+
+  /* Folha de datas */
+  var N=6, KEY='tacografo-folha-v1', DIA=86400000, linhas=[];
   var dados={v:[],m:[]};
   try{ var s=localStorage.getItem(KEY); if(s) dados=JSON.parse(s)||dados; }catch(e){}
   function guardar(){ try{ localStorage.setItem(KEY, JSON.stringify(dados)); }catch(e){} }
   function fmt(d){ return d.toLocaleDateString('pt-PT'); }
   function hoje(){ var h=new Date(); return new Date(h.getFullYear(),h.getMonth(),h.getDate()); }
   function parse(v){ if(!v) return null; var p=v.split('-'); return new Date(+p[0],+p[1]-1,+p[2]); }
+  function contar(){
+    var u=0,a=0,o=0;
+    linhas.forEach(function(l){ if(l.estado==='u')u++; else if(l.estado==='a')a++; else if(l.estado==='o')o++; });
+    document.getElementById('c-u').textContent=u; document.getElementById('c-a').textContent=a; document.getElementById('c-o').textContent=o;
+  }
   function montar(id,lista,prazo,rotulo){
     var tb=document.querySelector('#'+id+' tbody');
     for(var i=0;i<N;i++){
       (function(i){
         if(!lista[i]) lista[i]={n:'',d:''};
-        var tr=document.createElement('tr');
+        var tr=document.createElement('tr'), reg={estado:''};
+        linhas.push(reg);
         tr.innerHTML='<td><input type="text" aria-label="'+rotulo+' '+(i+1)+'" placeholder="'+rotulo+' '+(i+1)+'"></td>'+
           '<td><input type="date" aria-label="Última descarga '+(i+1)+'"></td><td class="lim"></td><td class="est"></td>';
         var n=tr.querySelector('input[type=text]'), d=tr.querySelector('input[type=date]');
         n.value=lista[i].n; d.value=lista[i].d;
         function calc(){
           var lim=tr.querySelector('.lim'), est=tr.querySelector('.est'), dt=parse(d.value);
-          if(!dt){ lim.textContent='—'; est.innerHTML='<span class="estado vazio">Sem data</span>'; return; }
+          if(!dt){ lim.textContent='—'; est.innerHTML='<span class="estado vazio">Sem data</span>'; reg.estado=''; contar(); return; }
           var fim=new Date(dt.getTime()+prazo*DIA), falta=Math.round((fim-hoje())/DIA);
           lim.textContent=fmt(fim);
-          if(falta<0) est.innerHTML='<span class="estado urgente">Em atraso há '+(-falta)+' d</span>';
-          else if(falta<=15) est.innerHTML='<span class="estado atencao">Faltam '+falta+' d</span>';
-          else est.innerHTML='<span class="estado ok">Em dia · '+falta+' d</span>';
+          if(falta<0){ est.innerHTML='<span class="estado urgente">Em atraso há '+(-falta)+' d</span>'; reg.estado='u'; }
+          else if(falta<=15){ est.innerHTML='<span class="estado atencao">Faltam '+falta+' d</span>'; reg.estado='a'; }
+          else { est.innerHTML='<span class="estado ok">Em dia · '+falta+' d</span>'; reg.estado='o'; }
+          contar();
         }
         n.addEventListener('input',function(){ lista[i].n=n.value; guardar(); });
         d.addEventListener('input',function(){ lista[i].d=d.value; guardar(); calc(); });
@@ -343,6 +613,7 @@ td.sim{font-weight:600;color:var(--noite)}
   }
   montar('t-veic',dados.v,90,'Viatura');
   montar('t-mot',dados.m,28,'Motorista');
+  document.getElementById('imprimir').addEventListener('click',function(){ window.print(); });
   document.getElementById('limpar').addEventListener('click',function(){
     if(!confirm('Limpar todos os dados desta folha?')) return;
     try{ localStorage.removeItem(KEY); }catch(e){}
