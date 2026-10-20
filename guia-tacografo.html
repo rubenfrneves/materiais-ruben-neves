@@ -135,6 +135,30 @@ fieldset.q .dica{clear:both;font-size:14.5px;color:#C9D3DF;margin:0 0 8px}
 .teste .resultado .convite p{color:#E6ECF3}
 .teste .resultado .convite .peq{color:#C9D3DF}
 
+.capa .lig{display:inline-flex;align-items:center;min-height:48px;padding:0 6px;color:var(--branco);font-weight:600;text-decoration-color:var(--amarelo)}
+.capa .lig:hover{color:var(--amarelo)}
+.capa .nota-hero{font-size:14.5px;color:#C9D3DF;margin:-14px 0 26px}
+.js .topo nav a.conv{display:none}
+.js.feito .topo nav a.conv{display:inline-flex}
+@media(max-width:560px){.js.feito .topo nav a.conv{display:none}}
+.aviso-reuniao{background:var(--amarelo);color:var(--noite);text-align:center;padding:12px 16px;font-weight:600}
+.aviso-reuniao[hidden]{display:none}
+@media(max-width:640px){.teste{padding:20px 14px}.resultado{padding:16px 14px}.resultado .convite{padding:16px 14px}.resultado .convite .btn,.fecho .btn{width:100%;text-align:center}}
+.resultado .convite .itens{list-style:none;margin:12px 0 6px;padding:0;display:grid;gap:10px}
+.resultado .convite .itens li{margin:0;padding:0;background:none;border-radius:0}
+.resultado .convite .itens b{display:block;font-family:"Barlow Semi Condensed",Arial,sans-serif;font-size:16px;color:var(--branco);letter-spacing:.02em}
+.teste .resultado .convite .cal{font-size:14px;color:#C9D3DF;margin:10px 0 0}
+.teste .resultado .convite.suave{background:var(--claro);color:var(--asfalto)}
+.teste .resultado .convite.suave h4,.resultado .convite.suave .itens b{color:var(--noite)}
+.teste .resultado .convite.suave p{color:var(--asfalto)}
+.teste .resultado .convite.suave .cal{color:var(--asfalto)}
+.resultado .convite.suave .btn{background:var(--branco);box-shadow:inset 0 0 0 2px var(--noite)}
+.fecho .itens{list-style:none;margin:14px 0 18px;padding:0;display:grid;gap:10px;max-width:38em}
+.fecho .itens li{margin:0}
+.fecho .itens b{display:block;font-family:"Barlow Semi Condensed",Arial,sans-serif;font-size:16px;color:var(--branco);letter-spacing:.02em}
+.fecho .ctx{background:rgba(255,255,255,.1);border-left:4px solid var(--amarelo);padding:10px 14px;border-radius:6px;color:var(--branco)}
+.fecho .ctx[hidden]{display:none}
+
 /* Pontos (acordeão) */
 .barra-pontos{display:none;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
 .js .barra-pontos{display:flex}
@@ -219,6 +243,7 @@ td.sim{font-weight:600;color:var(--noite)}
 .fecho h2{color:var(--branco);font-size:clamp(28px,6vw,36px)}
 .fecho p,.fecho ul{max-width:38em}
 .fecho ul{padding-left:20px}
+.fecho ul.itens{padding-left:0}
 .fecho .peq{font-size:14.5px;color:#C9D3DF;margin-top:14px}
 .fecho .peq strong{color:var(--branco)}
 .fecho .btn{margin-top:4px}
@@ -261,11 +286,13 @@ noscript .caixa{margin:12px 0}
       <a href="#teste">Teste</a>
       <a class="l" href="#pontos">7 pontos</a>
       <a class="l" href="#ficha">Folha de datas</a>
-      <a class="l" href="#agendar">Conversar</a>
+      <a class="l conv" href="#agendar">Conversar</a>
     </nav>
   </div>
   <div class="progresso" aria-hidden="true"><i id="prog"></i></div>
 </div>
+
+<div class="aviso-reuniao noprint" id="aviso-reuniao" role="status" hidden>Obrigado por marcar a conversa. Pode continuar a ler o guia.</div>
 
 <div class="pagina">
 
@@ -273,21 +300,51 @@ noscript .caixa{margin:12px 0}
   <div class="sup">Guia curto · Mercadorias e passageiros</div>
   <h1>Tacógrafo<br>sem <span class="sub">sustos</span></h1>
   <div class="estrada"></div>
-  <p class="promessa">O que a lei portuguesa e a europeia exigem a quem tem camiões e autocarros, em 7 pontos e com a fonte de cada regra. Dez minutos de leitura e um teste curto para saber o que tem de confirmar na sua frota.</p>
+  <p class="promessa">Guia para donos de transportadoras e responsáveis de frotas em Portugal, com camiões ou autocarros. Perceba o que os regulamentos dizem sobre cartões, descargas, inspeções e repousos, e use o teste de 2 minutos para ver o que ainda tem de confirmar nos seus registos.</p>
   <ul class="chips">
     <li>7 pontos com fonte</li>
     <li>Teste de autoavaliação</li>
     <li>Folha de datas</li>
   </ul>
   <div class="acoes noprint">
-    <a class="btn" href="#teste">Fazer o teste</a>
-    <a class="btn sec" href="#pontos">Ir para os 7 pontos</a>
+    <a class="btn" href="#teste">Fazer o teste (2 minutos)</a>
+    <a class="lig" href="#pontos">ou ir direto aos 7 pontos</a>
   </div>
+  <p class="nota-hero">Sem formulário e sem registo. As respostas ficam no seu navegador.</p>
   <div class="autor">Por Rúben Neves</div>
   <div class="data">Revisão editorial a 20 de outubro de 2026 · verificação de fontes parcial (ver «Fontes»)</div>
 </header>
 
 <main id="conteudo" class="miolo">
+
+<section id="teste" aria-labelledby="t-titulo">
+  <div class="teste">
+    <h2 id="t-titulo">Teste: o que consegue confirmar nos seus registos?</h2>
+    <p class="sub"><span id="n-perguntas">Seis</span> perguntas, cerca de dois minutos. Pode consultar os seus registos (folha de cálculo, software, papel): o que conta é conseguir <strong style="color:#fff">confirmar</strong> a informação, não decorá-la.</p>
+    <noscript>
+      <div class="caixa amarela" style="color:var(--asfalto)"><b>O teste interativo precisa de JavaScript.</b> Em alternativa, responda a estas perguntas num papel e consulte o ponto indicado em cada uma:
+        <ol>
+          <li>Consegue confirmar, num registo atualizado, a data da última descarga do cartão de cada motorista? (ponto 3)</li>
+          <li>Consegue confirmar, num registo atualizado, a data da última descarga do aparelho de cada viatura com tacógrafo? (ponto 3; «não se aplica» se nenhuma tiver tacógrafo)</li>
+          <li>Consegue confirmar, num registo atualizado, a validade do cartão de cada motorista, de modo a pedir a renovação a tempo? (ponto 2)</li>
+          <li>Consegue confirmar, num registo atualizado, a data da última inspeção do tacógrafo de cada viatura? (ponto 7; «não se aplica» se nenhuma tiver tacógrafo)</li>
+          <li>Se os seus motoristas gozam o repouso semanal fora de casa ou do centro operacional, consegue mostrar, por escrito, como organiza as escalas para poderem regressar em cada período de quatro semanas? (ponto 4; «não se aplica» se a regra não corresponder à sua operação)</li>
+          <li>Consegue confirmar quem faz os controlos regulares aos registos dos motoristas (tempos de condução, pausas e repousos) e onde ficam guardados esses registos? (ponto 6)</li>
+        </ol>
+        Cada pergunta a que não consiga responder a partir de um registo atualizado é um ponto por confirmar.</div>
+    </noscript>
+    <div class="so-js">
+      <div class="prog"><span id="prog-txt">0 de 6 respondidas</span><div class="barra" role="progressbar" aria-label="Progresso do teste" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0"><i id="prog-barra"></i></div></div>
+      <form id="form-teste" novalidate></form>
+      <div class="resultado" id="resultado" tabindex="-1"></div>
+      <div class="teste-rodape">
+        <p>As respostas ficam guardadas apenas neste navegador e não são enviadas a ninguém. «Recomeçar teste» apaga-as.</p>
+        <button type="button" class="btn-linha" id="recomecar">Recomeçar teste</button>
+      </div>
+    </div>
+    <div class="vh" id="anuncio" role="status" aria-live="polite"></div>
+  </div>
+</section>
 
 <section id="numeros">
   <h2>Os seis números que a fiscalização lhe pode pedir</h2>
@@ -300,34 +357,6 @@ noscript .caixa{margin:12px 0}
     <div class="numero"><div class="n">5 <small>anos</small></div><div class="l">Validade máxima do cartão do motorista</div></div>
   </div>
   <p class="fonte">Reg. (UE) 581/2010, art. 1.º · Reg. (CE) 561/2006, art. 10.º, n.º 5 · Reg. (UE) 165/2014, arts. 23.º, 26.º e 36.º.</p>
-</section>
-
-<section id="teste" aria-labelledby="t-titulo">
-  <div class="teste">
-    <h2 id="t-titulo">Teste: o que consegue confirmar nos seus registos?</h2>
-    <p class="sub">Cinco perguntas, cerca de dois minutos. Pode consultar os seus registos (folha de cálculo, software, papel): o que conta é conseguir <strong style="color:#fff">confirmar</strong> a informação, não decorá-la.</p>
-    <noscript>
-      <div class="caixa amarela" style="color:var(--asfalto)"><b>O teste interativo precisa de JavaScript.</b> Em alternativa, responda a estas perguntas num papel e consulte o ponto indicado em cada uma:
-        <ol>
-          <li>Tem registada a data da última descarga do cartão de cada motorista? (ponto 3)</li>
-          <li>Tem registada a data da última descarga do aparelho de cada viatura com tacógrafo? (ponto 3)</li>
-          <li>Tem registada a validade do cartão de cada motorista, de modo a pedir a renovação a tempo? (ponto 2)</li>
-          <li>Tem registada a data da última inspeção do tacógrafo de cada viatura? (ponto 7)</li>
-          <li>Consegue mostrar, por escrito, como organiza as escalas para cada motorista poder regressar em cada período de quatro semanas? (ponto 4)</li>
-        </ol>
-        Cada pergunta a que não consiga responder a partir de um registo atualizado é um ponto por confirmar.</div>
-    </noscript>
-    <div class="so-js">
-      <div class="prog"><span id="prog-txt">0 de 5 respondidas</span><div class="barra" role="progressbar" aria-label="Progresso do teste" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"><i id="prog-barra"></i></div></div>
-      <form id="form-teste" novalidate></form>
-      <div class="resultado" id="resultado" tabindex="-1"></div>
-      <div class="teste-rodape">
-        <p>As respostas ficam guardadas apenas neste navegador, para não as perder se atualizar a página. «Recomeçar teste» apaga-as.</p>
-        <button type="button" class="btn-linha" id="recomecar">Recomeçar teste</button>
-      </div>
-    </div>
-    <div class="vh" id="anuncio" role="status" aria-live="polite"></div>
-  </div>
 </section>
 
 <section id="pontos">
@@ -580,7 +609,7 @@ noscript .caixa{margin:12px 0}
   </ul>
   <div class="caixa ver">
     <p><strong>Revisão editorial:</strong> 20 de outubro de 2026.</p>
-    <p><strong>Verificação de fontes:</strong> 20 de outubro de 2026, <strong>parcial</strong>. Foram confrontados com o texto oficial o Regulamento (UE) 2024/1258 e, na versão consolidada do Regulamento (CE) 561/2006 de 22/05/2024, os artigos 3.º, 4.º, 7.º e 8.º (pontos 4 e 5). Os restantes pontos mantêm a redação anterior e não foram revalidados nesta revisão. O Decreto-Lei n.º 84/2026 foi confirmado na página do IMT; a data de entrada em vigor vem de uma fonte secundária e o texto em Diário da República ainda não foi consultado. Isto não é uma validação jurídica integral.</p>
+    <p><strong>Verificação de fontes:</strong> 20 de outubro de 2026, <strong>parcial</strong>. Foram confrontados com o texto oficial o Regulamento (UE) 2024/1258 e, na versão consolidada do Regulamento (CE) 561/2006 de 22/05/2024, os artigos 3.º, 4.º, 7.º e 8.º (pontos 4 e 5) e o artigo 10.º, n.os 1 a 3 e 5 (descargas, controlos regulares e responsabilidade da empresa, ponto 3 e ponto 6). Os restantes pontos mantêm a redação anterior e não foram revalidados nesta revisão, em particular as citações do Regulamento (UE) 165/2014 e do Regulamento (UE) 581/2010. O Decreto-Lei n.º 84/2026 foi confirmado na página do IMT; a data de entrada em vigor vem de uma fonte secundária e o texto em Diário da República ainda não foi consultado. Isto não é uma validação jurídica integral.</p>
   </div>
   <p class="ver">Informação geral. Não substitui aconselhamento jurídico. Confirme sempre o texto em vigor nas fontes oficiais acima.</p>
 </section>
@@ -591,11 +620,16 @@ noscript .caixa{margin:12px 0}
   <div class="fecho-fx">
     <img class="foto" src="ruben-neves.jpg" alt="Rúben Neves" width="200" height="200">
     <div>
-      <h2>Quer olhar para a sua frota com outra pessoa?</h2>
-      <p>Numa conversa de 40 minutos, partimos dos pontos deste guia: vemos o que ficou por confirmar na sua frota e definimos por onde começar. É uma conversa de orientação sobre a organização da frota. <strong style="color:#fff">Não é uma auditoria, nem uma certificação, nem aconselhamento jurídico.</strong></p>
-      <p>Ajuda levar a lista de viaturas e motoristas e as datas que já tem registadas, mas não é obrigatório.</p>
+      <h2>Quer perceber como organizar estes pontos na sua frota?</h2>
+      <p>Sou o Rúben Neves e trabalho com gestão de frotas. Organizei este guia a partir das fontes oficiais listadas acima. Numa conversa de 40 minutos, olhamos para o processo atual da sua frota e identificamos o que faz sentido tratar primeiro.</p>
+      <p id="fecho-ctx" class="ctx" hidden></p>
+      <ul class="itens">
+        <li><b>O que vamos analisar</b>Como regista e acompanha hoje as descargas, os cartões, as inspeções e as escalas.</li>
+        <li><b>O que levar (opcional)</b>A lista de viaturas e motoristas e as datas que já tem registadas, mesmo que incompletas.</li>
+        <li><b>O que pode esperar</b>Orientação sobre por onde começar e como organizar o registo. Não é uma auditoria, uma certificação nem aconselhamento jurídico.</li>
+      </ul>
       <a class="btn" href="https://cal.com/ruben-neves/40min" target="_blank" rel="noopener" data-cta="fecho">Marcar conversa de 40 minutos<span class="vh"> (abre numa nova janela)</span></a>
-      <p class="peq">Escolha o dia e a hora que lhe der mais jeito.<br><strong>Rúben Neves</strong> · gestão de frotas</p>
+      <p class="peq">Abre o calendário (cal.com) numa nova janela, onde escolhe o dia e a hora. A conversa dura 40 minutos.<br><strong>Rúben Neves</strong> · gestão de frotas</p>
     </div>
   </div>
 </footer>
@@ -613,10 +647,11 @@ noscript .caixa{margin:12px 0}
  *      window.dataLayer já existir (por exemplo, se o Google Tag Manager for carregado);
  *      e window.plausible('guia_tacografo_<evento>', {props}) se existir.
  * Eventos: teste_inicio, teste_conclusao{estado}, recomendacao_clique{origem},
- *          agendar_clique{posicao}, folha_exportar{formato}.
+ *          agendar_clique{posicao,contexto}, folha_exportar{formato},
+ *          reuniao_confirmada{origem} (só com confirmação do cal.com; ver MEDICAO.md).
  * Nunca se enviam matrículas, nomes, datas, nem respostas individuais.
- * «agendar_clique» é uma INTENÇÃO (clique no link). Uma reunião só conta como marcada
- * com confirmação do cal.com (webhook BOOKING_CREATED ou integração do próprio cal.com).
+ * «agendar_clique» é uma INTENÇÃO (clique no link), não uma reunião marcada. Uma reunião só
+ * conta com confirmação do cal.com (redirecionamento ?reuniao=confirmada, webhook ou painel).
  * Ver MEDICAO.md.
  */
 (function(){
@@ -691,35 +726,64 @@ noscript .caixa{margin:12px 0}
   window.addEventListener('beforeprint',function(){ antesImprimir=pontos.map(function(p){return p.open;}); pontos.forEach(function(p){p.open=true;}); });
   window.addEventListener('afterprint',function(){ pontos.forEach(function(p,i){p.open=antesImprimir[i]||false;}); atualizaAlt(); });
 
+  /* ---------- Estado do teste (usado também pela medição) ---------- */
+  var estadoTeste='sem_teste'; /* 'sem_teste' | 'tudo_confirmado' | 'pontos_por_confirmar' */
+
+  /* ---------- Reunião confirmada ----------
+     Só conta quando a pessoa regressa do cal.com depois de marcar (redirecionamento
+     configurado no cal.com para ?reuniao=confirmada) e vem do próprio cal.com.
+     Os parâmetros do endereço são removidos de imediato. Ver MEDICAO.md. */
+  (function(){
+    try{
+      var q=new URLSearchParams(location.search);
+      if(q.get('reuniao')!=='confirmada') return;
+      var doCal=/^https:\/\/cal\.com\//.test(document.referrer), jaContada=false;
+      try{ jaContada=sessionStorage.getItem('guia-reuniao-contada')==='1'; }catch(e){}
+      if(doCal&&!jaContada){
+        try{ sessionStorage.setItem('guia-reuniao-contada','1'); }catch(e){}
+        track('reuniao_confirmada',{origem:'redirecionamento_cal'});
+      }
+      if(doCal){ var av=$('#aviso-reuniao'); if(av) av.hidden=false; }
+      history.replaceState(null,'',location.pathname+location.hash);
+    }catch(e){}
+  })();
+
   /* ---------- Cliques para agendar ---------- */
   document.addEventListener('click',function(e){
     var a=e.target.closest&&e.target.closest('a[data-cta]');
-    if(a) track('agendar_clique',{posicao:a.getAttribute('data-cta')});
+    if(a) track('agendar_clique',{posicao:a.getAttribute('data-cta'),contexto:estadoTeste});
   });
 
   /* ---------- Teste ---------- */
   var ITENS=[
     {id:'cartoes',  ponto:'p3', nome:'Descarga dos cartões dos motoristas', prazo:'prazo máximo de 28 dias', ordem:1,
-     q:'Tem registada a data da última descarga do cartão de cada motorista?',
+     q:'Consegue confirmar, num registo atualizado, a data da última descarga do cartão de cada motorista?',
      acao:'Registe a data da última descarga de cada cartão e escolha um dia fixo para as seguintes. A folha de datas, mais abaixo, ajuda.'},
     {id:'aparelho', ponto:'p3', nome:'Descarga do aparelho de cada viatura', prazo:'prazo máximo de 90 dias', ordem:4,
-     q:'Tem registada a data da última descarga do aparelho de cada viatura com tacógrafo?', na:'Se nenhuma das suas viaturas tem tacógrafo, escolha «Não se aplica».',
+     q:'Consegue confirmar, num registo atualizado, a data da última descarga do aparelho de cada viatura com tacógrafo?', na:'Se nenhuma das suas viaturas tem tacógrafo, escolha «Não se aplica».',
      acao:'Registe a data da última descarga de cada viatura e agende a seguinte antes de se completarem os 90 dias.'},
     {id:'validade', ponto:'p2', nome:'Validade dos cartões dos motoristas', prazo:'pedido de renovação pelo menos 15 dias úteis antes de caducar', ordem:2,
-     q:'Tem registada a validade do cartão de cada motorista, de modo a pedir a renovação a tempo?',
+     q:'Consegue confirmar, num registo atualizado, a validade do cartão de cada motorista, de modo a pedir a renovação a tempo?',
      acao:'Registe a validade de cada cartão e marque o pedido de renovação com folga: a emissão pode demorar até um mês.'},
     {id:'inspecao', ponto:'p7', nome:'Inspeção do tacógrafo de cada viatura', prazo:'intervalo máximo de 2 anos', ordem:5,
-     q:'Tem registada a data da última inspeção do tacógrafo de cada viatura?', na:'Se nenhuma das suas viaturas tem tacógrafo, escolha «Não se aplica».',
+     q:'Consegue confirmar, num registo atualizado, a data da última inspeção do tacógrafo de cada viatura?', na:'Se nenhuma das suas viaturas tem tacógrafo, escolha «Não se aplica».',
      acao:'Registe a data da última inspeção de cada viatura e agende a seguinte antes de se completarem os dois anos.'},
     {id:'regresso', ponto:'p4', nome:'Escalas e regresso de cada motorista', prazo:'períodos de quatro semanas consecutivas', ordem:3,
      q:'Se os seus motoristas gozam o repouso semanal fora de casa ou do centro operacional, consegue mostrar, por escrito, como organiza as escalas para poderem regressar em cada período de quatro semanas?', na:'Escolha «Não se aplica» se a regra não corresponde à sua operação (por exemplo, se o repouso semanal é sempre gozado em casa). Não é uma resposta «certa» nem «errada».',
-     acao:'Reveja as escalas e guarde por escrito como organiza o regresso de cada motorista ao centro operacional ou a casa em cada período de quatro semanas.'}
+     acao:'Reveja as escalas e guarde por escrito como organiza o regresso de cada motorista ao centro operacional ou a casa em cada período de quatro semanas.'},
+    {id:'controlos', ponto:'p6', nome:'Controlos regulares aos registos dos motoristas', prazo:'sem prazo fixo no guia', ordem:6,
+     q:'Consegue confirmar quem faz os controlos regulares aos registos dos motoristas (tempos de condução, pausas e repousos) e onde ficam guardados esses registos?',
+     acao:'Defina quem faz os controlos regulares e onde ficam guardados os registos. A empresa dá instruções aos motoristas, faz controlos regulares e conserva as folhas de registo e as impressões pelo menos um ano.'}
   ];
-  var NOME_PONTO={p2:'ponto 2',p3:'ponto 3',p4:'ponto 4',p7:'ponto 7'};
+  var N=ITENS.length, PAL=['zero','um','dois','três','quatro','cinco','seis'];
+  var NOME_PONTO={p2:'ponto 2',p3:'ponto 3',p4:'ponto 4',p6:'ponto 6',p7:'ponto 7'};
   var KT='tacografo-teste-v2';
-  var respostas=[]; /* 'sim' | 'confirmar' | 'na' | undefined */
-  try{ var rt=JSON.parse(leLS(KT)||'null'); if(rt&&rt.length===ITENS.length) respostas=rt.map(function(v){return (v==='sim'||v==='confirmar'||v==='na')?v:undefined;}); }catch(e){}
-  var iniciado=respostas.some(Boolean), concluido=respostas.filter(Boolean).length===ITENS.length;
+  var respostas=[]; /* 'sim' | 'confirmar' | 'na' | undefined; compatível com as 5 respostas guardadas antes */
+  try{
+    var rt=JSON.parse(leLS(KT)||'null');
+    if(Array.isArray(rt)&&rt.length<=N) respostas=ITENS.map(function(it,i){ var v=rt[i]; if(v==='na'&&!it.na) return undefined; return (v==='sim'||v==='confirmar'||v==='na')?v:undefined; });
+  }catch(e){}
+  var iniciado=respostas.some(Boolean), concluido=respostas.filter(Boolean).length===N;
 
   var form=$('#form-teste'), res=$('#resultado'), anuncio=$('#anuncio');
   var OPC=[['sim','sim','Sim, está registado'],['confirmar','conf','Preciso de confirmar'],['na','na','Não se aplica']];
@@ -741,38 +805,75 @@ noscript .caixa{margin:12px 0}
     });
     fs.appendChild(cx); form.appendChild(fs);
   });
+  $('#n-perguntas').textContent=PAL[N].charAt(0).toUpperCase()+PAL[N].slice(1);
+  $('#prog-txt').textContent='0 de '+N+' respondidas';
+  $('[role=progressbar]').setAttribute('aria-valuemax',N);
 
   function responder(i,v){
     respostas[i]=v; guardaLS(KT,JSON.stringify(respostas));
     if(!iniciado){ iniciado=true; track('teste_inicio'); }
     atualizaTeste(true);
   }
+  function el(tag,cls,txt){ var e=document.createElement(tag); if(cls) e.className=cls; if(txt!=null) e.textContent=txt; return e; }
+  function link(txt,href,attrs){ var a=document.createElement('a'); a.textContent=txt; a.href=href; for(var k in (attrs||{})) a.setAttribute(k,attrs[k]); return a; }
+  function minuscula(s){ return s.charAt(0).toLowerCase()+s.slice(1); }
+  function listaNomes(l){
+    var nomes=l.map(function(it){return minuscula(it.nome);});
+    if(nomes.length>3){ var extra=nomes.length-3; return nomes.slice(0,3).join(', ')+' e mais '+(extra===1?'um ponto':extra+' pontos'); }
+    return nomes.length>1?nomes.slice(0,-1).join(', ')+' e '+nomes[nomes.length-1]:nomes[0];
+  }
+  function atualizaFecho(porConfN){
+    var f=$('#fecho-ctx'); if(!f) return;
+    if(estadoTeste==='pontos_por_confirmar'){ f.hidden=false; f.textContent='Fez o teste: leve para a conversa '+(porConfN===1?'o ponto que ficou':'os '+porConfN+' pontos que ficaram')+' por confirmar.'; }
+    else if(estadoTeste==='tudo_confirmado'){ f.hidden=false; f.textContent='Fez o teste e não ficou nenhum ponto por confirmar: a conversa serve, se quiser, para rever o processo que já tem.'; }
+    else { f.hidden=true; f.textContent=''; }
+  }
   function atualizaTeste(deUtilizador){
     var n=respostas.filter(Boolean).length;
-    $('#prog-txt').textContent=n+' de '+ITENS.length+' respondidas';
-    var b=$('#prog-barra'); b.style.width=(n/ITENS.length*100)+'%';
-    var bar=b.parentNode; bar.setAttribute('aria-valuenow',n);
-    if(n<ITENS.length){ res.className='resultado'; res.innerHTML=''; if(deUtilizador) anuncio.textContent=n+' de '+ITENS.length+' respondidas.'; return; }
+    $('#prog-txt').textContent=n+' de '+N+' respondidas';
+    var b=$('#prog-barra'); b.style.width=(n/N*100)+'%';
+    b.parentNode.setAttribute('aria-valuenow',n);
+    if(n<N){
+      res.className='resultado'; res.innerHTML=''; estadoTeste='sem_teste';
+      document.documentElement.classList.remove('feito'); atualizaFecho(0);
+      if(deUtilizador) anuncio.textContent=n+' de '+N+' respondidas.';
+      return;
+    }
     var porConf=ITENS.filter(function(it,i){return respostas[i]==='confirmar';});
     var conf=respostas.filter(function(v){return v==='sim';}).length;
     var na=respostas.filter(function(v){return v==='na';}).length;
+    estadoTeste=porConf.length?'pontos_por_confirmar':'tudo_confirmado';
+    document.documentElement.classList.add('feito');
     mostraResultado(porConf,conf,na);
+    atualizaFecho(porConf.length);
+    var primeiraVez=!concluido;
     if(!concluido){ concluido=true; track('teste_conclusao',{estado:porConf.length?'com_pontos_por_confirmar':'tudo_confirmado'}); }
-    if(deUtilizador) anuncio.textContent='Resultado disponível: '+(porConf.length?porConf.length+(porConf.length===1?' ponto por confirmar.':' pontos por confirmar.'):'sem pontos por confirmar nas respostas aplicáveis.');
+    if(deUtilizador){
+      anuncio.textContent='Resultado disponível: '+(porConf.length?porConf.length+(porConf.length===1?' ponto por confirmar.':' pontos por confirmar.'):'sem pontos por confirmar nas respostas aplicáveis.');
+      if(primeiraVez&&res.getBoundingClientRect().top>window.innerHeight*0.5) res.scrollIntoView({behavior:REDUZ?'auto':'smooth',block:'start'});
+    }
   }
-  function el(tag,cls,txt){ var e=document.createElement(tag); if(cls) e.className=cls; if(txt!=null) e.textContent=txt; return e; }
-  function link(txt,href,attrs){ var a=document.createElement('a'); a.textContent=txt; a.href=href; for(var k in (attrs||{})) a.setAttribute(k,attrs[k]); return a; }
-  function convite(n){
-    var c=el('div','convite');
-    var h=el('h4','',n?(n===1?'Quer olhar para este ponto com outra pessoa?':'Quer olhar para estes '+n+' pontos com outra pessoa?'):'Quer uma segunda leitura aos seus registos e escalas?');
-    c.appendChild(h);
-    c.appendChild(el('p','',n
-      ?'Numa conversa de 40 minutos, vemos os pontos que ficaram por confirmar e definimos por onde começar. É uma conversa de orientação sobre a organização da frota.'
-      :'Numa conversa de 40 minutos, vemos os seus registos e as escalas e discutimos o que manter e o que reforçar. É uma conversa de orientação sobre a organização da frota.'));
-    var a=link('Marcar conversa de 40 minutos',CAL,{'class':'btn','target':'_blank','rel':'noopener','data-cta':'resultado'});
-    var vh=el('span','vh',' (abre numa nova janela)'); a.appendChild(vh);
+  function convite(porConf){
+    var n=porConf.length, c=el('div','convite'+(n?'':' suave'));
+    c.appendChild(el('h4','',n?(n===1?'Quer perceber como organizar este ponto na sua frota?':'Quer perceber como organizar estes '+n+' pontos na sua frota?'):'Quer uma segunda leitura ao seu processo?'));
+    c.appendChild(el('p','',n?'Numa conversa de 40 minutos, olhamos para o processo atual e identificamos o que faz sentido tratar primeiro.':'Se quiser, numa conversa de 40 minutos revemos o processo que já tem e vemos o que pode ser reforçado.'));
+    var ul=el('ul','itens');
+    function item(t,txt){ var li=el('li',''); li.appendChild(el('b','',t)); li.appendChild(document.createTextNode(txt)); ul.appendChild(li); }
+    if(n){
+      item('O que vamos analisar','Como regista e acompanha hoje: '+listaNomes(porConf)+'.');
+      item('Ligação ao seu teste','Partimos dos pontos que acabou de identificar. As respostas ficam no seu navegador e não me chegam: se quiser, mostre-as na conversa.');
+    }else{
+      item('O que vamos analisar','Como regista e acompanha hoje as datas, os cartões e as escalas, e o que este teste não cobre.');
+      item('Ligação ao seu teste','Partimos de um teste sem pontos por confirmar. As respostas ficam no seu navegador e não me chegam.');
+    }
+    item('O que levar (opcional)','A lista de viaturas e motoristas e as datas que já tem registadas, mesmo que incompletas.');
+    item('O que pode esperar','Orientação sobre por onde começar e como organizar o registo. Não é uma auditoria, uma certificação nem aconselhamento jurídico.');
+    c.appendChild(ul);
+    var rotulo=n?(n===1?'Marcar 40 minutos para rever este ponto':'Marcar 40 minutos para rever estes '+n+' pontos'):'Marcar 40 minutos para rever o meu processo';
+    var a=link(rotulo,CAL,{'class':'btn','target':'_blank','rel':'noopener','data-cta':'resultado'});
+    a.appendChild(el('span','vh',' (abre numa nova janela)'));
     c.appendChild(a);
-    c.appendChild(el('p','peq','Não é uma auditoria, nem uma certificação, nem aconselhamento jurídico.'));
+    c.appendChild(el('p','cal','Abre o calendário (cal.com) numa nova janela, onde escolhe o dia e a hora. A conversa dura 40 minutos.'));
     return c;
   }
   function mostraResultado(porConf,conf,na){
@@ -780,13 +881,14 @@ noscript .caixa{margin:12px 0}
     var resumo=conf+(conf===1?' ponto registado':' pontos registados')+(na?', '+na+(na===1?' marcado como «não se aplica»':' marcados como «não se aplica»'):'')+'.';
     if(!porConf.length){
       res.appendChild(el('h3','','Todas as respostas aplicáveis estão registadas'));
-      res.appendChild(el('p','','Tem boa organização documental nestes cinco pontos: '+resumo+' «Não se aplica» não conta como falha nem como prova de cumprimento; confirme que realmente não se aplica à sua operação.'));
+      res.appendChild(el('p','','Tem boa organização documental nestes '+PAL[N]+' pontos: '+resumo+' «Não se aplica» não conta como falha nem como prova de cumprimento; confirme que realmente não se aplica à sua operação.'));
       var p=el('p',''); p.appendChild(document.createTextNode('Para manter assim, use a ')); p.appendChild(link('folha de datas','#ficha')); p.appendChild(document.createTextNode(' e percorra os 7 pontos para ver o que o teste não cobre.')); res.appendChild(p);
     }else{
       res.appendChild(el('h3','',porConf.length+(porConf.length===1?' ponto por confirmar':' pontos por confirmar')));
-      res.appendChild(el('p','','Ficaram por confirmar '+porConf.length+' de 5. '+resumo.charAt(0).toUpperCase()+resumo.slice(1)));
+      res.appendChild(el('p','','Ficaram por confirmar '+porConf.length+' de '+N+'. '+resumo.charAt(0).toUpperCase()+resumo.slice(1)));
       var lista=el('ol','');
-      porConf.slice().sort(function(a,b){return a.ordem-b.ordem;}).forEach(function(it){
+      var ordenados=porConf.slice().sort(function(a,b){return a.ordem-b.ordem;});
+      ordenados.forEach(function(it){
         var li=el('li','');
         li.appendChild(el('span','nm',it.nome));
         li.appendChild(el('span','pz',it.prazo));
@@ -795,17 +897,17 @@ noscript .caixa{margin:12px 0}
         li.appendChild(d); lista.appendChild(li);
       });
       res.appendChild(lista);
-      var prim=porConf.slice().sort(function(a,b){return a.ordem-b.ordem;})[0];
-      var pr=el('div','primeira');
-      var pb=el('strong','','Primeira ação sugerida: '); pr.appendChild(pb);
-      pr.appendChild(document.createTextNode(prim.nome.charAt(0).toLowerCase()+prim.nome.slice(1)+'. '));
-      pr.appendChild(document.createTextNode('Critério: dos pontos por confirmar, é o que o guia associa ao prazo ou à janela de ação mais curta ('+prim.prazo+'). É um critério de calendário, não uma classificação jurídica de risco. '));
+      var prim=ordenados[0], pr=el('div','primeira');
+      pr.appendChild(el('strong','','Primeira ação sugerida: '));
+      pr.appendChild(document.createTextNode(minuscula(prim.nome)+'. '));
+      pr.appendChild(document.createTextNode(ordenados.length===1
+        ?'É o único ponto que ficou por confirmar. '
+        :'Critério: dos pontos por confirmar, é o que o guia associa ao prazo ou à janela de ação mais curta ('+prim.prazo+'). É um critério de calendário, não uma classificação jurídica de risco. '));
       pr.appendChild(link('Abrir o '+NOME_PONTO[prim.ponto],'#'+prim.ponto,{'data-rec':'primeira_acao'}));
       res.appendChild(pr);
     }
-    var av=el('p','aviso','Isto é uma autoavaliação, não uma auditoria nem uma certificação. Mede se consegue confirmar informação num registo atualizado, ou seja, organização documental. Não mede se a sua empresa cumpre a lei, nem substitui aconselhamento jurídico.');
-    res.appendChild(av);
-    res.appendChild(convite(porConf.length));
+    res.appendChild(el('p','aviso','Isto é uma autoavaliação, não uma auditoria nem uma certificação. Mede se consegue confirmar informação num registo atualizado, ou seja, organização documental. Não mede se a sua empresa cumpre a lei, nem substitui aconselhamento jurídico.'));
+    res.appendChild(convite(porConf));
   }
   res.addEventListener('click',function(e){
     var a=e.target.closest&&e.target.closest('a[data-rec]');
