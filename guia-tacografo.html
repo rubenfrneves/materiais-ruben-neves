@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tacógrafo sem sustos · Guia · Rúben Neves</title>
+<meta name="description" content="Guia curto sobre o tacógrafo em Portugal e na UE, para pesados de mercadorias e de passageiros.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
@@ -17,24 +18,22 @@
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--claro);color:var(--asfalto);font-family:Barlow,Arial,sans-serif;font-size:17px;line-height:1.55}
 h1,h2,h3{font-family:"Barlow Semi Condensed",Arial,sans-serif;color:var(--noite);font-weight:700;line-height:1.15;margin:0}
-.pagina{max-width:880px;margin:0 auto;background:var(--branco)}
+.pagina{max-width:860px;margin:0 auto;background:var(--branco)}
 .miolo{padding:0 40px}
 @media(max-width:640px){.miolo{padding:0 16px}body{font-size:16px}}
 
-/* Capa */
-.capa{background:var(--noite);color:var(--branco);padding:72px 40px 56px}
+.capa{background:var(--noite);color:var(--branco);padding:68px 40px 52px}
 .capa .sup{font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:14px;color:#C9D3DF}
 .capa h1{color:var(--branco);font-size:clamp(44px,9vw,76px);margin:18px 0 0}
 .capa h1 .sub{background:linear-gradient(transparent 82%,var(--amarelo) 82%,var(--amarelo) 94%,transparent 94%);padding-bottom:2px}
 .estrada{height:0;border-top:5px dashed var(--amarelo);width:200px;margin:22px 0}
 .capa p.promessa{font-size:20px;max-width:34em;margin:0;color:#E6ECF3}
-.capa .autor{margin-top:44px;font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:700;font-size:22px;color:var(--branco)}
+.capa .autor{margin-top:40px;font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:700;font-size:22px;color:var(--branco)}
 .capa .autor::after{content:"";display:block;width:90px;margin-top:6px;border-top:4px dashed var(--amarelo)}
 .capa .data{margin-top:14px;font-size:14px;color:#C9D3DF}
 @media(max-width:640px){.capa{padding:48px 16px 40px}}
 
-/* Blocos */
-section{padding:44px 0 8px}
+section{padding:40px 0 6px}
 h2{font-size:32px;margin-bottom:14px}
 h3{font-size:21px;margin:22px 0 8px}
 p{margin:0 0 12px}
@@ -42,26 +41,21 @@ ul{margin:0 0 14px;padding-left:22px}
 li{margin-bottom:6px}
 a{color:var(--noite);text-decoration-thickness:2px;text-decoration-color:var(--amarelo);text-underline-offset:3px}
 strong{color:var(--noite)}
+.fonte{font-size:13px;color:var(--nota);margin-top:-4px}
 
 .caixa{background:var(--claro);border-radius:10px;padding:16px 20px;margin:16px 0}
 .caixa.amarela{background:var(--amarelo-suave);border-left:6px solid var(--amarelo)}
-.caixa.noite{background:var(--noite);color:#E6ECF3}
-.caixa.noite strong,.caixa.noite h3{color:var(--branco)}
-.caixa h3:first-child{margin-top:0}
 
-.numeros{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:18px 0}
+.numeros{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
 .numero{background:var(--claro);border-radius:10px;padding:14px 16px}
 .numero .n{font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:700;font-size:38px;color:var(--noite);line-height:1}
 .numero .n small{font-size:18px;font-weight:600}
 .numero .l{font-size:14.5px;margin-top:6px}
-.numero .f{font-size:12.5px;color:var(--nota);margin-top:4px}
 
-.item{border-top:2px solid var(--claro);padding-top:30px;margin-top:30px}
+.item{border-top:2px solid var(--claro);padding-top:28px;margin-top:28px}
 .item-cab{display:flex;align-items:center;gap:14px;margin-bottom:12px}
 .bola{flex:none;width:44px;height:44px;border-radius:50%;background:var(--amarelo);color:var(--noite);font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:700;font-size:23px;display:flex;align-items:center;justify-content:center}
 .item-cab h2{margin:0;font-size:28px}
-.rotulo{font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.07em;font-size:13.5px;color:var(--noite);display:inline-block;background:var(--amarelo);padding:1px 8px;border-radius:3px;margin:4px 0 6px}
-.fonte{font-size:13px;color:var(--nota);margin-top:-4px}
 
 table{width:100%;border-collapse:collapse;margin:14px 0 18px;font-size:15.5px}
 th{background:var(--noite);color:var(--branco);text-align:left;font-family:"Barlow Semi Condensed",Arial,sans-serif;font-weight:600;padding:9px 12px}
@@ -70,7 +64,13 @@ tbody tr:nth-child(even) td{background:var(--claro)}
 .tabela-scroll{overflow-x:auto}
 td.sim{font-weight:600;color:var(--noite)}
 
-/* Ficha */
+/* Teste */
+.teste{background:var(--noite);color:#E6ECF3;border-radius:12px;padding:26px 28px;margin:26px 0}
+.teste h2{color:var(--branco);font-size:28px}
+.teste ol{margin:0 0 14px;padding-left:22px}
+.teste li{margin-bottom:8px}
+.teste strong{color:var(--branco)}
+
 .ficha input[type=date],.ficha input[type=text]{font:inherit;font-size:15px;padding:7px 9px;border:2px solid var(--amarelo);background:var(--amarelo-suave);border-radius:6px;color:var(--noite);width:100%;min-width:0}
 .estado{display:inline-block;padding:3px 10px;border-radius:999px;font-weight:600;font-size:14px;color:var(--branco);white-space:nowrap}
 .estado.ok{background:var(--ok)}
@@ -78,25 +78,21 @@ td.sim{font-weight:600;color:var(--noite)}
 .estado.urgente{background:var(--urgente)}
 .estado.vazio{background:#E1E5EA;color:var(--nota)}
 .ficha td{vertical-align:middle}
-.check li{list-style:none;margin-left:-22px;padding-left:34px;position:relative}
-.check li::before{content:"";position:absolute;left:0;top:4px;width:20px;height:20px;border:2px solid var(--noite);border-radius:4px;background:var(--amarelo-suave)}
 
-/* Fecho */
-.fecho{background:var(--noite);color:#E6ECF3;padding:44px 40px;margin-top:44px}
-.fecho h2{color:var(--branco)}
-.botao{display:inline-block;background:var(--amarelo);color:var(--noite);font-weight:600;text-decoration:none;padding:12px 22px;border-radius:8px;margin-top:8px}
-.fecho a{color:var(--branco)}
-.preencher{background:var(--amarelo);color:var(--noite);padding:0 5px;border-radius:3px;font-weight:600}
+.botao{display:inline-block;background:var(--amarelo);color:var(--noite);font-weight:600;font-size:18px;text-decoration:none;padding:14px 26px;border-radius:8px}
+.botao:hover{filter:brightness(.95)}
+.fecho{background:var(--noite);color:#E6ECF3;padding:48px 40px;margin-top:44px}
+.fecho h2{color:var(--branco);font-size:36px}
+.fecho p{max-width:36em}
+.fecho .peq{font-size:14px;color:#C9D3DF;margin-top:12px}
 @media(max-width:640px){.fecho{padding:36px 16px}}
 .rodape{padding:22px 40px 36px;font-size:13px;color:var(--nota)}
 @media(max-width:640px){.rodape{padding:22px 16px 32px}}
 
 @media print{
   body{background:#fff;font-size:12pt}
-  .pagina{max-width:none}
-  .item,.caixa,table,.numero{break-inside:avoid}
-  .capa,.fecho,th,.bola,.rotulo,.estado{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .capa{break-after:page}
+  .item,.caixa,table,.numero,.teste{break-inside:avoid}
+  .capa,.fecho,.teste,th,.bola,.estado,.botao{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .noprint{display:none}
 }
 </style>
@@ -105,305 +101,199 @@ td.sim{font-weight:600;color:var(--noite)}
 <div class="pagina">
 
 <header class="capa">
-  <div class="sup">Guia prático · Mercadorias e passageiros</div>
+  <div class="sup">Guia curto · Mercadorias e passageiros</div>
   <h1>Tacógrafo<br>sem <span class="sub">sustos</span></h1>
   <div class="estrada"></div>
-  <p class="promessa">O que a lei portuguesa e a europeia exigem a quem tem camiões e autocarros, explicado em linguagem simples e com a fonte de cada regra.</p>
+  <p class="promessa">O que a lei portuguesa e a europeia exigem a quem tem camiões e autocarros, em 7 pontos e com a fonte de cada regra. Dez minutos de leitura, e sabe se a sua frota está preparada.</p>
   <div class="autor">Por Rúben Neves</div>
   <div class="data">Legislação consultada a 20 de outubro de 2026</div>
 </header>
 
 <div class="miolo">
 
-<section id="como-usar">
-  <h2>Como usar este guia</h2>
-  <p>O conta-quilómetros não impede uma avaria, mas diz-lhe quando a revisão está à porta. Este guia faz o mesmo com o tacógrafo: não resolve nada por si, mostra-lhe <strong>o que olhar, por que ordem e com que datas</strong>.</p>
-  <div class="caixa">
-    <p><strong>Serve para:</strong> perceber as obrigações da empresa e do motorista, preparar-se para uma fiscalização e organizar as datas de descarga com a folha da página final.</p>
-    <p style="margin-bottom:0"><strong>Não serve para:</strong> aconselhamento jurídico, nem para calcular coimas. É informação geral, baseada nos textos oficiais indicados em cada ponto e nas <a href="#fontes">fontes</a> no fim. Em caso de dúvida sobre um caso concreto, consulte o IMT ou um jurista.</p>
-  </div>
-
-  <h3>Os números a saber de cor</h3>
+<section>
+  <h2>Os seis números que a fiscalização lhe pode pedir</h2>
   <div class="numeros">
-    <div class="numero"><div class="n">90 <small>dias</small></div><div class="l">Prazo máximo para descarregar os dados do <strong>aparelho</strong> da viatura</div><div class="f">Reg. (UE) 581/2010, art. 1.º</div></div>
-    <div class="numero"><div class="n">28 <small>dias</small></div><div class="l">Prazo máximo para descarregar os dados do <strong>cartão do motorista</strong></div><div class="f">Reg. (UE) 581/2010, art. 1.º</div></div>
-    <div class="numero"><div class="n">12 <small>meses</small></div><div class="l">Tempo mínimo que a empresa guarda os dados descarregados</div><div class="f">Reg. (CE) 561/2006, art. 10.º, n.º 5</div></div>
-    <div class="numero"><div class="n">2 <small>anos</small></div><div class="l">Intervalo máximo entre inspeções do tacógrafo</div><div class="f">Reg. (UE) 165/2014, art. 23.º</div></div>
-    <div class="numero"><div class="n">5 <small>anos</small></div><div class="l">Validade máxima do cartão de motorista</div><div class="f">Reg. (UE) 165/2014, art. 26.º</div></div>
-    <div class="numero"><div class="n">56 <small>dias</small></div><div class="l">Registos que o motorista leva consigo para o controlo, além do dia em curso</div><div class="f">Reg. (UE) 165/2014, art. 36.º</div></div>
+    <div class="numero"><div class="n">90 <small>dias</small></div><div class="l">Descarga do <strong>aparelho</strong> da viatura (prazo máximo)</div></div>
+    <div class="numero"><div class="n">28 <small>dias</small></div><div class="l">Descarga do <strong>cartão do motorista</strong> (prazo máximo)</div></div>
+    <div class="numero"><div class="n">12 <small>meses</small></div><div class="l">Conservação dos dados descarregados</div></div>
+    <div class="numero"><div class="n">56 <small>dias</small></div><div class="l">Registos que o motorista leva consigo, além do dia em curso</div></div>
+    <div class="numero"><div class="n">2 <small>anos</small></div><div class="l">Intervalo máximo entre inspeções do tacógrafo</div></div>
+    <div class="numero"><div class="n">5 <small>anos</small></div><div class="l">Validade máxima do cartão do motorista</div></div>
+  </div>
+  <p class="fonte">Reg. (UE) 581/2010, art. 1.º · Reg. (CE) 561/2006, art. 10.º, n.º 5 · Reg. (UE) 165/2014, arts. 23.º, 26.º e 36.º.</p>
+
+  <div class="teste" id="teste">
+    <h2>O teste dos 2 minutos</h2>
+    <p>Responda sem ligar a ninguém:</p>
+    <ol>
+      <li>Qual foi a data da última descarga do cartão de cada motorista?</li>
+      <li>E a do aparelho de cada viatura?</li>
+      <li>Quando caduca o cartão de cada motorista?</li>
+      <li>Quando foi a última inspeção do tacógrafo de cada viatura?</li>
+      <li>Como garante que cada motorista regressa a casa de quatro em quatro semanas?</li>
+    </ol>
+    <p><strong>Se disse «não sei» a duas ou mais, a sua frota depende da memória de alguém.</strong> Os pontos abaixo e a <a href="#ficha" style="color:#fff">folha de datas</a> resolvem isso.</p>
   </div>
 </section>
 
 <!-- 1 -->
 <div class="item" id="p1">
   <div class="item-cab"><div class="bola">1</div><h2>Que viaturas têm de ter tacógrafo</h2></div>
-  <span class="rotulo">O que é</span>
-  <p>O tacógrafo é obrigatório nas viaturas de transporte rodoviário abrangidas pelo Regulamento (CE) n.º 561/2006. Na prática:</p>
   <ul>
-    <li><strong>Mercadorias:</strong> massa máxima autorizada (incluindo reboques e semirreboques) <strong>superior a 3,5 toneladas</strong>.</li>
-    <li><strong>Mercadorias, desde 1 de julho de 2026:</strong> também as viaturas com mais de <strong>2,5 toneladas</strong> em transporte internacional ou cabotagem.</li>
-    <li><strong>Passageiros:</strong> viaturas construídas ou adaptadas para transportar <strong>mais de nove pessoas, incluindo o condutor</strong>.</li>
+    <li><strong>Mercadorias:</strong> massa máxima autorizada (com reboques e semirreboques) <strong>superior a 3,5 toneladas</strong>. Desde <strong>1 de julho de 2026</strong>, também mais de <strong>2,5 toneladas</strong> em transporte internacional ou cabotagem.</li>
+    <li><strong>Passageiros:</strong> viaturas para <strong>mais de nove pessoas, incluindo o condutor</strong>.</li>
   </ul>
-  <p class="fonte">Reg. (UE) 165/2014, art. 3.º, n.º 1; Reg. (CE) 561/2006, art. 2.º, n.º 1 (alterado pelo Reg. (UE) 2020/1054).</p>
-  <span class="rotulo">Porque importa</span>
-  <p>A obrigação depende do peso e do tipo de transporte, não do tamanho da empresa. Uma carrinha de 3 toneladas que ficava de fora pode entrar no regime se fizer transporte internacional ou cabotagem.</p>
-  <span class="rotulo">Há exceções</span>
-  <p>O regulamento europeu exclui, por exemplo, os <strong>serviços regulares de passageiros com percurso de linha até 50 km</strong> e as viaturas com <strong>velocidade máxima de 40 km/h</strong> (art. 3.º do Reg. 561/2006). Os Estados-Membros podem ainda isentar outras categorias (art. 13.º). Em Portugal, a dispensa e a isenção constam da <strong>Portaria n.º 222/2008, de 5 de março</strong>, que o IMT indica como em vigor até nova portaria.</p>
-  <span class="rotulo">O que fazer</span>
-  <p>Confirme viatura a viatura: massa máxima autorizada, tipo de transporte e se circula fora de Portugal. Em caso de dúvida numa isenção, valide com o IMT antes de dispensar o tacógrafo.</p>
+  <p>Exceções: por exemplo, serviços regulares de passageiros com percurso de linha até 50 km e viaturas limitadas a 40 km/h. Em Portugal, a dispensa e a isenção constam da Portaria n.º 222/2008, de 5 de março, que o IMT indica como em vigor até nova portaria.</p>
+  <p class="fonte">Reg. (UE) 165/2014, art. 3.º · Reg. (CE) 561/2006, arts. 2.º e 3.º (alterado pelo Reg. (UE) 2020/1054).</p>
+
+  <h3>Que tacógrafo, e até quando</h3>
+  <div class="tabela-scroll"><table>
+    <thead><tr><th>Viatura que circula fora do país de matrícula</th><th>Tem de passar para</th><th>Data</th></tr></thead>
+    <tbody>
+      <tr><td>Analógico ou digital não inteligente</td><td>Tacógrafo inteligente versão 2</td><td class="sim">até 31/12/2024</td></tr>
+      <tr><td>Inteligente versão 1</td><td>Tacógrafo inteligente versão 2</td><td class="sim">até 18/08/2025</td></tr>
+      <tr><td>Ligeiros de mercadorias &gt; 2,5 t em transporte internacional (registados na UE)</td><td>Tacógrafo inteligente versão 2</td><td class="sim">desde 01/07/2026</td></tr>
+    </tbody>
+  </table></div>
+  <p class="fonte">Reg. (UE) 165/2014, art. 3.º, n.os 4 e 4-A (Reg. 2020/1054) · Comissão Europeia, notícia de 19/08/2025.</p>
 </div>
 
 <!-- 2 -->
 <div class="item" id="p2">
-  <div class="item-cab"><div class="bola">2</div><h2>Que tipo de tacógrafo e até quando</h2></div>
-  <span class="rotulo">O que é</span>
+  <div class="item-cab"><div class="bola">2</div><h2>Os cartões</h2></div>
   <ul>
-    <li><strong>Analógico:</strong> grava numa folha de registo de papel.</li>
-    <li><strong>Digital:</strong> grava na memória do aparelho e no cartão do motorista.</li>
-    <li><strong>Inteligente:</strong> digital, com <strong>posição por satélite</strong>, comunicação à distância para as autoridades de controlo e interface para outros equipamentos. Regista automaticamente a posição no início e no fim do dia de trabalho, em cada passagem de fronteira, em cada carga ou descarga e de três em três horas de condução acumulada.</li>
+    <li><strong>Cartão do condutor:</strong> pessoal, um só por motorista, no máximo cinco anos de validade. Não se usam cartões defeituosos ou caducados.</li>
+    <li><strong>Renovação:</strong> o pedido faz-se <strong>o mais tardar 15 dias úteis antes</strong> de caducar. A emissão demora até um mês depois de o pedido estar completo.</li>
+    <li><strong>Cartão da empresa:</strong> permite ver, descarregar e imprimir os dados do aparelho que a empresa tenha bloqueado.</li>
   </ul>
-  <p class="fonte">Reg. (UE) 165/2014, arts. 8.º a 10.º (redação do Reg. (UE) 2020/1054).</p>
-
-  <span class="rotulo">Porque importa: as datas de passagem à versão 2</span>
-  <div class="tabela-scroll"><table>
-    <thead><tr><th>Viatura</th><th>Obrigação</th><th>Data</th></tr></thead>
-    <tbody>
-      <tr><td>Com tacógrafo <strong>analógico ou digital não inteligente</strong>, a circular fora do país de matrícula</td><td>Tacógrafo inteligente versão 2</td><td class="sim">até 31/12/2024</td></tr>
-      <tr><td>Com tacógrafo <strong>inteligente versão 1</strong>, a circular fora do país de matrícula</td><td>Tacógrafo inteligente versão 2</td><td class="sim">até 18/08/2025</td></tr>
-      <tr><td>Ligeiros de mercadorias com mais de 2,5 t, em <strong>transporte internacional</strong> (registados na UE)</td><td>Tacógrafo inteligente versão 2</td><td class="sim">a partir de 01/07/2026</td></tr>
-    </tbody>
-  </table></div>
-  <p class="fonte">Reg. (UE) 165/2014, art. 3.º, n.os 4 e 4-A (Reg. (UE) 2020/1054); Comissão Europeia, notícia de 19/08/2025.</p>
-  <span class="rotulo">O que fazer</span>
-  <p>Veja, viatura a viatura, que tacógrafo tem e se circula fora de Portugal. A obrigação de passagem à versão 2 aplica-se às viaturas que circulam <strong>num Estado-Membro diferente do de matrícula</strong>. Confirme na oficina autorizada a versão instalada.</p>
+  <p class="fonte">Reg. (UE) 165/2014, arts. 2.º, 26.º, 27.º e 28.º. Em Portugal, o pedido faz-se ao IMT.</p>
 </div>
 
 <!-- 3 -->
 <div class="item" id="p3">
-  <div class="item-cab"><div class="bola">3</div><h2>Os quatro cartões do tacógrafo digital</h2></div>
-  <span class="rotulo">O que é</span>
-  <div class="tabela-scroll"><table>
-    <thead><tr><th>Cartão</th><th>Quem usa</th><th>Para que serve</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Condutor</strong></td><td>O motorista</td><td>Identifica o motorista e guarda as suas atividades. É pessoal.</td></tr>
-      <tr><td><strong>Empresa</strong></td><td>A empresa de transporte</td><td>Permite ver, descarregar e imprimir os dados do aparelho que a empresa tenha bloqueado.</td></tr>
-      <tr><td><strong>Oficina</strong></td><td>Técnicos de oficinas aprovadas</td><td>Ensaio, calibração, ativação e descarga.</td></tr>
-      <tr><td><strong>Controlo</strong></td><td>Autoridades de fiscalização</td><td>Acesso aos dados do aparelho e dos cartões.</td></tr>
-    </tbody>
-  </table></div>
-  <p class="fonte">Reg. (UE) 165/2014, art. 2.º, n.º 2, alíneas f) a k).</p>
-  <span class="rotulo">Porque importa: o cartão do motorista</span>
+  <div class="item-cab"><div class="bola">3</div><h2>Descarregar os dados: 90 e 28 dias</h2></div>
+  <p>Descarregar é copiar os ficheiros do aparelho ou do cartão, com assinatura digital, <strong>sem perder nenhuma informação</strong>. Os prazos são máximos:</p>
   <ul>
-    <li><strong>Pessoal:</strong> cada motorista só pode ter um cartão válido e só pode usar o seu. Não pode usar cartões defeituosos ou caducados (art. 27.º).</li>
-    <li><strong>Validade:</strong> no máximo cinco anos (art. 26.º, n.º 6).</li>
-    <li><strong>Emissão:</strong> a autoridade competente emite o cartão no prazo de um mês a contar da receção do pedido e de toda a documentação (art. 26.º, n.º 1).</li>
-    <li><strong>Renovação:</strong> o pedido faz-se <strong>o mais tardar 15 dias úteis antes</strong> da data de caducidade (art. 28.º, n.º 1).</li>
+    <li><strong>Aparelho da viatura:</strong> até 90 dias.</li>
+    <li><strong>Cartão do motorista:</strong> até 28 dias.</li>
   </ul>
-  <span class="rotulo">O que fazer</span>
-  <p>Registe a data de caducidade de cada cartão e peça a renovação com folga. Em Portugal, o pedido de cartão de condutor e de empresa faz-se ao IMT.</p>
+  <p>A empresa garante que <strong>todos</strong> os dados são descarregados, com maior frequência se for preciso, e <strong>conserva-os pelo menos 12 meses</strong>, acessíveis a um agente de controlo que os peça.</p>
+  <p class="fonte">Reg. (UE) 581/2010, art. 1.º · Reg. (CE) 561/2006, art. 10.º, n.º 5.</p>
+  <div class="caixa amarela"><strong>Dica:</strong> um prazo máximo não é uma meta. Escolha uma data fixa de descarga, por exemplo todas as segundas-feiras, e registe-a na <a href="#ficha">folha de datas</a>.</div>
 </div>
 
 <!-- 4 -->
 <div class="item" id="p4">
-  <div class="item-cab"><div class="bola">4</div><h2>Descarregar os dados: 90 e 28 dias</h2></div>
-  <span class="rotulo">O que é</span>
-  <p>Descarregar é copiar, com assinatura digital, os ficheiros guardados no aparelho da viatura ou no cartão do motorista, sem alterar nem apagar nada. O regulamento fixa dois prazos máximos:</p>
+  <div class="item-cab"><div class="bola">4</div><h2>Condução, pausas e descanso</h2></div>
+  <div class="tabela-scroll"><table>
+    <thead><tr><th>Regra</th><th>Limite</th></tr></thead>
+    <tbody>
+      <tr><td>Condução diária</td><td class="sim">9 h; até 10 h, no máximo duas vezes por semana</td></tr>
+      <tr><td>Condução semanal / duas semanas</td><td class="sim">56 h / 90 h</td></tr>
+      <tr><td>Pausa</td><td class="sim">45 min depois de 4 h 30 de condução (ou 15 min + 30 min)</td></tr>
+      <tr><td>Repouso diário</td><td class="sim">11 h (ou 3 h + 9 h); reduzido: 9 h ou mais, no máximo três vezes entre dois repousos semanais</td></tr>
+      <tr><td>Repouso semanal</td><td class="sim">regular: 45 h ou mais; reduzido: pelo menos 24 h, com compensação antes do fim da terceira semana seguinte</td></tr>
+    </tbody>
+  </table></div>
+  <p class="fonte">Reg. (CE) 561/2006, arts. 4.º, 6.º, 7.º e 8.º (redação do Reg. 2020/1054). A semana vai das 00h00 de segunda às 24h00 de domingo.</p>
+  <p>Três regras que costumam falhar:</p>
   <ul>
-    <li><strong>Aparelho da viatura:</strong> não superior a <strong>90 dias</strong>.</li>
-    <li><strong>Cartão do motorista:</strong> não superior a <strong>28 dias</strong>.</li>
+    <li><strong>O repouso semanal regular não se goza dentro da viatura.</strong> Tem de ser em alojamento apropriado, pago pelo empregador.</li>
+    <li>A empresa organiza o trabalho para o motorista poder <strong>regressar ao centro operacional ou a casa em cada período de quatro semanas</strong>, e documenta como o cumpre.</li>
+    <li>O repouso semanal começa, no máximo, ao fim de <strong>seis períodos de 24 horas</strong> contados do repouso semanal anterior.</li>
   </ul>
-  <p>Os dados têm de ser descarregados <strong>sem perder nenhuma informação</strong>. Ficam de fora apenas os dados pormenorizados de velocidade. Para fixar estes prazos, o regulamento refere que se contam os dias em que houve atividade.</p>
-  <p class="fonte">Reg. (UE) 581/2010, art. 1.º e considerando (3).</p>
-  <span class="rotulo">Porque importa</span>
-  <p>A empresa tem de garantir que <strong>todos</strong> os dados são descarregados com a regularidade prevista e, se for preciso, com maior frequência, para que fiquem registadas todas as atividades feitas por ou para a empresa. Os dados descarregados são <strong>conservados pelo menos 12 meses</strong> e têm de ficar acessíveis, diretamente ou à distância, a um agente de controlo que o exija.</p>
-  <p class="fonte">Reg. (CE) 561/2006, art. 10.º, n.º 5.</p>
-  <span class="rotulo">O que fazer</span>
-  <p>Escolha uma data fixa de descarga e registe-a. Um prazo máximo não é uma meta: descarregar mais cedo é sempre admissível. Use a <a href="#ficha">folha de datas</a> no fim deste guia.</p>
+  <p class="fonte">Reg. (CE) 561/2006, art. 8.º, n.os 6, 8 e 8-A.</p>
 </div>
 
 <!-- 5 -->
 <div class="item" id="p5">
-  <div class="item-cab"><div class="bola">5</div><h2>Tempos de condução, pausas e descanso</h2></div>
-  <span class="rotulo">O que é</span>
+  <div class="item-cab"><div class="bola">5</div><h2>Mercadorias e passageiros: o que muda</h2></div>
+  <p>As regras de condução, pausas, descanso e descarga são as <strong>mesmas</strong>. As diferenças:</p>
   <div class="tabela-scroll"><table>
-    <thead><tr><th>Regra</th><th>Limite</th></tr></thead>
+    <thead><tr><th></th><th>Mercadorias</th><th>Passageiros</th></tr></thead>
     <tbody>
-      <tr><td>Condução diária</td><td class="sim">9 horas; até 10 horas, no máximo duas vezes por semana</td></tr>
-      <tr><td>Condução semanal</td><td class="sim">56 horas</td></tr>
-      <tr><td>Condução em duas semanas consecutivas</td><td class="sim">90 horas</td></tr>
-      <tr><td>Pausa</td><td class="sim">45 minutos depois de 4 horas e 30 de condução. Pode ser dividida em 15 minutos seguidos de 30 minutos.</td></tr>
-      <tr><td>Repouso diário regular</td><td class="sim">11 horas (ou 3 horas + 9 horas, em dois períodos)</td></tr>
-      <tr><td>Repouso diário reduzido</td><td class="sim">9 horas ou mais, mas menos de 11. No máximo três vezes entre dois repousos semanais.</td></tr>
-      <tr><td>Repouso semanal regular</td><td class="sim">45 horas ou mais</td></tr>
-      <tr><td>Repouso semanal reduzido</td><td class="sim">menos de 45 horas, mas pelo menos 24. A redução é compensada de uma só vez, antes do fim da terceira semana seguinte.</td></tr>
+      <tr><td><strong>Âmbito</strong></td><td>Mais de 3,5 t (ou 2,5 t, em transporte internacional, desde 01/07/2026)</td><td>Mais de nove pessoas, incluindo o condutor</td></tr>
+      <tr><td><strong>Exceção típica</strong></td><td>Transporte não comercial em viaturas até 7,5 t</td><td>Serviço regular com percurso até 50 km (regras nacionais)</td></tr>
+      <tr><td><strong>Dois repousos semanais reduzidos seguidos</strong></td><td>Só em transporte <strong>internacional</strong>, fora do Estado-Membro do empregador</td><td>Não previsto</td></tr>
     </tbody>
   </table></div>
-  <p class="fonte">Reg. (CE) 561/2006, arts. 4.º, 6.º, 7.º e 8.º (redação do Reg. (UE) 2020/1054). A «semana» vai das 00h00 de segunda-feira às 24h00 de domingo.</p>
-  <span class="rotulo">Porque importa</span>
-  <ul>
-    <li>Um novo repouso diário começa dentro de cada período de 24 horas depois do fim do repouso anterior.</li>
-    <li>Em cada duas semanas consecutivas, o motorista goza dois repousos semanais regulares, ou um regular e um reduzido de pelo menos 24 horas. O repouso semanal começa, no máximo, no fim de seis períodos de 24 horas contados do repouso semanal anterior.</li>
-    <li><strong>O repouso semanal regular não pode ser gozado dentro da viatura.</strong> Tem de ser num alojamento apropriado, e os custos ficam a cargo do empregador.</li>
-    <li>A empresa organiza o trabalho para que o motorista possa regressar ao centro operacional ou a casa, para um repouso semanal regular, <strong>em cada período de quatro semanas consecutivas</strong>, e documenta como o cumpre.</li>
-    <li><strong>Em circunstâncias excecionais</strong> e sem pôr em causa a segurança, o motorista pode exceder o tempo de condução até 1 hora para chegar ao centro operacional ou a casa para o repouso semanal (até 2 horas, se tiver feito antes uma pausa ininterrupta de 30 minutos). O motivo regista-se manualmente e o excesso é compensado.</li>
-  </ul>
-  <p class="fonte">Reg. (CE) 561/2006, art. 8.º, n.os 2, 4, 6, 6-B, 8 e 8-A, e art. 12.º (Reg. (UE) 2020/1054).</p>
-  <span class="rotulo">O que fazer</span>
-  <p>Planeie as escalas a pensar no repouso semanal e no regresso a casa, não apenas na condução diária. É aí que as empresas falham com mais frequência.</p>
+  <p class="fonte">Reg. (CE) 561/2006, arts. 2.º, 3.º, 8.º, n.º 6, e 15.º.</p>
 </div>
 
 <!-- 6 -->
 <div class="item" id="p6">
-  <div class="item-cab"><div class="bola">6</div><h2>Mercadorias e passageiros: o que muda</h2></div>
-  <span class="rotulo">O que é</span>
-  <div class="tabela-scroll"><table>
-    <thead><tr><th></th><th>Pesados de mercadorias</th><th>Pesados de passageiros</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Quando se aplica</strong></td><td>Mais de 3,5 t. Desde 01/07/2026, também mais de 2,5 t em transporte internacional ou cabotagem.</td><td>Mais de nove pessoas, incluindo o condutor.</td></tr>
-      <tr><td><strong>Exceção típica</strong></td><td>Transporte não comercial em viaturas até 7,5 t.</td><td>Serviço regular com percurso de linha até 50 km (fica sujeito a regras nacionais).</td></tr>
-      <tr><td><strong>Condução, pausas e descansos</strong></td><td colspan="2" style="text-align:center">As mesmas regras (quadro do ponto 5).</td></tr>
-      <tr><td><strong>Dois repousos semanais reduzidos seguidos</strong></td><td>Só no transporte <strong>internacional de mercadorias</strong>, fora do Estado-Membro onde o empregador está estabelecido, com as condições da lei.</td><td>Não previsto.</td></tr>
-      <tr><td><strong>Prazos de descarga e conservação</strong></td><td colspan="2" style="text-align:center">Os mesmos (90 dias, 28 dias, 12 meses).</td></tr>
-    </tbody>
-  </table></div>
-  <p class="fonte">Reg. (CE) 561/2006, arts. 2.º, 3.º, 8.º, n.º 6, e 15.º (redação do Reg. (UE) 2020/1054).</p>
-  <span class="rotulo">Porque importa</span>
-  <p>As regras de fundo são as mesmas. O que muda é o enquadramento: quem transporta passageiros tem uma exceção própria para o serviço regular curto, e as flexibilidades de descanso semanal em viagem são desenhadas para as mercadorias em transporte internacional.</p>
+  <div class="item-cab"><div class="bola">6</div><h2>Quem faz o quê</h2></div>
+  <h3>O motorista</h3>
+  <ul>
+    <li>Usa o cartão <strong>sempre que conduz</strong> e escolhe a atividade certa (condução, outro trabalho, disponibilidade, pausa ou repouso).</li>
+    <li>Introduz o país onde começa e onde termina o dia e, desde 2/02/2022, o país em que entra, na primeira paragem após a fronteira (dispensado se o tacógrafo registar a posição).</li>
+    <li>Cartão danificado, perdido ou roubado: imprime os dados no início e no fim do percurso, identifica-se e assina.</li>
+    <li>Leva o cartão e os registos manuais e impressões do <strong>dia em curso e dos 56 dias anteriores</strong> (eram 28 até 31/12/2024).</li>
+  </ul>
+  <p class="fonte">Reg. (UE) 165/2014, arts. 34.º a 36.º (redação do Reg. 2020/1054).</p>
+  <h3>A empresa</h3>
+  <ul>
+    <li><strong>Forma e instrui</strong> os motoristas e faz <strong>controlos regulares</strong>.</li>
+    <li>Não dá incentivos que levem à má utilização, nem paga por distância, rapidez ou volume se isso comprometer a segurança ou favorecer infrações.</li>
+    <li>Conserva as folhas de registo e as impressões <strong>pelo menos um ano</strong>.</li>
+    <li>É <strong>responsável pelas infrações dos seus motoristas</strong>, mesmo noutro Estado-Membro.</li>
+  </ul>
+  <p class="fonte">Reg. (UE) 165/2014, art. 33.º · Reg. (CE) 561/2006, art. 10.º.</p>
+  <div class="caixa amarela"><strong>É proibido</strong> falsificar, ocultar, suprimir ou destruir dados, manipular o tacógrafo, a folha ou o cartão, ter na viatura dispositivos para isso, ou ter mais de um tacógrafo. <span class="fonte">Reg. (UE) 165/2014, art. 32.º.</span></div>
+  <p style="font-size:14.5px">Os dados do tacógrafo são dados pessoais: servem para verificar o cumprimento das regras e só devem ser tratados para esse fim (art. 7.º do Reg. 165/2014). Para o caso da sua empresa, consulte a CNPD ou um jurista.</p>
 </div>
 
 <!-- 7 -->
 <div class="item" id="p7">
-  <div class="item-cab"><div class="bola">7</div><h2>O que o motorista tem de fazer todos os dias</h2></div>
-  <span class="rotulo">O que é</span>
+  <div class="item-cab"><div class="bola">7</div><h2>Inspeção e fiscalização em Portugal</h2></div>
   <ul>
-    <li><strong>Usar o cartão sempre que conduz</strong>, desde o momento em que assume a viatura. O cartão só sai antes do fim do período de trabalho diário se for autorizado ou para introduzir o símbolo do país.</li>
-    <li><strong>Escolher a atividade certa</strong>: condução, outro trabalho, disponibilidade, pausa ou repouso.</li>
-    <li><strong>Introduzir o país</strong> onde começa e onde termina o dia de trabalho e, desde 2 de fevereiro de 2022, o país em que entra, na primeira paragem após a fronteira. Se o tacógrafo registar a posição automaticamente, esta introdução não é exigida.</li>
-    <li><strong>Registar manualmente</strong> os períodos em que esteve afastado da viatura, usando a introdução manual do aparelho.</li>
-    <li><strong>Cartão danificado, avariado, perdido ou roubado:</strong> imprimir os dados no início e no fim do percurso, identificar-se e assinar.</li>
-    <li><strong>Cuidar do cartão:</strong> não usar cartões sujos ou danificados.</li>
+    <li>O tacógrafo é inspecionado em <strong>oficinas aprovadas</strong>, pelo menos <strong>de dois em dois anos</strong> (instalação, funcionamento, selos, chapa de instalação, ausência de dispositivos de manipulação, pneus).</li>
+    <li>Selos retirados ou quebrados são substituídos por oficina ou instalador aprovados, <strong>no máximo em sete dias</strong>.</li>
   </ul>
-  <p class="fonte">Reg. (UE) 165/2014, arts. 34.º e 35.º (redação do Reg. (UE) 2020/1054).</p>
-  <span class="rotulo">O que o motorista leva consigo para o controlo</span>
-  <p>Quando um agente de controlo o pede, o motorista apresenta o cartão de condutor e os registos manuais e impressões do <strong>dia em curso e dos 56 dias anteriores</strong>. Se também conduziu viatura com tacógrafo analógico, apresenta as folhas de registo desse período.</p>
-  <p class="fonte">Reg. (UE) 165/2014, art. 36.º (redação do Reg. (UE) 2020/1054, aplicável desde 31/12/2024). Antes dessa data eram 28 dias.</p>
-  <div class="caixa amarela"><strong>O que é proibido:</strong> falsificar, ocultar, suprimir ou destruir dados; manipular o tacógrafo, a folha ou o cartão; ter na viatura qualquer dispositivo que sirva para isso; ter mais de um tacógrafo na viatura. <span class="fonte" style="display:block;margin:6px 0 0">Reg. (UE) 165/2014, art. 32.º.</span></div>
+  <p class="fonte">Reg. (UE) 165/2014, arts. 22.º e 23.º.</p>
+  <p>O regime nacional está no <strong>Decreto-Lei n.º 84/2026, de 13 de abril</strong>, em vigor desde <strong>12 de julho de 2026</strong>, que reuniu num só diploma as regras sociais do transporte rodoviário e <strong>revogou a Lei n.º 27/2010</strong> e o Decreto-Lei n.º 169/2009. A fiscalização cabe, entre outras autoridades, ao IMT, à ACT, à GNR e à PSP.</p>
+  <p class="fonte">IMT, «Regulamentação em matéria social».</p>
+  <div class="caixa amarela"><strong>Atenção a materiais antigos:</strong> muito do que circula na internet cita a Lei n.º 27/2010 e os seus valores. Este guia não reproduz valores de coimas para não os desatualizar: consulte-os no Decreto-Lei n.º 84/2026, em Diário da República.</div>
 </div>
 
-<!-- 8 -->
-<div class="item" id="p8">
-  <div class="item-cab"><div class="bola">8</div><h2>O que a empresa tem de fazer</h2></div>
-  <span class="rotulo">O que é</span>
-  <ul>
-    <li><strong>Formar e instruir</strong> os motoristas sobre o funcionamento do tacógrafo e fazer <strong>controlos regulares</strong> da utilização.</li>
-    <li><strong>Não dar incentivos</strong>, diretos ou indiretos, que possam levar à má utilização do tacógrafo.</li>
-    <li><strong>Organizar o trabalho</strong> para que os motoristas cumpram as regras e dar-lhes instruções adequadas.</li>
-    <li><strong>Não pagar</strong> a motoristas assalariados em função das distâncias percorridas, da rapidez da entrega ou do volume transportado, se isso comprometer a segurança rodoviária ou favorecer infrações.</li>
-    <li><strong>Descarregar</strong> os dados nos prazos e <strong>conservá-los</strong> pelo menos 12 meses.</li>
-    <li><strong>Conservar</strong> as folhas de registo e as impressões, por ordem cronológica e legíveis, pelo menos um ano, e entregar cópias ao motorista que as pedir.</li>
-    <li><strong>Garantir que os calendários</strong> acordados com clientes e subcontratantes respeitam as regras.</li>
-  </ul>
-  <p class="fonte">Reg. (UE) 165/2014, art. 33.º, n.os 1 e 2; Reg. (CE) 561/2006, art. 10.º, n.os 1, 2, 4 e 5 (redação do Reg. (UE) 2020/1054).</p>
-  <span class="rotulo">Porque importa</span>
-  <p>A empresa é <strong>responsável pelas infrações cometidas pelos seus motoristas</strong>, mesmo que tenham ocorrido noutro Estado-Membro. O regulamento permite aos Estados-Membros tornar essa responsabilidade dependente de a empresa ter falhado no que lhe cabe (formação, instruções, organização do trabalho e controlos).</p>
-  <p class="fonte">Reg. (CE) 561/2006, art. 10.º, n.º 3; Reg. (UE) 165/2014, art. 33.º, n.º 3.</p>
-  <span class="rotulo">O que fazer</span>
-  <p>Guarde prova do que faz: datas de descarga, ações de formação, controlos periódicos e a forma como organiza as escalas. É isso que sustenta a posição da empresa.</p>
-</div>
-
-<!-- 9 -->
-<div class="item" id="p9">
-  <div class="item-cab"><div class="bola">9</div><h2>Inspeção, calibração e selos</h2></div>
-  <span class="rotulo">O que é</span>
-  <p>O tacógrafo é inspecionado por <strong>oficinas aprovadas</strong>, pelo menos <strong>de dois em dois anos</strong>. A inspeção verifica, entre outros pontos:</p>
-  <ul>
-    <li>a instalação correta do tacógrafo adequado à viatura e o seu funcionamento;</li>
-    <li>a marca de homologação e a chapa de instalação;</li>
-    <li>a integridade e eficácia de todos os selos;</li>
-    <li>a ausência de dispositivos de manipulação;</li>
-    <li>a medida do pneumático e a circunferência efetiva dos pneumáticos.</li>
-  </ul>
-  <p>Quando é preciso corrigir irregularidades, a oficina elabora um relatório, conservado pelo menos dois anos. <strong>Selos retirados ou quebrados</strong> são substituídos sem demora injustificada, por um instalador ou oficina aprovados, <strong>no máximo em sete dias</strong>.</p>
-  <p class="fonte">Reg. (UE) 165/2014, arts. 22.º e 23.º (redação do Reg. (UE) 2020/1054).</p>
-  <span class="rotulo">O que fazer</span>
-  <p>Marque a próxima inspeção de cada viatura na mesma folha onde controla as descargas, e guarde os relatórios da oficina.</p>
-</div>
-
-<!-- 10 -->
-<div class="item" id="p10">
-  <div class="item-cab"><div class="bola">10</div><h2>Fiscalização e sanções em Portugal</h2></div>
-  <span class="rotulo">O que é</span>
-  <p>Em Portugal, as regras sociais do transporte rodoviário, incluindo o tacógrafo e o regime de contraordenações, estão reunidas no <strong>Decreto-Lei n.º 84/2026, de 13 de abril</strong>, em vigor desde <strong>12 de julho de 2026</strong>. Este diploma <strong>revogou</strong>, entre outros, a <strong>Lei n.º 27/2010</strong> e o <strong>Decreto-Lei n.º 169/2009</strong>, que antes regulavam as sanções.</p>
-  <p>A fiscalização cabe, entre outras autoridades, ao <strong>IMT, à ACT, à GNR e à PSP</strong>.</p>
-  <p class="fonte">IMT, página «Regulamentação em matéria social»; Decreto-Lei n.º 84/2026, de 13 de abril.</p>
-  <span class="rotulo">Porque importa</span>
-  <div class="caixa amarela">
-    <p style="margin-bottom:0"><strong>Atenção a materiais antigos.</strong> Muito do que se encontra na internet cita a Lei n.º 27/2010. Os valores e as categorias de coimas que lá estavam foram substituídos. Este guia <strong>não reproduz valores de coimas</strong> para não os desatualizar: consulte-os no texto do Decreto-Lei n.º 84/2026, em Diário da República.</p>
-  </div>
-  <span class="rotulo">O que fazer</span>
-  <p>Faça um teste simples: se uma fiscalização chegasse hoje ao seu parque, consegue mostrar, para cada viatura e cada motorista, a data da última descarga, o cartão válido e a escala do mês?</p>
-</div>
-
-<!-- 11 -->
-<div class="item" id="p11">
-  <div class="item-cab"><div class="bola">11</div><h2>Os dados do tacógrafo são dados pessoais</h2></div>
-  <span class="rotulo">O que é</span>
-  <p>Os dados do tacógrafo identificam o motorista e o que fez ao volante. O regulamento europeu determina que o tratamento destes dados serve <strong>para verificar o cumprimento das regras</strong> do transporte rodoviário, e que só podem ser tratados os dados necessários para esse fim. Os proprietários das viaturas e as empresas cumprem as regras de proteção de dados pessoais aplicáveis.</p>
-  <p class="fonte">Reg. (UE) 165/2014, art. 7.º (redação do Reg. (UE) 2020/1054).</p>
-  <span class="rotulo">O que fazer</span>
-  <p>Limite o acesso aos ficheiros descarregados a quem precisa deles, guarde-os pelo prazo legal e não os reutilize para outros fins sem avaliar a base legal. Este ponto é informação geral; para o caso da sua empresa, consulte a CNPD ou um jurista.</p>
-</div>
-
-<!-- Ficha -->
 <section id="ficha" class="ficha">
   <h2>Folha de datas: nunca falhar uma descarga</h2>
-  <p>Escreva uma identificação (por exemplo, a matrícula ou «Motorista 1») e a <strong>data da última descarga</strong>. A folha calcula a data-limite e avisa quando faltam 15 dias ou menos. Por prudência, conta dias de calendário, sem descontar os dias sem atividade.</p>
-  <p class="noprint" style="font-size:14px;color:var(--nota)">Os dados ficam apenas neste navegador, neste computador. Não são enviados a ninguém.</p>
-
-  <h3>Aparelho da viatura · prazo máximo de 90 dias</h3>
+  <p>Escreva uma identificação (matrícula ou «Motorista 1») e a <strong>data da última descarga</strong>. A folha calcula a data-limite e avisa quando faltam 15 dias ou menos. Por prudência, conta dias de calendário.</p>
+  <p class="noprint" style="font-size:14px;color:var(--nota)">Os dados ficam apenas neste navegador. Não são enviados a ninguém.</p>
+  <h3>Aparelho da viatura · 90 dias</h3>
   <div class="tabela-scroll"><table id="t-veic">
     <thead><tr><th>Viatura</th><th>Última descarga</th><th>Data-limite</th><th>Estado</th></tr></thead>
     <tbody></tbody>
   </table></div>
-
-  <h3>Cartão do motorista · prazo máximo de 28 dias</h3>
+  <h3>Cartão do motorista · 28 dias</h3>
   <div class="tabela-scroll"><table id="t-mot">
     <thead><tr><th>Motorista</th><th>Última descarga</th><th>Data-limite</th><th>Estado</th></tr></thead>
     <tbody></tbody>
   </table></div>
   <p class="noprint"><button id="limpar" style="font:inherit;padding:8px 14px;border:2px solid var(--noite);background:var(--branco);color:var(--noite);border-radius:6px;cursor:pointer">Limpar a folha</button></p>
-
-  <h3>Rotina mensal da empresa</h3>
-  <ul class="check">
-    <li>Confirmei a data da última descarga de todos os aparelhos e cartões.</li>
-    <li>Descarreguei o que vence nos próximos 15 dias.</li>
-    <li>Guardei os ficheiros descarregados (mínimo 12 meses) e os acessos estão limitados.</li>
-    <li>Verifiquei a validade dos cartões de motorista e pedi as renovações com 15 dias úteis de antecedência, no mínimo.</li>
-    <li>Marquei a próxima inspeção do tacógrafo de cada viatura (de dois em dois anos, no máximo).</li>
-    <li>Fiz um controlo por amostragem aos registos de condução, pausas e descanso.</li>
-    <li>Confirmei que há regresso a casa ou ao centro operacional em cada período de quatro semanas.</li>
-  </ul>
 </section>
 
 <section id="fontes">
   <h2>Fontes</h2>
   <ul style="font-size:15px">
-    <li>Regulamento (CE) n.º 561/2006 do Parlamento Europeu e do Conselho, de 15 de março de 2006 (tempos de condução, pausas e repouso), na redação do Regulamento (UE) 2020/1054. <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32006R0561">EUR-Lex</a></li>
-    <li>Regulamento (UE) n.º 165/2014 do Parlamento Europeu e do Conselho, de 4 de fevereiro de 2014 (tacógrafos), na redação do Regulamento (UE) 2020/1054. <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32014R0165">EUR-Lex</a></li>
-    <li>Regulamento (UE) 2020/1054 do Parlamento Europeu e do Conselho, de 15 de julho de 2020. <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32020R1054">EUR-Lex</a></li>
-    <li>Regulamento (UE) n.º 581/2010 da Comissão, de 1 de julho de 2010 (prazo máximo de descarga de dados). <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32010R0581">EUR-Lex</a></li>
-    <li>Comissão Europeia, «Stronger and more unified enforcement of EU rules in international road transport: smart tachograph», 19/08/2025. <a href="https://transport.ec.europa.eu/news-events/news/stronger-and-more-unified-enforcement-eu-rules-international-road-transport-smart-tachograph-2025-08-19_en">transport.ec.europa.eu</a></li>
-    <li>IMT, «Regulamentação em matéria social» (legislação nacional em vigor, incluindo o Decreto-Lei n.º 84/2026, de 13 de abril, e a Portaria n.º 222/2008, de 5 de março). <a href="https://www.imt-ip.pt/rodoviario/infraestruturas-rodoviarias/regulamentacao-em-materia-social/">imt-ip.pt</a></li>
+    <li>Regulamento (CE) n.º 561/2006, de 15 de março de 2006, na redação do Regulamento (UE) 2020/1054. <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32006R0561">EUR-Lex</a></li>
+    <li>Regulamento (UE) n.º 165/2014, de 4 de fevereiro de 2014, na redação do Regulamento (UE) 2020/1054. <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32014R0165">EUR-Lex</a></li>
+    <li>Regulamento (UE) 2020/1054, de 15 de julho de 2020. <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32020R1054">EUR-Lex</a></li>
+    <li>Regulamento (UE) n.º 581/2010 da Comissão, de 1 de julho de 2010. <a href="https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32010R0581">EUR-Lex</a></li>
+    <li>Comissão Europeia, notícia sobre o tacógrafo inteligente, 19/08/2025. <a href="https://transport.ec.europa.eu/news-events/news/stronger-and-more-unified-enforcement-eu-rules-international-road-transport-smart-tachograph-2025-08-19_en">transport.ec.europa.eu</a></li>
+    <li>IMT, «Regulamentação em matéria social» (Decreto-Lei n.º 84/2026 e Portaria n.º 222/2008). <a href="https://www.imt-ip.pt/rodoviario/infraestruturas-rodoviarias/regulamentacao-em-materia-social/">imt-ip.pt</a></li>
   </ul>
-  <p style="font-size:14px;color:var(--nota)">Este guia é informação geral, preparada em outubro de 2026, e não substitui aconselhamento jurídico. As regras mudam: confirme sempre o texto em vigor nas fontes acima.</p>
+  <p style="font-size:14px;color:var(--nota)">Informação geral, preparada em outubro de 2026. Não substitui aconselhamento jurídico. Confirme sempre o texto em vigor nas fontes acima.</p>
 </section>
 
 </div>
 
-<footer class="fecho">
-  <h2>Próximo passo</h2>
-  <p>Se quiser olhar para isto na sua frota, falamos 20 minutos, sem apresentações comerciais.</p>
-  <p>Rúben Neves · LinkedIn: <span class="preencher">[ligação do perfil]</span> · Telemóvel: <span class="preencher">[número]</span></p>
+<footer class="fecho" id="agendar">
+  <h2>Quer ver isto na sua frota?</h2>
+  <p>Numa conversa de 40 minutos, olhamos para as datas, os cartões e as escalas da sua frota e digo-lhe com franqueza onde estão os riscos e o que resolver primeiro. Sem apresentações comerciais.</p>
+  <a class="botao" href="https://cal.com/ruben-neves-gthpo6/40min" target="_blank" rel="noopener">Marcar conversa de 40 minutos</a>
+  <p class="peq">Escolhe o dia e a hora que lhe der mais jeito. Rúben Neves · gestão de frotas.</p>
 </footer>
 <div class="rodape">© Rúben Neves · Método Demanda Infinita®</div>
 </div>
