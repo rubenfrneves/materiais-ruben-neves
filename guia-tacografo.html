@@ -236,7 +236,7 @@ td.sim{font-weight:600;color:var(--noite)}
 .contador b{display:block;font-family:"Barlow Semi Condensed",Arial,sans-serif;font-size:30px;line-height:1.1;color:var(--noite)}
 .contador span{font-size:13.5px;color:var(--asfalto)}
 .contador.u{border-color:var(--urgente)}.contador.a{border-color:var(--amarelo)}.contador.o{border-color:var(--ok)}
-.ficha input[type=date],.ficha input[type=text]{font:inherit;font-size:16px;padding:8px 10px;min-height:44px;border:2px solid var(--amarelo);background:var(--amarelo-suave);border-radius:6px;color:var(--noite);width:100%;min-width:0}
+.ficha input.data,.ficha input[type=text]{font:inherit;font-size:16px;padding:8px 10px;min-height:44px;border:2px solid var(--amarelo);background:var(--amarelo-suave);border-radius:6px;color:var(--noite);width:100%;min-width:0}
 .ficha input[aria-invalid=true]{border-color:var(--urgente)}
 .ficha table{background:var(--branco);border-radius:10px;overflow:hidden}
 .ficha td{vertical-align:middle}
@@ -303,7 +303,6 @@ noscript .caixa{margin:12px 0}
   .corpo{padding-left:0}
   a{text-decoration:none}
   .ficha input{border:0!important;background:none!important;padding:0!important;min-height:0!important}
-  .ficha input[type=date]::-webkit-calendar-picker-indicator{display:none}
 }
 </style>
 </head>
@@ -607,7 +606,7 @@ noscript .caixa{margin:12px 0}
     <div class="caixa amarela"><b>A folha interativa precisa de JavaScript.</b> Em alternativa, imprima esta página e preencha à mão: para cada viatura, escreva a data da última descarga e some 90 dias; para cada motorista, some 28 dias.</div>
   </noscript>
   <div class="ficha-wrap so-js">
-    <p>Escreva uma identificação (matrícula ou «Motorista 1») e a <strong>data da última descarga</strong>. A folha calcula a data-limite e mostra o estado <strong>quando abre a página ou quando altera uma data</strong>. Não envia notificações nem lembretes: precisa de a consultar. Conta dias de calendário, por prudência.</p>
+    <p>Escreva uma identificação (matrícula ou «Motorista 1») e a <strong>data da última descarga</strong> no formato dd/mm/aaaa. A folha calcula a data-limite e mostra o estado <strong>quando abre a página ou quando altera uma data</strong>. Não envia notificações nem lembretes: precisa de a consultar. Conta dias de calendário, por prudência.</p>
     <p style="font-size:14.5px;color:var(--asfalto)">Os dados ficam apenas neste navegador, que pode perdê-los se limpar os dados de navegação ou mudar de computador. Exporte uma cópia de segurança de vez em quando.</p>
     <div class="contadores" aria-label="Resumo da folha">
       <div class="contador u"><b id="c-u">0</b><span>em atraso</span></div>
@@ -952,7 +951,7 @@ noscript .caixa{margin:12px 0}
       pr.appendChild(document.createTextNode(minuscula(prim.nome)+'. '));
       pr.appendChild(document.createTextNode(ordenados.length===1
         ?'É o único ponto que ficou por confirmar. '
-        :'Critério: dos pontos por confirmar, é o que o guia associa ao prazo ou à janela de ação mais curta ('+prim.prazo+'). É um critério de calendário, não uma classificação jurídica de risco. '));
+        :'Critério: é o ponto com o prazo mais curto. '));
       pr.appendChild(link('Abrir o '+NOME_PONTO[prim.ponto],'#'+prim.ponto,{'data-rec':'primeira_acao'}));
       res.appendChild(pr);
     }
@@ -1016,7 +1015,7 @@ noscript .caixa{margin:12px 0}
     else { r.k='ok'; r.t='Em dia · '+falta+' dias'; }
     return r;
   }
-  var CLS={vazio:'vazio',futuro:'futuro',atraso:'urgente',hoje:'atencao',atencao:'atencao',ok:'ok'};
+  var CLS={vazio:'vazio',incompleto:'vazio',invalido:'futuro',futuro:'futuro',atraso:'urgente',hoje:'atencao',atencao:'atencao',ok:'ok'};
 
   function renderLista(t,focoIdx){
     var tb=$('#t-'+t+' tbody'); tb.innerHTML='';
@@ -1024,35 +1023,56 @@ noscript .caixa{margin:12px 0}
     atualizaContadores();
     if(focoIdx!=null){ var f=$('tr:nth-child('+(focoIdx+1)+') input[type=text]',tb); if(f) f.focus(); }
   }
+  function isoParaBr(iso){ return iso?iso.slice(8,10)+'/'+iso.slice(5,7)+'/'+iso.slice(0,4):''; }
+  function brParaIso(txt){
+    var m=/^(\d{2})\/(\d{2})\/(\d{4})$/.exec(txt); if(!m||+m[3]<2000) return null;
+    var iso=m[3]+'-'+m[2]+'-'+m[1]; return dataValida(iso)?iso:null;
+  }
   function linha(t,i,item){
     var tr=document.createElement('tr'), r=ROTULO[t];
     function td(cls,l){ var c=document.createElement('td'); if(cls) c.className=cls; c.setAttribute('data-l',l); tr.appendChild(c); return c; }
     var nome=document.createElement('input'); nome.type='text'; nome.maxLength=MAXN; nome.value=item.n; nome.autocomplete='off';
     nome.setAttribute('aria-label',r+' '+(i+1)+': identificação'); nome.placeholder=r+' '+(i+1);
     td('id',r).appendChild(nome);
-    var dat=document.createElement('input'); dat.type='date'; dat.value=item.d; dat.max=isoLocalHoje();
-    dat.setAttribute('aria-label',r+' '+(i+1)+': data da última descarga');
-    td('',' Última descarga'.trim()).appendChild(dat);
+    var dat=document.createElement('input'); dat.type='text'; dat.className='data'; dat.inputMode='numeric'; dat.maxLength=10; dat.autocomplete='off';
+    dat.placeholder='dd/mm/aaaa'; dat.value=isoParaBr(item.d);
+    dat.setAttribute('aria-label',r+' '+(i+1)+': data da última descarga (dd/mm/aaaa)');
+    td('','Última descarga').appendChild(dat);
     var lim=td('lim','Data-limite'), est=td('est','Estado'), rm=td('rm','');
     var bt=document.createElement('button'); bt.type='button'; bt.textContent='×'; bt.setAttribute('aria-label','Remover '+r.toLowerCase()+' '+(i+1));
     rm.appendChild(bt);
-    var info=document.createElement('span'); info.className='vh'; info.id='fut-'+t+i; info.textContent='A data não pode estar no futuro.';
+    var info=document.createElement('span'); info.className='vh'; info.id='fut-'+t+i;
     function calc(){
-      var a=avaliar(dat.value,PRAZO[t]), b=document.createElement('span');
-      b.className='estado '+CLS[a.k];
+      var txt=dat.value.trim(), iso=brParaIso(txt), a, b=document.createElement('span'), aviso_=null;
+      if(!txt) a={k:'vazio'};
+      else if(iso) a=avaliar(iso,PRAZO[t]);
+      else if(/^\d{2}\/\d{2}\/\d{4}$/.test(txt)) a={k:'invalido'};
+      else a={k:'incompleto'};
+      b.className='estado '+(CLS[a.k]||'vazio');
       if(a.k==='vazio'){ lim.textContent='—'; b.textContent=nome.value.trim()?'Sem data':'—'; if(!nome.value.trim()) b.className='estado vazio'; }
-      else if(a.k==='futuro'){ lim.textContent='—'; b.textContent='Data no futuro'; }
+      else if(a.k==='incompleto'){ lim.textContent='—'; b.textContent='A preencher'; }
+      else if(a.k==='invalido'){ lim.textContent='—'; b.textContent='Data inválida'; aviso_='Escreva uma data válida no formato dd/mm/aaaa.'; }
+      else if(a.k==='futuro'){ lim.textContent='—'; b.textContent='Data no futuro'; aviso_='A data não pode estar no futuro.'; }
       else { lim.textContent=fmtUTC(a.fim); b.textContent=a.t; }
       est.innerHTML=''; est.appendChild(b);
-      if(a.k==='futuro'){ dat.setAttribute('aria-invalid','true'); dat.setAttribute('aria-describedby',info.id); est.appendChild(info); }
+      if(aviso_){ info.textContent=aviso_; dat.setAttribute('aria-invalid','true'); dat.setAttribute('aria-describedby',info.id); est.appendChild(info); }
       else { dat.removeAttribute('aria-invalid'); dat.removeAttribute('aria-describedby'); }
-      tr.className=(!nome.value.trim()&&!dat.value)?'vazia':'';
-      a.nomeado=!!nome.value.trim(); tr._a=a; tr._n=a.nomeado||!!dat.value;
+      tr.className=(!nome.value.trim()&&!txt)?'vazia':'';
+      tr._a=a; tr._n=!!nome.value.trim()||!!txt;
+      return iso;
     }
     nome.addEventListener('input',function(){ item.n=nome.value; guardarFolha(); calc(); atualizaContadores(); });
-    dat.addEventListener('input',function(){ item.d=(dat.value&&dataValida(dat.value))?dat.value:''; guardarFolha(); calc(); atualizaContadores(); });
+    dat.addEventListener('input',function(e){
+      var v=dat.value, m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(v.trim());
+      if(m) v=m[3]+'/'+m[2]+'/'+m[1];                 /* colar uma data AAAA-MM-DD */
+      var dig=v.replace(/\D/g,'').slice(0,8), f=dig;
+      if(dig.length>4) f=dig.slice(0,2)+'/'+dig.slice(2,4)+'/'+dig.slice(4);
+      else if(dig.length>2) f=dig.slice(0,2)+'/'+dig.slice(2);
+      if(f!==dat.value) dat.value=f;
+      var iso=calc(); item.d=iso||''; guardarFolha(); atualizaContadores();
+    });
     bt.addEventListener('click',function(){
-      if((item.n||item.d)&&!confirm('Remover «'+(item.n||r+' '+(i+1))+'» da folha?')) return;
+      if((item.n||item.d||dat.value)&&!confirm('Remover «'+(item.n||r+' '+(i+1))+'» da folha?')) return;
       folha[t].splice(i,1); if(!folha[t].length) folha[t].push({n:'',d:''});
       guardarFolha(); renderLista(t); var add=$('[data-add="'+t+'"]'); if(add) add.focus();
       aviso(r+' removido(a).');
